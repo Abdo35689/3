@@ -228,8 +228,8 @@
         <div class="container">
             <nav>
                 <div class="logo-container">
-                    <!-- Usa il nome reale del file, es: image.jpeg.jpg -->
-                    <img src="image.jpeg.jpg" alt="Logo Cervello Blu" class="logo-img">
+                    <!-- Cambia il nome del file se necessario -->
+                    <img src="image.jpeg" alt="Logo Cervello Blu" class="logo-img">
                     <span class="brand-name">Centro BluMente</span>
                 </div>
                 <ul>
@@ -356,7 +356,7 @@
         </div>
     </section>
 
-    <!-- CONTATTI CON FORM FUNZIONANTE (MAILTO) -->
+    <!-- CONTATTI CON FORMSUBMIT -->
     <section id="contatti" class="section">
       <div class="container">
         <h2 class="section-title">Contattaci</h2>
@@ -366,8 +366,12 @@
           <p><strong>Email:</strong> info.centroautismo@gmail.com</p>
           <br>
 
-          <!-- FORM CHE APRE LA MAIL REALE -->
-          <form action="mailto:info.centroautismo@gmail.com" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- FORM SUBMIT: INVIO MAIL PER TUTTI -->
+          <form action="https://formsubmit.co/info.centroautismo@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- opzionale: disattiva captcha e torna alla home dopo l'invio -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://TUO-USERNAME.github.io/centro-autismo/">
+
             <input type="text" name="Nome" placeholder="Il tuo nome" required
                    style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
             <input type="email" name="Email" placeholder="La tua email" required
@@ -380,8 +384,8 @@
           </form>
 
           <p style="font-size: 0.85rem; margin-top: 10px;">
-            Quando invii la richiesta si aprirà il tuo programma di posta o Gmail con il messaggio
-            già compilato e indirizzato al centro. [web:61][web:69][web:74]
+            Il modulo utilizza il servizio Formsubmit per inviare le richieste direttamente alla casella email del centro,
+            senza bisogno che l'utente configuri un programma di posta. [web:61][web:68][web:69][web:74]
           </p>
         </div>
       </div>
