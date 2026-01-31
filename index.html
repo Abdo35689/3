@@ -6,19 +6,23 @@
     <title>Centro BluMente - Supporto e Diagnosi Autismo</title>
     <style>
         :root {
-            --primary-color: #075985;
-            --primary-strong: #0369a1;
-            --secondary-color: #0ea5e9;
-            --secondary-soft: #e0f2fe;
-            --dark-blue: #0b1120;
-            --light-bg: #f1f5f9;
-            --text-color: #111827;
-            --muted-text: #6b7280;
-            --white: #ffffff;
-            --border-soft: #d0e2ff;
-            --radius-lg: 14px;
-            --radius-md: 10px;
-            --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.14);
+            /* Palette Dark & Blue Theme */
+            --bg-deep: #0b1120;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-hover: rgba(51, 65, 85, 0.8);
+            
+            --primary-glow: #0ea5e9;    /* Azzurro acceso per glow/accenti */
+            --text-main: #f8fafc;       /* Bianco sporco per titoli */
+            --text-body: #cbd5e1;       /* Grigio chiaro per testi lunghi */
+            --text-muted: #94a3b8;      /* Grigio più scuro per dettagli */
+            
+            --border-glass: rgba(148, 163, 184, 0.2);
+            --border-glass-hover: rgba(56, 189, 248, 0.5);
+            
+            --shadow-neon: 0 0 20px rgba(14, 165, 233, 0.15);
+            
+            --radius-lg: 20px;
+            --radius-md: 14px;
         }
 
         * {
@@ -30,22 +34,28 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            background-color: #f8fafc;
+            color: var(--text-body);
+            background-color: var(--bg-deep);
             scroll-behavior: smooth;
+            /* Sfondo generale a gradiente scuro fisso */
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.08), transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.08), transparent 40%);
+            background-attachment: fixed;
         }
 
         a {
             color: inherit;
             text-decoration: none;
+            transition: color 0.2s;
         }
 
         /* HEADER / NAVBAR -------------------------------------------------- */
         header {
-            background-color: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+            background-color: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -62,7 +72,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 14px 0;
         }
 
         .logo-container {
@@ -72,12 +82,12 @@
         }
 
         .logo-img {
-            height: 50px;
-            width: 50px;
+            height: 48px;
+            width: 48px;
             object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(15,23,42,0.35);
-            border: 2px solid rgba(148,163,184,0.5);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+            border: 1px solid rgba(14, 165, 233, 0.4);
         }
 
         .brand-block {
@@ -86,22 +96,23 @@
         }
 
         .brand-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #e5f2ff;
-            letter-spacing: 0.03em;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
         }
 
         .brand-subtitle {
-            font-size: 0.78rem;
-            color: #94a3b8;
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
+        /* Navigazione Pillola */
         .nav-shell {
-            background: rgba(15,23,42,0.7);
+            background: rgba(30, 41, 59, 0.5);
             border-radius: 999px;
             padding: 5px;
-            border: 1px solid rgba(148, 163, 184, 0.45);
+            border: 1px solid var(--border-glass);
             position: relative;
         }
 
@@ -121,7 +132,7 @@
 
         nav ul li a {
             display: block;
-            color: #e5e7eb;
+            color: var(--text-body);
             font-weight: 500;
             font-size: 0.9rem;
             padding: 8px 18px;
@@ -131,48 +142,52 @@
             z-index: 2;
         }
 
-        /* “Pill” azzurro che si muove */
         .nav-indicator {
             position: absolute;
             top: 5px;
             left: 5px;
             height: calc(100% - 10px);
-            background: radial-gradient(circle at 30% 30%, #f9fafb, #e0f2fe 45%, #0ea5e9);
+            /* Gradiente Azzurro Neon */
+            background: linear-gradient(90deg, #0ea5e9, #38bdf8);
             border-radius: 999px;
-            transition:
-                transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
-                width 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                opacity 0.25s ease-out;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             z-index: 1;
             width: 0;
             opacity: 0;
-            box-shadow: 0 6px 18px rgba(14, 165, 233, 0.55);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
         }
 
         nav ul li a:hover {
-            color: #ffffff;
+            color: #fff;
         }
 
         nav ul li a.active-link {
-            color: var(--dark-blue);
-            font-weight: 600;
+            color: #0f172a; /* Testo scuro su pillola chiara */
+            font-weight: 700;
         }
 
-        /* HERO ------------------------------------------------------------- */
+        /* HERO SECTION (Già Dark) ------------------------------------------ */
         .hero {
-            background:
-              radial-gradient(circle at 10% 10%, rgba(56,189,248,0.18), transparent 55%),
-              radial-gradient(circle at 90% 0%, rgba(59,130,246,0.18), transparent 55%),
-              linear-gradient(135deg, #0b1120, #020617);
-            color: var(--white);
-            padding: 70px 0 80px;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Glow decorativi di sfondo */
+        .glow-spot {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
-            gap: 40px;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 50px;
             align-items: center;
         }
 
@@ -180,162 +195,183 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 4px 10px;
+            padding: 6px 14px;
             border-radius: 999px;
-            background: rgba(15,23,42,0.7);
-            border: 1px solid rgba(148,163,184,0.6);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-glass);
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #e5f2ff;
-            margin-bottom: 14px;
+            letter-spacing: 0.1em;
+            color: var(--primary-glow);
+            margin-bottom: 18px;
         }
 
         .hero-kicker span {
-            display: inline-block;
-            width: 9px;
-            height: 9px;
-            border-radius: 999px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
             background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
         }
 
         .hero h1 {
-            font-size: 2.7rem;
-            margin-bottom: 16px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.1;
         }
 
         .hero-sub {
-            font-size: 1.05rem;
-            color: #cbd5f5;
+            font-size: 1.1rem;
+            color: var(--text-body);
             max-width: 540px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .btn-primary,
-        .btn-outline {
+        /* Bottoni */
+        .btn-glow {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 10px 22px;
+            padding: 12px 26px;
             border-radius: 999px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: #fff;
             font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            cursor: pointer;
             border: none;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .btn-primary {
-            background: var(--secondary-color);
-            color: var(--dark-blue);
-            box-shadow: 0 16px 32px rgba(14,165,233,0.45);
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.6);
         }
 
-        .btn-primary:hover {
-            background: #0284c7;
-            transform: translateY(-1px);
-            box-shadow: 0 20px 40px rgba(14,165,233,0.6);
+        .btn-glass {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 26px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: #e5e7eb;
-            border: 1px solid rgba(148,163,184,0.8);
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
         }
 
-        .btn-outline:hover {
-            background: rgba(15,23,42,0.7);
-            border-color: #e5e7eb;
-        }
-
-        .hero-meta {
-            font-size: 0.85rem;
-            color: #9ca3af;
-        }
-
-        .hero-highlight {
-            font-weight: 600;
-            color: #e5f2ff;
-        }
-
-        .hero-note {
-            margin-top: 18px;
-            font-size: 0.9rem;
-            max-width: 560px;
-            color: #c7d2fe;
-        }
-
-        .hero-card {
-            background: rgba(15,23,42,0.9);
-            border-radius: 20px;
-            padding: 18px 18px 16px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(148,163,184,0.45);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        /* Hero Card */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .hero-card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
-        .hero-card-title {
-            font-size: 0.95rem;
-            color: #e5f2ff;
-        }
-
-        .hero-card-badge {
-            font-size: 0.8rem;
-            padding: 3px 10px;
+        .badge-outline {
+            font-size: 0.75rem;
+            padding: 4px 10px;
             border-radius: 999px;
-            background: rgba(59,130,246,0.18);
-            border: 1px solid rgba(129,140,248,0.6);
-            color: #c7d2fe;
+            border: 1px solid var(--primary-glow);
+            color: var(--primary-glow);
+            background: rgba(14, 165, 233, 0.1);
         }
 
-        .hero-card-text {
-            font-size: 0.9rem;
-            color: #cbd5f5;
-        }
-
-        /* SEZIONI GENERALI ------------------------------------------------- */
+        /* SEZIONI GENERALI (Dark Style) ----------------------------------- */
         .section {
-            padding: 64px 0;
+            padding: 80px 0;
+            position: relative;
         }
 
-        .bg-light {
-            background-color: var(--light-bg);
+        /* Sfondi alternati leggeri per stacco visivo, sempre scuri */
+        .bg-alt {
+            background: rgba(15, 23, 42, 0.4); 
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 34px;
-            color: var(--primary-color);
-            font-size: 1.9rem;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
         }
 
         .section-intro {
             text-align: center;
-            max-width: 640px;
-            margin: 0 auto 32px;
-            color: var(--muted-text);
-            font-size: 0.97rem;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
+        /* Cards scure e moderne */
+        .dark-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 26px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glass-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .dark-card h3 {
+            color: var(--primary-glow);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .dark-card p {
+            color: var(--text-body);
+            font-size: 0.95rem;
+        }
+
+        /* Griglie */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Layout Info Split */
         .info-split {
             display: flex;
             flex-wrap: wrap;
@@ -343,222 +379,116 @@
             align-items: center;
         }
 
-        .info-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .info-text p {
-            margin-bottom: 12px;
-        }
-
-        .info-text ul {
-            padding-left: 20px;
-            margin: 12px 0;
-        }
-
-        .info-text li {
-            margin-bottom: 8px;
-        }
-
-        .info-img {
-            flex: 1;
-            min-width: 300px;
-        }
-
+        .info-text { flex: 1; min-width: 300px; }
+        .info-img { flex: 1; min-width: 300px; }
+        
         .info-img img {
             width: 100%;
             border-radius: var(--radius-lg);
-            box-shadow: 0 16px 30px rgba(15,23,42,0.18);
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.15);
+            border: 1px solid var(--border-glass);
         }
 
-        /* SERVIZI / TERAPIE GRID ----------------------------------------- */
-        .services-grid {
+        .info-text strong { color: var(--text-main); }
+        .info-text li { margin-bottom: 10px; color: var(--text-body); }
+
+        /* Galleria Struttura */
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
-        .card {
-            background: var(--white);
-            padding: 24px 22px 22px;
-            border-radius: var(--radius-md);
-            box-shadow: 0 8px 18px rgba(15,23,42,0.05);
-            border: 1px solid var(--border-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(14,165,233,0.07), transparent);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            font-size: 0.93rem;
-            color: var(--muted-text);
-        }
-
-        /* STRUTTURA (GALLERIA INTERATTIVA) ------------------------------- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-        }
-
         .gallery-item {
             display: block;
-            text-decoration: none;
-            color: inherit;
             border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(15,23,42,0.12);
-            background: var(--white);
-            border: 1px solid var(--border-soft);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+            border: 1px solid var(--border-glass);
+            aspect-ratio: 4/3;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 210px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(11,17,32,0.9), transparent);
+            padding: 20px;
+            transform: translateY(10px);
             transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 28px rgba(15,23,42,0.2);
-            border-color: rgba(14,165,233,0.7);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.04);
-        }
-
-        .gallery-item p {
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+        
+        .gallery-overlay p {
+            color: #fff;
+            font-weight: 600;
             text-align: center;
-            padding: 11px 10px 13px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--primary-strong);
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* CONTATTI -------------------------------------------------------- */
-        #contatti .section-title {
-            margin-bottom: 22px;
-        }
-
-        .contact-wrapper {
-            text-align: center;
+        /* Form Contatti */
+        .form-container {
             max-width: 600px;
-            margin: auto;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-glass);
         }
 
-        .contact-wrapper p {
-            margin-bottom: 6px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 14px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 0.95rem;
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 15px;
             font-family: inherit;
-            resize: vertical;
-            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
-            background-color: #f9fafb;
+            transition: all 0.3s;
         }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus {
+        input:focus, textarea:focus {
             outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 2px rgba(14,165,233,0.22);
-            background-color: #ffffff;
+            border-color: var(--primary-glow);
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
         }
 
         .form-note {
-            font-size: 0.83rem;
-            margin-top: 8px;
-            color: #64748b;
-        }
-
-        /* FOOTER ---------------------------------------------------------- */
-        footer {
-            background: var(--dark-blue);
-            color: #e0ecff;
-            padding: 20px 0 18px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
             text-align: center;
-            margin-top: auto;
-            font-size: 0.86rem;
+            margin-top: 10px;
         }
 
-        /* RESPONSIVE ------------------------------------------------------ */
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .hero {
-                padding-top: 54px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+        /* Footer */
+        footer {
+            background: #020617;
+            border-top: 1px solid var(--border-glass);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .nav-shell {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                padding: 4px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-indicator {
-                display: none; /* Su mobile manteniamo stile più semplice */
-            }
-
-            nav ul li a.active-link {
-                background: var(--secondary-color);
-                color: var(--dark-blue);
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .grid-2, .hero-grid { grid-template-columns: 1fr; }
+            
+            nav { flex-wrap: wrap; gap: 15px; }
+            .nav-shell { width: 100%; overflow-x: auto; }
+            .nav-indicator { display: none; } /* Semplifichiamo su mobile */
+            nav ul li a.active-link { color: var(--primary-glow); }
         }
     </style>
 </head>
@@ -568,21 +498,21 @@
     <div class="container">
         <nav>
             <div class="logo-container">
-                <img src="image.jpeg.jpg" alt="Logo Centro BluMente" class="logo-img">
+                <img src="image.jpeg.jpg" alt="Logo" class="logo-img">
                 <div class="brand-block">
                     <span class="brand-name">Centro BluMente</span>
-                    <span class="brand-subtitle">Diagnosi, intervento e supporto per lo spettro autistico</span>
+                    <span class="brand-subtitle">Diagnosi e supporto per lo spettro autistico</span>
                 </div>
             </div>
-
+            
             <div class="nav-shell">
                 <div class="nav-indicator"></div>
                 <ul>
-                    <li><a href="#chi-siamo"  class="nav-link" data-target="chi-siamo">L'Autismo</a></li>
-                    <li><a href="#servizi"   class="nav-link" data-target="servizi">Servizi</a></li>
-                    <li><a href="#terapie"   class="nav-link" data-target="terapie">Terapie</a></li>
+                    <li><a href="#chi-siamo" class="nav-link" data-target="chi-siamo">L'Autismo</a></li>
+                    <li><a href="#servizi" class="nav-link" data-target="servizi">Servizi</a></li>
+                    <li><a href="#terapie" class="nav-link" data-target="terapie">Terapie</a></li>
                     <li><a href="#struttura" class="nav-link" data-target="struttura">Struttura</a></li>
-                    <li><a href="#contatti"  class="nav-link" data-target="contatti">Prenota</a></li>
+                    <li><a href="#contatti" class="nav-link" data-target="contatti">Prenota</a></li>
                 </ul>
             </div>
         </nav>
@@ -590,272 +520,217 @@
 </header>
 
 <section class="hero">
+    <div class="glow-spot" style="top: -100px; right: -100px;"></div>
     <div class="container">
         <div class="hero-grid">
             <div>
                 <div class="hero-kicker">
-                    <span></span>
-                    Centro specializzato per lo spettro autistico
+                    <span></span> CENTRO SPECIALIZZATO
                 </div>
-                <h1>Accogliere. Comprendere. Crescere.</h1>
+                <h1>Accogliere. Comprendere.<br>Crescere.</h1>
                 <p class="hero-sub">
                     Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie
                     nello spettro dell'autismo.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contatti" class="btn-primary">Prenota un colloquio</a>
-                    <a href="#servizi" class="btn-outline">Scopri i percorsi</a>
+                    <a href="#contatti" class="btn-glow">Prenota un colloquio</a>
+                    <a href="#servizi" class="btn-glass">Scopri i percorsi</a>
                 </div>
-                <p class="hero-meta">
-                    <span class="hero-highlight">Equipe multidisciplinare</span> · Psicologi, terapisti, educatori e logopedisti
-                </p>
-                <p class="hero-note">
-                    Il blu è il colore scelto a livello internazionale per rappresentare la consapevolezza
-                    sull'autismo e illumina il mondo ogni 2 aprile, Giornata Mondiale dell'Autismo.
+                <p style="font-size:0.85rem; color: var(--text-muted);">
+                    Equipe multidisciplinare: Psicologi, terapisti, educatori e logopedisti.
                 </p>
             </div>
 
-            <aside class="hero-card" aria-label="Informazioni rapide sul centro">
+            <div class="glass-card">
                 <div class="hero-card-header">
-                    <div class="hero-card-title">Per famiglie e bambini</div>
-                    <div class="hero-card-badge">Percorsi personalizzati</div>
+                    <h3 style="color:#fff; margin:0;">Per famiglie e bambini</h3>
+                    <span class="badge-outline">Percorsi personalizzati</span>
                 </div>
-                <div class="hero-card-text">
+                <p style="color: var(--text-body); font-size: 0.95rem;">
                     Valutazioni cliniche, progetti educativi individualizzati e percorsi di parent training,
                     costruiti insieme a scuola e famiglia per sostenere la crescita quotidiana.
-                </div>
-            </aside>
+                </p>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="chi-siamo" class="section">
+<!-- SEZIONE CHI SIAMO -->
+<section id="chi-siamo" class="section bg-alt">
     <div class="container">
         <h2 class="section-title">Cos'è lo Spettro dell'Autismo?</h2>
-        <p class="section-intro">
-            Il Disturbo dello Spettro Autistico è una condizione del neurosviluppo
-            che si manifesta in modo diverso da persona a persona, con bisogni di
-            supporto variabili nel corso della vita.
-        </p>
         <div class="info-split">
             <div class="info-text">
                 <p>
-                    Il Disturbo dello Spettro Autistico (ASD) è caratterizzato da difficoltà nella comunicazione sociale
-                    e dalla presenza di comportamenti e interessi ristretti e ripetitivi.
+                    Il <strong>Disturbo dello Spettro Autistico (ASD)</strong> è una condizione del neurosviluppo caratterizzata da differenze nella comunicazione sociale e dalla presenza di interessi assorbenti.
                 </p>
-                <ul>
-                    <li><strong>Comunicazione sociale:</strong> difficoltà nella reciprocità, nel contatto oculare, nell'uso di gesti e nel comprendere le regole sociali implicite.</li>
-                    <li><strong>Comportamenti ripetitivi:</strong> routine rigide, movimenti stereotipati, interessi intensi e particolari sensibilità agli stimoli sensoriali.</li>
+                <ul style="color: var(--text-body);">
+                    <li><strong>Comunicazione:</strong> differenze nella reciprocità, nel contatto oculare e nella comprensione delle sfumature sociali.</li>
+                    <li><strong>Sensorialità e Interessi:</strong> routine rigide, sensibilità agli stimoli (luci, suoni) e passioni molto focalizzate.</li>
                 </ul>
-                <p>
-                    La diagnosi si basa su valutazioni cliniche specialistiche e strumenti standardizzati che
-                    permettono di definire il livello di supporto necessario per la persona e la sua famiglia.
-                </p>
+                <p>La diagnosi precoce permette di definire il supporto ideale per valorizzare le potenzialità di ogni persona.</p>
             </div>
             <div class="info-img">
-                <img src="https://placehold.co/600x400/0ea5e9/ffffff?text=Terapia+e+Supporto"
-                     alt="Sessione di terapia in ambiente strutturato">
+                <!-- Placeholder scuro/blu -->
+                <img src="https://placehold.co/600x400/1e293b/0ea5e9?text=Supporto+Specialistico" alt="Terapia">
             </div>
         </div>
     </div>
 </section>
 
-<section id="servizi" class="section bg-light">
+<!-- SEZIONE SERVIZI -->
+<section id="servizi" class="section">
     <div class="container">
         <h2 class="section-title">I Nostri Percorsi</h2>
-        <p class="section-intro">
-            Offriamo interventi integrati per accompagnare il bambino, la famiglia e la scuola lungo
-            tutte le fasi del percorso di crescita.
-        </p>
-        <div class="services-grid">
-            <div class="card">
+        <p class="section-intro">Supportiamo la crescita con interventi mirati per ogni fase della vita.</p>
+        
+        <div class="grid-3">
+            <div class="dark-card">
                 <h3>Diagnosi Precoce</h3>
-                <p>
-                    Valutazioni cliniche multidisciplinari per riconoscere i segnali dello spettro autistico
-                    fin dai primi anni di vita e avviare rapidamente il percorso di intervento.
-                </p>
+                <p>Valutazioni cliniche per individuare i segnali dello spettro fin dai primi anni e avviare subito l'intervento.</p>
             </div>
-            <div class="card">
+            <div class="dark-card">
                 <h3>Supporto Scolastico</h3>
-                <p>
-                    Collaborazione con la scuola per costruire percorsi inclusivi, adattare materiali e ambienti
-                    e facilitare la partecipazione alla vita di classe.
-                </p>
+                <p>Collaboriamo con le scuole per creare ambienti inclusivi e adattare la didattica ai bisogni dello studente.</p>
             </div>
-            <div class="card">
+            <div class="dark-card">
                 <h3>Parent Training</h3>
-                <p>
-                    Incontri dedicati ai genitori per condividere strategie educative e sostenere
-                    la relazione quotidiana con il proprio figlio.
-                </p>
+                <p>Incontri per genitori, per fornire strumenti pratici e strategie educative da usare nel quotidiano.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="terapie" class="section">
+<!-- SEZIONE TERAPIE -->
+<section id="terapie" class="section bg-alt">
     <div class="container">
-        <h2 class="section-title">Terapie per lo Spettro dell'Autismo</h2>
-        <p class="section-intro">
-            Utilizziamo approcci basati sulle evidenze scientifiche, adattandoli ai bisogni e alle
-            caratteristiche di ogni bambino.
-        </p>
-        <div class="services-grid">
-            <div class="card">
+        <h2 class="section-title">Metodi e Terapie</h2>
+        <p class="section-intro">Approcci scientifici basati sull'evidenza per sviluppare autonomia e comunicazione.</p>
+        
+        <div class="grid-2">
+            <div class="dark-card">
                 <h3>Metodo ABA</h3>
-                <p>
-                    L'Applied Behavior Analysis è un intervento educativo basato sull’analisi del comportamento
-                    che mira a potenziare abilità comunicative, sociali e di autonomia
-                    attraverso obiettivi misurabili e rinforzi positivi.
-                </p>
+                <p>L'Analisi Comportamentale Applicata lavora su obiettivi misurabili per potenziare abilità sociali e ridurre comportamenti problema attraverso il rinforzo positivo.</p>
             </div>
-            <div class="card">
-                <h3>Programma TEACCH</h3>
-                <p>
-                    Il metodo TEACCH utilizza la strutturazione dell’ambiente, orari visivi e routine chiare
-                    per rendere le attività più prevedibili e comprensibili, favorendo partecipazione e autonomia.
-                </p>
+            <div class="dark-card">
+                <h3>Metodo TEACCH</h3>
+                <p>Strutturazione visiva dello spazio e del tempo per rendere l'ambiente prevedibile, riducendo l'ansia e favorendo l'autonomia personale.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="struttura" class="section bg-light">
-  <div class="container">
-    <h2 class="section-title">La Nostra Struttura</h2>
-    <p class="section-intro">
-      Clicca su uno spazio del centro per scoprirlo nel dettaglio e vedere come viene utilizzato
-      nei diversi momenti della giornata.
-    </p>
-    <div class="gallery-grid">
-      <a class="gallery-item" href="sala-sensoriale.html">
-        <img src="sala-sensoriale.jpg.webp" alt="Sala Sensoriale">
-        <p>Sala Sensoriale</p>
-      </a>
-
-      <a class="gallery-item" href="area-giochi.html">
-        <img src="area-giochi.jpg.avif" alt="Area Giochi">
-        <p>Area Giochi e Socializzazione</p>
-      </a>
-
-      <a class="gallery-item" href="studio-medico.html">
-        <img src="studio-medico.jpg.jpg" alt="Studio Medico">
-        <p>Studi per la Diagnosi</p>
-      </a>
-
-      <a class="gallery-item" href="laboratori.html">
-        <img src="laboratori.jpg.jpg" alt="Laboratori">
-        <p>Laboratori Creativi</p>
-      </a>
+<!-- SEZIONE STRUTTURA -->
+<section id="struttura" class="section">
+    <div class="container">
+        <h2 class="section-title">I Nostri Spazi</h2>
+        <p class="section-intro">Ambienti progettati per accogliere, calmare e stimolare.</p>
+        
+        <div class="gallery-grid">
+            <a href="sala-sensoriale.html" class="gallery-item">
+                <img src="sala-sensoriale.jpg.webp" alt="Sala Sensoriale">
+                <div class="gallery-overlay"><p>Sala Sensoriale</p></div>
+            </a>
+            <a href="area-giochi.html" class="gallery-item">
+                <img src="area-giochi.jpg.avif" alt="Area Giochi">
+                <div class="gallery-overlay"><p>Area Giochi</p></div>
+            </a>
+            <a href="studio-medico.html" class="gallery-item">
+                <img src="studio-medico.jpg.jpg" alt="Studio Medico">
+                <div class="gallery-overlay"><p>Studio Medico</p></div>
+            </a>
+            <a href="laboratori.html" class="gallery-item">
+                <img src="laboratori.jpg.jpg" alt="Laboratori">
+                <div class="gallery-overlay"><p>Laboratori Creativi</p></div>
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="contatti" class="section">
-  <div class="container">
-    <h2 class="section-title">Contattaci</h2>
-    <div class="contact-wrapper">
-      <p>Siamo aperti dal Lunedì al Venerdì, dalle 9:00 alle 18:00.</p>
-      <p><strong>Indirizzo:</strong> Via Roma 123, Milano</p>
-      <p><strong>Email:</strong> info.centroautismo@gmail.com</p>
-      <br>
-
-      <form action="https://formsubmit.co/info.centroautismo@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://Abdo35689.github.io/centro-autismo/successo.html">
-
-        <input type="text" name="Nome" placeholder="Il tuo nome" required>
-        <input type="email" name="Email" placeholder="La tua email" required>
-        <textarea name="Messaggio" placeholder="Scrivi qui il tuo messaggio" rows="4" required></textarea>
-        <button type="submit" class="btn-primary" style="border: none;">
-          Invia richiesta
-        </button>
-      </form>
-
-      <p class="form-note">
-        Il modulo utilizza il servizio Formsubmit per inviare le richieste direttamente alla casella email del centro.
-      </p>
+<!-- SEZIONE CONTATTI -->
+<section id="contatti" class="section bg-alt">
+    <div class="container">
+        <h2 class="section-title">Prenota un Colloquio</h2>
+        
+        <div class="form-container">
+            <p style="text-align: center; margin-bottom: 25px; color: var(--text-body);">
+                Compila il modulo per richiedere informazioni o fissare un primo appuntamento conoscitivo.
+            </p>
+            
+            <form action="https://formsubmit.co/info.centroautismo@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://Abdo35689.github.io/centro-autismo/successo.html">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <input type="text" name="Nome" placeholder="Il tuo nome" required>
+                <input type="email" name="Email" placeholder="La tua email" required>
+                <textarea name="Messaggio" rows="4" placeholder="Come possiamo aiutarti?" required></textarea>
+                
+                <button type="submit" class="btn-glow" style="width: 100%; border-radius: 10px;">Invia Richiesta</button>
+            </form>
+            <p class="form-note">Rispondiamo solitamente entro 24 ore lavorative.</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <footer>
     <div class="container">
         <p>&copy; 2026 Centro BluMente. Tutti i diritti riservati.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">
+            Il blu è il colore della consapevolezza sull'autismo (Giornata Mondiale, 2 Aprile).
+        </p>
     </div>
 </footer>
 
-<!-- SCRIPT: pill che segue hover + scroll (effetto fluido) -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-  const indicator = document.querySelector('.nav-indicator');
-  const navShell = document.querySelector('.nav-shell');
+    // Script per il movimento fluido della pillola di navigazione
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+        const indicator = document.querySelector('.nav-indicator');
+        const navShell = document.querySelector('.nav-shell');
 
-  if (!indicator || !navShell || navLinks.length === 0) return;
+        if(!indicator || !navShell) return;
 
-  function moveIndicator(el) {
-    const shellRect = navShell.getBoundingClientRect();
-    const rect = el.getBoundingClientRect();
-    const left = rect.left - shellRect.left;
-    const top = rect.top - shellRect.top;
-
-    indicator.style.width = rect.width + 'px';
-    indicator.style.height = rect.height + 'px';
-    indicator.style.transform = `translate(${left}px, ${top}px)`;
-    indicator.style.opacity = '1';
-  }
-
-  // Hover: il pill segue il link
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      setActiveLink(link);
-      moveIndicator(link);
-    });
-  });
-
-  // Scroll spy: mentre scrolli, il pill si sposta alla sezione attiva
-  const sectionIds = navLinks.map(l => l.dataset.target);
-  const sections = sectionIds
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-
-  function setActiveLink(link) {
-    navLinks.forEach(l => l.classList.remove('active-link'));
-    link.classList.add('active-link');
-  }
-
-  // Usa IntersectionObserver per capire quale sezione è in vista
-  const observer = new IntersectionObserver((entries) => {
-    let visibleEntry = null;
-
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (!visibleEntry || entry.intersectionRatio > visibleEntry.intersectionRatio) {
-          visibleEntry = entry;
+        function moveIndicator(el) {
+            const shellRect = navShell.getBoundingClientRect();
+            const rect = el.getBoundingClientRect();
+            
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.height = `${rect.height}px`;
+            indicator.style.transform = `translate(${rect.left - shellRect.left}px, ${rect.top - shellRect.top}px)`;
+            indicator.style.opacity = '1';
         }
-      }
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                moveIndicator(link);
+                navLinks.forEach(l => l.classList.remove('active-link'));
+                link.classList.add('active-link');
+            });
+        });
+
+        // Scroll Spy per aggiornare la pillola mentre scorri
+        const sections = navLinks.map(l => document.getElementById(l.dataset.target)).filter(Boolean);
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const activeLink = navLinks.find(l => l.dataset.target === id);
+                    if(activeLink) {
+                        moveIndicator(activeLink);
+                        navLinks.forEach(l => l.classList.remove('active-link'));
+                        activeLink.classList.add('active-link');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(s => observer.observe(s));
+        
+        // Inizializza sul primo
+        moveIndicator(navLinks[0]);
+        navLinks[0].classList.add('active-link');
     });
-
-    if (visibleEntry) {
-      const id = visibleEntry.target.id;
-      const activeNav = navLinks.find(l => l.dataset.target === id);
-      if (activeNav) {
-        setActiveLink(activeNav);
-        moveIndicator(activeNav);
-      }
-    }
-  }, {
-    root: null,
-    threshold: [0.4, 0.6]  // il pill cambia quando ~metà sezione è visibile
-  });
-
-  sections.forEach(sec => observer.observe(sec));
-
-  // Posiziona il pill su L'Autismo all'inizio (o niente se vuoi che appaia solo allo scroll)
-  moveIndicator(navLinks[0]);
-  setActiveLink(navLinks[0]);
-});
 </script>
 
 </body>
