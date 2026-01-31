@@ -1,364 +1,496 @@
-/* Reset base leggero */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro BluMente - Supporto e Diagnosi Autismo</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a8cc;
+            --dark-blue: #003366;
+            --light-bg: #f0f6ff;
+            --text-color: #223041;
+            --white: #ffffff;
+            --border-soft: #dde7ff;
+        }
 
-/* Body generale */
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f6f7fb;
-  color: #1f2933;
-  line-height: 1.6;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-/* Layout pagina */
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #2563eb, #38bdf8);
-  color: #ffffff;
-  padding: 1rem 0;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
+        /* HEADER / NAVBAR */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
 
-/* Branding */
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
 
-.brand h1 {
-  font-size: 1.35rem;
-  letter-spacing: 0.03em;
-}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-.brand p {
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
+        .logo-img {
+            height: 54px;
+            width: 54px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
 
-/* Navigazione */
-nav {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 0.03em;
+        }
 
-nav a {
-  text-decoration: none;
-  color: #e0f2fe;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            align-items: center;
+        }
 
-nav a:hover,
-nav a:focus-visible {
-  background: rgba(15, 23, 42, 0.15);
-  border-color: rgba(191, 219, 254, 0.5);
-  outline: none;
-}
+        nav ul li {
+            margin-left: 18px;
+        }
 
-nav a.attivo {
-  background: #ffffff;
-  color: #1d4ed8;
-  border-color: #bfdbfe;
-  font-weight: 600;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 6px 10px;
+            border-radius: 999px;
+            transition: color 0.25s, background-color 0.25s;
+        }
 
-/* Contenuto principale */
-main {
-  flex: 1;
-}
+        nav ul li a:hover {
+            color: var(--primary-color);
+            background-color: rgba(0, 86, 179, 0.06);
+        }
 
-/* Hero */
-.section-hero {
-  max-width: 1100px;
-  margin: 1.75rem auto 0;
-  padding: 0 1.25rem 2rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr);
-  gap: 1.75rem;
-  align-items: center;
-}
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.92), rgba(0, 168, 204, 0.9)),
+                        url('https://placehold.co/1920x600/003366/ffffff?text=Autismo+Consapevolezza+in+Blu');
+            background-size: cover;
+            background-position: center;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
 
-.section-hero-text h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.75rem;
-  color: #111827;
-}
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
 
-.section-hero-text p.lead {
-  font-size: 1rem;
-  color: #4b5563;
-  margin-bottom: 0.75rem;
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.35);
+        }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: #e0f2fe;
-  color: #1d4ed8;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.6rem;
-}
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            margin: 0 auto 26px auto;
+        }
 
-/* Card principale */
-.card {
-  background: #ffffff;
-  border-radius: 1rem;
-  padding: 1.25rem 1.4rem;
-  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
-  border: 1px solid #e5e7eb;
-  margin-top: 0.7rem;
-}
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.98rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
 
-.card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
-  color: #111827;
-}
+        .btn:hover {
+            background: #008cba;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 26px rgba(0,0,0,0.28);
+        }
 
-.card p {
-  font-size: 0.92rem;
-  color: #4b5563;
-}
+        .hero-subnote {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
 
-/* Azioni nella card */
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.8rem;
-}
+        /* SEZIONI GENERALI */
+        .section {
+            padding: 60px 0;
+        }
 
-.microcopy {
-  font-size: 0.78rem;
-  color: #6b7280;
-  margin-top: 0.75rem;
-}
+        .bg-light {
+            background-color: var(--light-bg);
+        }
 
-/* Immagine hero */
-.hero-image {
-  border-radius: 1.1rem;
-  overflow: hidden;
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
-  border: 1px solid #e5e7eb;
-  background: #0ea5e9;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
 
-.hero-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+        /* TESTO + IMMAGINE */
+        .info-split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
 
-/* Sezioni interne */
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto 2rem;
-  padding: 0 1.25rem 1.5rem;
-}
+        .info-text {
+            flex: 1;
+            min-width: 300px;
+        }
 
-.section-header {
-  max-width: 650px;
-  margin-bottom: 1rem;
-}
+        .info-text ul {
+            padding-left: 20px;
+        }
 
-.section-header h2 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #111827;
-}
+        .info-text li {
+            margin-bottom: 8px;
+        }
 
-.section-header p {
-  font-size: 0.95rem;
-  color: #4b5563;
-}
+        .info-img {
+            flex: 1;
+            min-width: 300px;
+        }
 
-/* Griglia aree */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.1rem;
-  margin-top: 0.75rem;
-}
+        .info-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+        }
 
-.grid-item {
-  background: #ffffff;
-  border-radius: 0.9rem;
-  overflow: hidden;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
-  display: flex;
-  flex-direction: column;
-}
+        /* GRID SERVIZI / TERAPIE */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-.grid-item img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-}
+        .card {
+            background: var(--white);
+            padding: 26px 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            text-align: left;
+            border: 1px solid var(--border-soft);
+            border-bottom: 4px solid var(--secondary-color);
+        }
 
-.grid-item-body {
-  padding: 0.75rem 0.9rem 0.8rem;
-}
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
 
-.grid-item-body h3 {
-  font-size: 0.98rem;
-  margin-bottom: 0.25rem;
-  color: #111827;
-}
+        /* SEZIONE STRUTTURA (GALLERIA INTERATTIVA) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
 
-.grid-item-body p {
-  font-size: 0.86rem;
-  color: #4b5563;
-  margin-bottom: 0.4rem;
-}
+        .gallery-item {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            background: #ffffff;
+            border: 1px solid var(--border-soft);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
 
-/* Link dettagli */
-.link-dettagli {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.85rem;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-}
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-.link-dettagli::after {
-  content: "→";
-  font-size: 0.9rem;
-}
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.18);
+        }
 
-.link-dettagli:hover,
-.link-dettagli:focus-visible {
-  text-decoration: underline;
-  outline: none;
-}
+        .gallery-item:hover img {
+            transform: scale(1.04);
+        }
 
-/* Pulsanti */
-.btn-primario,
-.btn-secondario {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  padding: 0.55rem 1.15rem;
-  border-radius: 999px;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
+        .gallery-item p {
+            text-align: center;
+            padding: 12px 10px 14px;
+            font-weight: 500;
+            font-size: 0.98rem;
+        }
 
-/* Primario */
-.btn-primario {
-  background: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-}
+        /* CONTATTI / FORM */
+        #contatti .section-title {
+            margin-bottom: 22px;
+        }
 
-.btn-primario:hover,
-.btn-primario:focus-visible {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 16px 35px rgba(30, 64, 175, 0.45);
-  outline: none;
-}
+        .contact-wrapper {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
 
-/* Secondario */
-.btn-secondario {
-  background: #e5edff;
-  color: #1d4ed8;
-  border: 1px solid #bfdbfe;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
+        .contact-wrapper p {
+            margin-bottom: 6px;
+        }
 
-.btn-secondario:hover,
-.btn-secondario:focus-visible {
-  background: #dbeafe;
-  border-color: #93c5fd;
-  color: #1d4ed8;
-  outline: none;
-}
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 14px;
+        }
 
-/* Footer */
-footer {
-  margin-top: auto;
-  background: #0f172a;
-  color: #9ca3af;
-  padding: 0.9rem 0;
-  font-size: 0.8rem;
-}
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccd4e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
 
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: space-between;
-  align-items: center;
-}
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(0,168,204,0.18);
+        }
 
-.footer-meta {
-  max-width: 520px;
-}
+        .form-note {
+            font-size: 0.85rem;
+            margin-top: 10px;
+            color: #5b6474;
+        }
 
-/* Responsività */
-@media (max-width: 768px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+        /* FOOTER */
+        footer {
+            background: var(--dark-blue);
+            color: #e0ecff;
+            padding: 28px 0 24px;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
 
-  .section-hero {
-    grid-template-columns: minmax(0, 1fr);
-    margin-top: 1.25rem;
-  }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
 
-  .hero-image {
-    order: -1;
-  }
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo-container">
+                <img src="image.jpeg.jpg" alt="Logo Cervello Blu" class="logo-img">
+                <span class="brand-name">Centro BluMente</span>
+            </div>
+            <ul>
+                <li><a href="#chi-siamo">L'Autismo</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#terapie">Terapie</a></li>
+                <li><a href="#struttura">La Struttura</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-  .card-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+<section class="hero">
+    <div class="container hero-inner">
+        <h1>Accogliere. Comprendere. Crescere.</h1>
+        <p>Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie nello spettro dell'autismo.</p>
+        <a href="#contatti" class="btn">Prenota un colloquio</a>
+        <p class="hero-subnote">
+          Il blu è il colore scelto a livello internazionale per rappresentare la consapevolezza
+          sull'autismo: richiama calma, sicurezza e desiderio di conoscenza e viene usato ogni
+          2 aprile nella Giornata Mondiale dell'Autismo.
+        </p>
+    </div>
+</section>
+
+<section id="chi-siamo" class="section">
+    <div class="container">
+        <h2 class="section-title">Cos'è lo Spettro dell'Autismo?</h2>
+        <div class="info-split">
+            <div class="info-text">
+                <p>Il Disturbo dello Spettro Autistico (ASD) è una condizione del neurosviluppo caratterizzata da difficoltà nella comunicazione sociale e dalla presenza di comportamenti e interessi ristretti e ripetitivi.</p>
+                <ul>
+                    <li><strong>Comunicazione sociale:</strong> difficoltà nella reciprocità, nel contatto oculare, nell'uso di gesti e nel comprendere le regole sociali implicite.</li>
+                    <li><strong>Comportamenti ripetitivi:</strong> routine rigide, movimenti stereotipati, interessi intensi e particolari sensibilità agli stimoli sensoriali.</li>
+                </ul>
+                <p>La diagnosi si basa su valutazioni cliniche specialistiche e strumenti standardizzati che permettono di definire il livello di supporto necessario per la persona e la sua famiglia.</p>
+            </div>
+            <div class="info-img">
+                <img src="https://placehold.co/600x400/00a8cc/ffffff?text=Terapia+e+Supporto" alt="Sessione di terapia">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="servizi" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">I Nostri Percorsi</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Diagnosi Precoce</h3>
+                <p>Valutazioni cliniche multidisciplinari per riconoscere i segnali dello spettro autistico fin dai primi anni di vita e avviare rapidamente il percorso di intervento.</p>
+            </div>
+            <div class="card">
+                <h3>Supporto Scolastico</h3>
+                <p>Collaborazione con la scuola per costruire percorsi inclusivi, adattare materiali e ambienti e facilitare la partecipazione alla vita di classe.</p>
+            </div>
+            <div class="card">
+                <h3>Parent Training</h3>
+                <p>Incontri dedicati ai genitori per condividere strategie educative e sostenere la relazione quotidiana con il proprio figlio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="terapie" class="section">
+    <div class="container">
+        <h2 class="section-title">Terapie per lo Spettro dell'Autismo</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Metodo ABA</h3>
+                <p>L'Applied Behavior Analysis è un intervento educativo basato sull’analisi del comportamento che mira a potenziare abilità comunicative, sociali e di autonomia attraverso obiettivi misurabili e rinforzi positivi.</p>
+            </div>
+            <div class="card">
+                <h3>Programma TEACCH</h3>
+                <p>Il metodo TEACCH utilizza la strutturazione dell’ambiente, orari visivi e routine chiare per rendere le attività più prevedibili e comprensibili, favorendo partecipazione e autonomia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="struttura" class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">La Nostra Struttura</h2>
+    <p style="text-align: center; margin-bottom: 30px;">
+      Clicca su uno spazio del centro per scoprirlo nel dettaglio.
+    </p>
+    <div class="gallery-grid">
+      <a class="gallery-item" href="sala-sensoriale.html">
+        <img src="sala-sensoriale.jpg.webp" alt="Sala Sensoriale">
+        <p>Sala Sensoriale</p>
+      </a>
+
+      <a class="gallery-item" href="area-giochi.html">
+        <img src="area-giochi.jpg.avif" alt="Area Giochi">
+        <p>Area Giochi e Socializzazione</p>
+      </a>
+
+      <a class="gallery-item" href="studio-medico.html">
+        <img src="studio-medico.jpg.jpg" alt="Studio Medico">
+        <p>Studi per la Diagnosi</p>
+      </a>
+
+      <a class="gallery-item" href="laboratori.html">
+        <img src="laboratori.jpg.jpg" alt="Laboratori">
+        <p>Laboratori Creativi</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" class="section">
+  <div class="container">
+    <h2 class="section-title">Contattaci</h2>
+    <div class="contact-wrapper">
+      <p>Siamo aperti dal Lunedì al Venerdì, dalle 9:00 alle 18:00.</p>
+      <p><strong>Indirizzo:</strong> Via Roma 123, Milano</p>
+      <p><strong>Email:</strong> info.centroautismo@gmail.com</p>
+      <br>
+
+      <form action="https://formsubmit.co/info.centroautismo@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://Abdo35689.github.io/centro-autismo/successo.html">
+
+        <input type="text" name="Nome" placeholder="Il tuo nome" required>
+        <input type="email" name="Email" placeholder="La tua email" required>
+        <textarea name="Messaggio" placeholder="Scrivi qui il tuo messaggio" rows="4" required></textarea>
+        <button type="submit" class="btn" style="border: none; cursor: pointer;">
+          Invia richiesta
+        </button>
+      </form>
+
+      <p class="form-note">
+        Il modulo utilizza il servizio Formsubmit per inviare le richieste direttamente alla casella email del centro.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Centro BluMente. Tutti i diritti riservati.</p>
+    </div>
+</footer>
+
+</body>
+</html>
