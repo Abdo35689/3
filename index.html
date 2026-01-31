@@ -32,10 +32,12 @@
             padding: 0;
             color: var(--text-color);
             background-color: #f8fafc;
+            scroll-behavior: smooth; /* Scorrimento morbido per i link interni */
         }
 
         a {
             color: inherit;
+            text-decoration: none;
         }
 
         /* HEADER / NAVBAR -------------------------------------------------- */
@@ -95,48 +97,67 @@
             color: #94a3b8;
         }
 
+        /* Navigazione con sfondo mobile */
         .nav-shell {
             background: rgba(15,23,42,0.7);
             border-radius: 999px;
-            padding: 4px 8px;
+            padding: 5px;
             border: 1px solid rgba(148, 163, 184, 0.45);
+            position: relative; /* Necessario per il posizionamento assoluto dello sfondo */
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            padding-left: 0;
+            padding: 0;
             margin: 0;
             align-items: center;
-            gap: 4px;
+            position: relative;
+            z-index: 2; /* I link devono stare sopra lo sfondo mobile */
+        }
+
+        nav ul li {
+            position: relative;
         }
 
         nav ul li a {
-            text-decoration: none;
+            display: block;
             color: #e5e7eb;
             font-weight: 500;
             font-size: 0.9rem;
-            padding: 6px 14px;
+            padding: 8px 18px;
             border-radius: 999px;
-            transition: color 0.2s, background-color 0.2s;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 2;
         }
-
-        nav ul li a:hover {
-            color: #f9fafb;
-            background-color: rgba(148, 163, 184, 0.2);
-        }
-
-        nav ul li a.nav-cta {
+        
+        /* Questo è l'elemento che si muoverà */
+        .nav-indicator {
+            position: absolute;
+            top: 5px; /* Corrisponde al padding del .nav-shell */
+            left: 5px;
+            height: calc(100% - 10px);
             background: var(--secondary-color);
+            border-radius: 999px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1; /* Sta dietro ai link */
+            width: 0; /* Inizialmente zero, viene settato via JS */
+            opacity: 0; /* Invisibile finché non calcolato */
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Quando il mouse passa sopra un link, cambia colore del testo */
+        nav ul li a:hover {
+            color: #ffffff;
+        }
+
+        /* Classe per il link attivo (testo scuro per contrasto col blu) */
+        nav ul li a.active-link {
             color: var(--dark-blue);
             font-weight: 600;
-            box-shadow: 0 8px 18px rgba(14, 165, 233, 0.35);
         }
-
-        nav ul li a.nav-cta:hover {
-            background: #0284c7;
-        }
-
+        
         /* HERO ------------------------------------------------------------- */
         .hero {
             background:
@@ -521,15 +542,24 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                padding: 4px;
             }
 
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
-            .info-split {
-                flex-direction: column;
+            
+            /* Su mobile nascondiamo l'indicatore animato complesso per semplicità, 
+               o lo lasciamo ma potrebbe comportarsi in modo strano su più righe.
+               Qui lo nascondo per pulizia su mobile. */
+            .nav-indicator {
+                display: none;
+            }
+            
+            nav ul li a.active-link {
+                background: var(--secondary-color);
+                color: var(--dark-blue);
             }
         }
     </style>
@@ -540,19 +570,24 @@
     <div class="container">
         <nav>
             <div class="logo-container">
+                <!-- Se l'immagine non si trova, assicurati che il percorso sia giusto -->
                 <img src="image.jpeg.jpg" alt="Logo Centro BluMente" class="logo-img">
                 <div class="brand-block">
                     <span class="brand-name">Centro BluMente</span>
                     <span class="brand-subtitle">Diagnosi, intervento e supporto per lo spettro autistico</span>
                 </div>
             </div>
+            
             <div class="nav-shell">
+                <!-- L'elemento che fa l'animazione di sfondo -->
+                <div class="nav-indicator"></div>
+                
                 <ul>
-                    <li><a href="#chi-siamo">L'Autismo</a></li>
-                    <li><a href="#servizi">Servizi</a></li>
-                    <li><a href="#terapie">Terapie</a></li>
-                    <li><a href="#struttura">Struttura</a></li>
-                    <li><a href="#contatti" class="nav-cta">Prenota</a></li>
+                    <li><a href="#chi-siamo" class="nav-link">L'Autismo</a></li>
+                    <li><a href="#servizi" class="nav-link">Servizi</a></li>
+                    <li><a href="#terapie" class="nav-link">Terapie</a></li>
+                    <li><a href="#struttura" class="nav-link">Struttura</a></li>
+                    <li><a href="#contatti" class="nav-link">Prenota</a></li>
                 </ul>
             </div>
         </nav>
@@ -754,6 +789,46 @@
         <p>&copy; 2026 Centro BluMente. Tutti i diritti riservati.</p>
     </div>
 </footer>
+
+<!-- SCRIPT PER ANIMAZIONE MENU -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const indicator = document.querySelector('.nav-indicator');
+        const navShell = document.querySelector('.nav-shell');
+
+        function moveIndicator(element) {
+            // Calcola posizione e dimensione rispetto al contenitore relativo
+            const shellRect = navShell.getBoundingClientRect();
+            const rect = element.getBoundingClientRect();
+            
+            const left = rect.left - shellRect.left;
+            const top = rect.top - shellRect.top;
+            
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.height = `${rect.height}px`;
+            indicator.style.transform = `translate(${left}px, ${top}px)`;
+            indicator.style.opacity = '1';
+        }
+
+        // Aggiungi listener per hover
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                moveIndicator(e.target);
+                // Rimuovi classe active dagli altri per stile testo
+                navLinks.forEach(l => l.classList.remove('active-link'));
+                e.target.classList.add('active-link');
+            });
+        });
+
+        // Opzionale: torna all'elemento attivo originale quando il mouse esce dal menu?
+        // Per ora lasciamo che resti sull'ultimo hoverato, oppure potremmo implementare
+        // la logica per "tornare" alla sezione corrente (scroll spy).
+        
+        // Inizializza sul primo elemento o su nessuno
+        // moveIndicator(navLinks[0]); 
+    });
+</script>
 
 </body>
 </html>
