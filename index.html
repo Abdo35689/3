@@ -6,13 +6,19 @@
     <title>Centro BluMente - Supporto e Diagnosi Autismo</title>
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #00a8cc;
-            --dark-blue: #003366;
-            --light-bg: #f0f6ff;
-            --text-color: #223041;
+            --primary-color: #075985;
+            --primary-strong: #0369a1;
+            --secondary-color: #0ea5e9;
+            --secondary-soft: #e0f2fe;
+            --dark-blue: #0b1120;
+            --light-bg: #f1f5f9;
+            --text-color: #111827;
+            --muted-text: #6b7280;
             --white: #ffffff;
-            --border-soft: #dde7ff;
+            --border-soft: #d0e2ff;
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.14);
         }
 
         * {
@@ -20,26 +26,32 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: var(--white);
+            background-color: #f8fafc;
         }
 
-        /* HEADER / NAVBAR */
+        a {
+            color: inherit;
+        }
+
+        /* HEADER / NAVBAR -------------------------------------------------- */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.35);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 92%;
+            max-width: 1180px;
             margin: auto;
             padding: 0 20px;
         }
@@ -54,22 +66,40 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .logo-img {
-            height: 54px;
-            width: 54px;
+            height: 50px;
+            width: 50px;
             object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 14px rgba(15,23,42,0.35);
+            border: 2px solid rgba(148,163,184,0.5);
+        }
+
+        .brand-block {
+            display: flex;
+            flex-direction: column;
         }
 
         .brand-name {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #e5f2ff;
             letter-spacing: 0.03em;
+        }
+
+        .brand-subtitle {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .nav-shell {
+            background: rgba(15,23,42,0.7);
+            border-radius: 999px;
+            padding: 4px 8px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
         }
 
         nav ul {
@@ -78,90 +108,191 @@
             padding-left: 0;
             margin: 0;
             align-items: center;
-        }
-
-        nav ul li {
-            margin-left: 18px;
+            gap: 4px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #e5e7eb;
             font-weight: 500;
-            font-size: 0.95rem;
-            padding: 6px 10px;
+            font-size: 0.9rem;
+            padding: 6px 14px;
             border-radius: 999px;
-            transition: color 0.25s, background-color 0.25s;
+            transition: color 0.2s, background-color 0.2s;
         }
 
         nav ul li a:hover {
-            color: var(--primary-color);
-            background-color: rgba(0, 86, 179, 0.06);
+            color: #f9fafb;
+            background-color: rgba(148, 163, 184, 0.2);
         }
 
-        /* HERO */
+        nav ul li a.nav-cta {
+            background: var(--secondary-color);
+            color: var(--dark-blue);
+            font-weight: 600;
+            box-shadow: 0 8px 18px rgba(14, 165, 233, 0.35);
+        }
+
+        nav ul li a.nav-cta:hover {
+            background: #0284c7;
+        }
+
+        /* HERO ------------------------------------------------------------- */
         .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.92), rgba(0, 168, 204, 0.9)),
-                        url('https://placehold.co/1920x600/003366/ffffff?text=Autismo+Consapevolezza+in+Blu');
-            background-size: cover;
-            background-position: center;
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
+            background:
+              radial-gradient(circle at 10% 10%, rgba(56,189,248,0.18), transparent 55%),
+              radial-gradient(circle at 90% 0%, rgba(59,130,246,0.18), transparent 55%),
+              linear-gradient(135deg, #0b1120, #020617);
             color: var(--white);
+            padding: 70px 0 80px;
         }
 
-        .hero-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 0;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.7);
+            border: 1px solid rgba(148,163,184,0.6);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #e5f2ff;
+            margin-bottom: 14px;
+        }
+
+        .hero-kicker span {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: #22c55e;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 18px;
-            text-shadow: 0 3px 10px rgba(0,0,0,0.35);
+            font-size: 2.7rem;
+            margin-bottom: 16px;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 720px;
-            margin: 0 auto 26px auto;
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #cbd5f5;
+            max-width: 540px;
+            margin-bottom: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 10px 30px;
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 22px;
             border-radius: 999px;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 0.98rem;
-            letter-spacing: 0.02em;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.22);
-            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn:hover {
-            background: #008cba;
-            transform: translateY(-1px);
-            box-shadow: 0 14px 26px rgba(0,0,0,0.28);
-        }
-
-        .hero-subnote {
-            margin-top: 20px;
             font-size: 0.95rem;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
         }
 
-        /* SEZIONI GENERALI */
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--dark-blue);
+            box-shadow: 0 16px 32px rgba(14,165,233,0.45);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+            box-shadow: 0 20px 40px rgba(14,165,233,0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #e5e7eb;
+            border: 1px solid rgba(148,163,184,0.8);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(15,23,42,0.7);
+            border-color: #e5e7eb;
+        }
+
+        .hero-meta {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .hero-highlight {
+            font-weight: 600;
+            color: #e5f2ff;
+        }
+
+        .hero-note {
+            margin-top: 18px;
+            font-size: 0.9rem;
+            max-width: 560px;
+            color: #c7d2fe;
+        }
+
+        .hero-card {
+            background: rgba(15,23,42,0.9);
+            border-radius: 20px;
+            padding: 18px 18px 16px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(148,163,184,0.45);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .hero-card-title {
+            font-size: 0.95rem;
+            color: #e5f2ff;
+        }
+
+        .hero-card-badge {
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(59,130,246,0.18);
+            border: 1px solid rgba(129,140,248,0.6);
+            color: #c7d2fe;
+        }
+
+        .hero-card-text {
+            font-size: 0.9rem;
+            color: #cbd5f5;
+        }
+
+        /* SEZIONI GENERALI ------------------------------------------------- */
         .section {
-            padding: 60px 0;
+            padding: 64px 0;
         }
 
         .bg-light {
@@ -170,12 +301,19 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 34px;
             color: var(--primary-color);
-            font-size: 2rem;
+            font-size: 1.9rem;
         }
 
-        /* TESTO + IMMAGINE */
+        .section-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 32px;
+            color: var(--muted-text);
+            font-size: 0.97rem;
+        }
+
         .info-split {
             display: flex;
             flex-wrap: wrap;
@@ -188,8 +326,13 @@
             min-width: 300px;
         }
 
+        .info-text p {
+            margin-bottom: 12px;
+        }
+
         .info-text ul {
             padding-left: 20px;
+            margin: 12px 0;
         }
 
         .info-text li {
@@ -203,62 +346,81 @@
 
         .info-img img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 16px 30px rgba(15,23,42,0.18);
         }
 
-        /* GRID SERVIZI / TERAPIE */
+        /* SERVIZI / TERAPIE GRID ----------------------------------------- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
         .card {
             background: var(--white);
-            padding: 26px 24px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            text-align: left;
+            padding: 24px 22px 22px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 8px 18px rgba(15,23,42,0.05);
             border: 1px solid var(--border-soft);
-            border-bottom: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14,165,233,0.07), transparent);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card h3 {
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-size: 1.15rem;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        /* SEZIONE STRUTTURA (GALLERIA INTERATTIVA) */
+        .card p {
+            font-size: 0.93rem;
+            color: var(--muted-text);
+        }
+
+        /* STRUTTURA (GALLERIA INTERATTIVA) ------------------------------- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
         }
 
         .gallery-item {
             display: block;
             text-decoration: none;
             color: inherit;
-            border-radius: 10px;
+            border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(15,23,42,0.12);
+            background: var(--white);
             border: 1px solid var(--border-soft);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 220px;
+            height: 210px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.18);
+            box-shadow: 0 16px 28px rgba(15,23,42,0.2);
+            border-color: rgba(14,165,233,0.7);
         }
 
         .gallery-item:hover img {
@@ -267,12 +429,13 @@
 
         .gallery-item p {
             text-align: center;
-            padding: 12px 10px 14px;
+            padding: 11px 10px 13px;
             font-weight: 500;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
+            color: var(--primary-strong);
         }
 
-        /* CONTATTI / FORM */
+        /* CONTATTI -------------------------------------------------------- */
         #contatti .section-title {
             margin-bottom: 22px;
         }
@@ -298,12 +461,13 @@
         input[type="email"],
         textarea {
             padding: 10px;
-            border: 1px solid #ccd4e0;
-            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             font-size: 0.95rem;
             font-family: inherit;
             resize: vertical;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+            background-color: #f9fafb;
         }
 
         input[type="text"]:focus,
@@ -311,31 +475,61 @@
         textarea:focus {
             outline: none;
             border-color: var(--secondary-color);
-            box-shadow: 0 0 0 2px rgba(0,168,204,0.18);
+            box-shadow: 0 0 0 2px rgba(14,165,233,0.22);
+            background-color: #ffffff;
         }
 
         .form-note {
-            font-size: 0.85rem;
-            margin-top: 10px;
-            color: #5b6474;
+            font-size: 0.83rem;
+            margin-top: 8px;
+            color: #64748b;
         }
 
-        /* FOOTER */
+        /* FOOTER ---------------------------------------------------------- */
         footer {
             background: var(--dark-blue);
             color: #e0ecff;
-            padding: 28px 0 24px;
+            padding: 20px 0 18px;
             text-align: center;
             margin-top: auto;
-            font-size: 0.9rem;
+            font-size: 0.86rem;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE ------------------------------------------------------ */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 54px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav ul {
+            nav {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .nav-shell {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .info-split {
+                flex-direction: column;
             }
         }
     </style>
@@ -346,47 +540,91 @@
     <div class="container">
         <nav>
             <div class="logo-container">
-                <img src="image.jpeg.jpg" alt="Logo Cervello Blu" class="logo-img">
-                <span class="brand-name">Centro BluMente</span>
+                <img src="image.jpeg.jpg" alt="Logo Centro BluMente" class="logo-img">
+                <div class="brand-block">
+                    <span class="brand-name">Centro BluMente</span>
+                    <span class="brand-subtitle">Diagnosi, intervento e supporto per lo spettro autistico</span>
+                </div>
             </div>
-            <ul>
-                <li><a href="#chi-siamo">L'Autismo</a></li>
-                <li><a href="#servizi">Servizi</a></li>
-                <li><a href="#terapie">Terapie</a></li>
-                <li><a href="#struttura">La Struttura</a></li>
-                <li><a href="#contatti">Contatti</a></li>
-            </ul>
+            <div class="nav-shell">
+                <ul>
+                    <li><a href="#chi-siamo">L'Autismo</a></li>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#terapie">Terapie</a></li>
+                    <li><a href="#struttura">Struttura</a></li>
+                    <li><a href="#contatti" class="nav-cta">Prenota</a></li>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <div class="container hero-inner">
-        <h1>Accogliere. Comprendere. Crescere.</h1>
-        <p>Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie nello spettro dell'autismo.</p>
-        <a href="#contatti" class="btn">Prenota un colloquio</a>
-        <p class="hero-subnote">
-          Il blu è il colore scelto a livello internazionale per rappresentare la consapevolezza
-          sull'autismo: richiama calma, sicurezza e desiderio di conoscenza e viene usato ogni
-          2 aprile nella Giornata Mondiale dell'Autismo.
-        </p>
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-kicker">
+                    <span></span>
+                    Centro specializzato per lo spettro autistico
+                </div>
+                <h1>Accogliere. Comprendere. Crescere.</h1>
+                <p class="hero-sub">
+                    Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie
+                    nello spettro dell'autismo.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contatti" class="btn-primary">Prenota un colloquio</a>
+                    <a href="#servizi" class="btn-outline">Scopri i percorsi</a>
+                </div>
+                <p class="hero-meta">
+                    <span class="hero-highlight">Equipe multidisciplinare</span> · Psicologi, terapisti, educatori e logopedisti
+                </p>
+                <p class="hero-note">
+                    Il blu è il colore scelto a livello internazionale per rappresentare la consapevolezza
+                    sull'autismo e illumina il mondo ogni 2 aprile, Giornata Mondiale dell'Autismo.
+                </p>
+            </div>
+
+            <aside class="hero-card" aria-label="Informazioni rapide sul centro">
+                <div class="hero-card-header">
+                    <div class="hero-card-title">Per famiglie e bambini</div>
+                    <div class="hero-card-badge">Percorsi personalizzati</div>
+                </div>
+                <div class="hero-card-text">
+                    Valutazioni cliniche, progetti educativi individualizzati e percorsi di parent training,
+                    costruiti insieme a scuola e famiglia per sostenere la crescita quotidiana.
+                </div>
+            </aside>
+        </div>
     </div>
 </section>
 
 <section id="chi-siamo" class="section">
     <div class="container">
         <h2 class="section-title">Cos'è lo Spettro dell'Autismo?</h2>
+        <p class="section-intro">
+            Il Disturbo dello Spettro Autistico è una condizione del neurosviluppo
+            che si manifesta in modo diverso da persona a persona, con bisogni di
+            supporto variabili nel corso della vita.
+        </p>
         <div class="info-split">
             <div class="info-text">
-                <p>Il Disturbo dello Spettro Autistico (ASD) è una condizione del neurosviluppo caratterizzata da difficoltà nella comunicazione sociale e dalla presenza di comportamenti e interessi ristretti e ripetitivi.</p>
+                <p>
+                    Il Disturbo dello Spettro Autistico (ASD) è caratterizzato da difficoltà nella comunicazione sociale
+                    e dalla presenza di comportamenti e interessi ristretti e ripetitivi.
+                </p>
                 <ul>
                     <li><strong>Comunicazione sociale:</strong> difficoltà nella reciprocità, nel contatto oculare, nell'uso di gesti e nel comprendere le regole sociali implicite.</li>
                     <li><strong>Comportamenti ripetitivi:</strong> routine rigide, movimenti stereotipati, interessi intensi e particolari sensibilità agli stimoli sensoriali.</li>
                 </ul>
-                <p>La diagnosi si basa su valutazioni cliniche specialistiche e strumenti standardizzati che permettono di definire il livello di supporto necessario per la persona e la sua famiglia.</p>
+                <p>
+                    La diagnosi si basa su valutazioni cliniche specialistiche e strumenti standardizzati che
+                    permettono di definire il livello di supporto necessario per la persona e la sua famiglia.
+                </p>
             </div>
             <div class="info-img">
-                <img src="https://placehold.co/600x400/00a8cc/ffffff?text=Terapia+e+Supporto" alt="Sessione di terapia">
+                <img src="https://placehold.co/600x400/0ea5e9/ffffff?text=Terapia+e+Supporto"
+                     alt="Sessione di terapia in ambiente strutturato">
             </div>
         </div>
     </div>
@@ -395,18 +633,31 @@
 <section id="servizi" class="section bg-light">
     <div class="container">
         <h2 class="section-title">I Nostri Percorsi</h2>
+        <p class="section-intro">
+            Offriamo interventi integrati per accompagnare il bambino, la famiglia e la scuola lungo
+            tutte le fasi del percorso di crescita.
+        </p>
         <div class="services-grid">
             <div class="card">
                 <h3>Diagnosi Precoce</h3>
-                <p>Valutazioni cliniche multidisciplinari per riconoscere i segnali dello spettro autistico fin dai primi anni di vita e avviare rapidamente il percorso di intervento.</p>
+                <p>
+                    Valutazioni cliniche multidisciplinari per riconoscere i segnali dello spettro autistico
+                    fin dai primi anni di vita e avviare rapidamente il percorso di intervento.
+                </p>
             </div>
             <div class="card">
                 <h3>Supporto Scolastico</h3>
-                <p>Collaborazione con la scuola per costruire percorsi inclusivi, adattare materiali e ambienti e facilitare la partecipazione alla vita di classe.</p>
+                <p>
+                    Collaborazione con la scuola per costruire percorsi inclusivi, adattare materiali e ambienti
+                    e facilitare la partecipazione alla vita di classe.
+                </p>
             </div>
             <div class="card">
                 <h3>Parent Training</h3>
-                <p>Incontri dedicati ai genitori per condividere strategie educative e sostenere la relazione quotidiana con il proprio figlio.</p>
+                <p>
+                    Incontri dedicati ai genitori per condividere strategie educative e sostenere
+                    la relazione quotidiana con il proprio figlio.
+                </p>
             </div>
         </div>
     </div>
@@ -415,14 +666,25 @@
 <section id="terapie" class="section">
     <div class="container">
         <h2 class="section-title">Terapie per lo Spettro dell'Autismo</h2>
+        <p class="section-intro">
+            Utilizziamo approcci basati sulle evidenze scientifiche, adattandoli ai bisogni e alle
+            caratteristiche di ogni bambino.
+        </p>
         <div class="services-grid">
             <div class="card">
                 <h3>Metodo ABA</h3>
-                <p>L'Applied Behavior Analysis è un intervento educativo basato sull’analisi del comportamento che mira a potenziare abilità comunicative, sociali e di autonomia attraverso obiettivi misurabili e rinforzi positivi.</p>
+                <p>
+                    L'Applied Behavior Analysis è un intervento educativo basato sull’analisi del comportamento
+                    che mira a potenziare abilità comunicative, sociali e di autonomia
+                    attraverso obiettivi misurabili e rinforzi positivi.
+                </p>
             </div>
             <div class="card">
                 <h3>Programma TEACCH</h3>
-                <p>Il metodo TEACCH utilizza la strutturazione dell’ambiente, orari visivi e routine chiare per rendere le attività più prevedibili e comprensibili, favorendo partecipazione e autonomia.</p>
+                <p>
+                    Il metodo TEACCH utilizza la strutturazione dell’ambiente, orari visivi e routine chiare
+                    per rendere le attività più prevedibili e comprensibili, favorendo partecipazione e autonomia.
+                </p>
             </div>
         </div>
     </div>
@@ -431,8 +693,9 @@
 <section id="struttura" class="section bg-light">
   <div class="container">
     <h2 class="section-title">La Nostra Struttura</h2>
-    <p style="text-align: center; margin-bottom: 30px;">
-      Clicca su uno spazio del centro per scoprirlo nel dettaglio.
+    <p class="section-intro">
+      Clicca su uno spazio del centro per scoprirlo nel dettaglio e vedere come viene utilizzato
+      nei diversi momenti della giornata.
     </p>
     <div class="gallery-grid">
       <a class="gallery-item" href="sala-sensoriale.html">
@@ -474,7 +737,7 @@
         <input type="text" name="Nome" placeholder="Il tuo nome" required>
         <input type="email" name="Email" placeholder="La tua email" required>
         <textarea name="Messaggio" placeholder="Scrivi qui il tuo messaggio" rows="4" required></textarea>
-        <button type="submit" class="btn" style="border: none; cursor: pointer;">
+        <button type="submit" class="btn-primary" style="border: none;">
           Invia richiesta
         </button>
       </form>
