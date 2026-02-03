@@ -88,6 +88,20 @@
 
     .brand-subtitle { font-size: 0.75rem; color: var(--text-muted); }
 
+    .brand-links {
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .brand-links a {
+      color: var(--text-muted);
+      margin-right: 12px;
+    }
+
+    .brand-links a:hover {
+      color: #ffffff;
+    }
+
     .nav-shell {
       background: rgba(30,41,59,0.5);
       border-radius: 999px;
@@ -438,6 +452,12 @@
       color: var(--text-muted);
     }
 
+    /* Commenti Disqus bianchi */
+    #disqus_thread,
+    #disqus_thread * {
+      color: #ffffff !important;
+    }
+
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
       .grid-2, .hero-grid { grid-template-columns: 1fr; }
@@ -458,6 +478,14 @@
         <div class="brand-block">
           <span class="brand-name">Centro BluMente</span>
           <span class="brand-subtitle">Diagnosi e supporto per lo spettro autistico</span>
+          <div class="brand-links">
+            <a href="https://www.instagram.com/centro_blumente" target="_blank" rel="noopener">
+              Instagram: @centro_blumente
+            </a>
+            <a href="mailto:info.centroautismo@gmail.com">
+              info.centroautismo@gmail.com
+            </a>
+          </div>
         </div>
       </div>
 
@@ -563,7 +591,6 @@
   </div>
 </section>
 
-<!-- FAQ a tendina -->
 <section id="faq" class="section bg-alt">
   <div class="container">
     <h2 class="section-title">Domande frequenti</h2>
@@ -836,7 +863,6 @@
   });
 </script>
 
-<!-- Disqus embed -->
 <script>
   var disqus_config = function () {
     this.page.url = 'https://abdo35689.github.io/centro-autismo/';
