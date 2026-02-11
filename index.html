@@ -56,26 +56,10 @@
       padding: 0 20px;
     }
 
-    /* Parte alta che si chiude a tendina */
+    /* Parte alta - su desktop sempre visibile */
     .header-info {
-      max-height: 200px;
       overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
-      opacity: 1;
       padding: 14px 0;
-    }
-
-    .header-info.hidden {
-      max-height: 0;
-      opacity: 0;
-      padding: 0;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      padding: 14px 0;
-      transition: padding 0.3s ease;
     }
 
     .logo-container {
@@ -121,6 +105,13 @@
     .brand-links a:hover {
       color: #ffffff;
       text-shadow: 0 0 12px rgba(148, 163, 184, 1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      padding: 14px 0;
+      transition: padding 0.3s ease;
     }
 
     .nav-shell {
@@ -495,10 +486,23 @@
       color: #0ea5e9 !important;
     }
 
-    /* Mobile: nav centrata e scrollabile */
+    /* Mobile: tendina attiva + nav centrata e scrollabile */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
       .grid-2, .hero-grid { grid-template-columns: 1fr; }
+
+      /* Effetto tendina solo su mobile */
+      .header-info {
+        max-height: 200px;
+        transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+        opacity: 1;
+      }
+
+      .header-info.hidden {
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+      }
 
       nav {
         flex-wrap: wrap;
@@ -516,7 +520,7 @@
       nav ul li a.active-link { color: var(--primary-glow); }
     }
 
-    /* Desktop: sposta la barra menu a destra */
+    /* Desktop: NO tendina, barra menu a destra */
     @media (min-width: 769px) {
       nav {
         justify-content: flex-end;
@@ -864,18 +868,20 @@
 </footer>
 
 <script>
-  // Nasconde la parte alta dell'header quando si scrolla
-  const headerInfo = document.getElementById('headerInfo');
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 100) {
-      headerInfo.classList.add('hidden');
-    } else {
-      headerInfo.classList.remove('hidden');
-    }
-  });
+  // Tendina attiva SOLO su mobile (max-width: 768px)
+  if (window.innerWidth <= 768) {
+    const headerInfo = document.getElementById('headerInfo');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 100) {
+        headerInfo.classList.add('hidden');
+      } else {
+        headerInfo.classList.remove('hidden');
+      }
+    });
+  }
 
-  // Gestione nav + indicatore
+  // Navigazione con indicatore
   document.addEventListener('DOMContentLoaded', () => {
     const navLinks = Array.from(document.querySelectorAll('.nav-link'));
     const indicator = document.querySelector('.nav-indicator');
