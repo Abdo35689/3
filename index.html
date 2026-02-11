@@ -38,7 +38,7 @@
 
     a { color: inherit; text-decoration: none; transition: color 0.2s; }
 
-    /* HEADER con effetto mobile */
+    /* HEADER con effetto scroll mobile */
     header {
       background-color: rgba(11,17,32,0.85);
       backdrop-filter: blur(12px);
@@ -47,7 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: padding 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     header.scrolled {
@@ -74,6 +74,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .logo-img {
@@ -83,13 +84,13 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
       border: 1px solid rgba(14, 165, 233, 0.4);
-      transition: height 0.3s ease, width 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .brand-block { 
       display: flex; 
       flex-direction: column; 
-      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .brand-name {
@@ -500,17 +501,30 @@
       .nav-indicator { display: none; }
       nav ul li a.active-link { color: var(--primary-glow); }
 
-      /* effetto solo mobile: nascondi testo/links quando scrolled */
+      /* EFFETTO MOBILE: logo si sposta e ingrandisce quando scrolled */
+      header.scrolled .logo-container {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      header.scrolled .logo-img {
+        height: 44px;
+        width: 44px;
+      }
+
       header.scrolled .brand-block {
         opacity: 0;
         transform: translateY(-10px);
         max-height: 0;
         overflow: hidden;
+        width: 0;
       }
 
-      header.scrolled .logo-img {
-        height: 40px;
-        width: 40px;
+      /* Creiamo spazio a sinistra per il logo quando scrolled */
+      header.scrolled nav {
+        padding-left: 70px;
       }
     }
   </style>
@@ -730,7 +744,7 @@
           Il metodo TEACCH utilizza la strutturazione visiva dello spazio e del tempo per rendere
           l'ambiente più prevedibile e comprensibile, riducendo il carico di stress.
         </p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per approfondire l’approccio TEACCH »</p>
+        <p style="margin-top:10px; color: var(--text-muted);">Clicca per approfondire l'approccio TEACCH »</p>
       </a>
     </div>
   </div>
@@ -915,12 +929,15 @@
       if (active && window.innerWidth > 768) moveIndicator(active);
     });
 
-    // effetto scroll header SOLO mobile
+    // EFFETTO SCROLL HEADER MOBILE
     let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', () => {
+    let ticking = false;
+
+    function updateHeader() {
       const currentY = window.scrollY;
+      
       if (window.innerWidth <= 768) {
-        if (currentY > 40) {
+        if (currentY > 50) {
           header.classList.add('scrolled');
         } else {
           header.classList.remove('scrolled');
@@ -928,8 +945,19 @@
       } else {
         header.classList.remove('scrolled');
       }
+      
       lastScrollY = currentY;
-    });
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
   });
 </script>
 
