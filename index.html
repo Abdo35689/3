@@ -38,7 +38,7 @@
 
     a { color: inherit; text-decoration: none; transition: color 0.2s; }
 
-    /* HEADER con effetto scroll mobile */
+    /* HEADER base */
     header {
       background-color: rgba(11,17,32,0.85);
       backdrop-filter: blur(12px);
@@ -47,12 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    header.scrolled {
-      background-color: rgba(11,17,32,0.96);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .container {
@@ -67,14 +62,16 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 0;
-      transition: padding 0.3s ease;
+      transition: padding 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
+    /* LOGO / BRAND: stato base */
     .logo-container {
       display: flex;
       align-items: center;
       gap: 14px;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  gap 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     .logo-img {
@@ -84,13 +81,14 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
       border: 1px solid rgba(14, 165, 233, 0.4);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    .brand-block { 
-      display: flex; 
-      flex-direction: column; 
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     .brand-name {
@@ -493,6 +491,7 @@
       color: #0ea5e9 !important;
     }
 
+    /* MOBILE: header compresso + movimento fluido logo */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
       .grid-2, .hero-grid { grid-template-columns: 1fr; }
@@ -501,30 +500,13 @@
       .nav-indicator { display: none; }
       nav ul li a.active-link { color: var(--primary-glow); }
 
-      /* EFFETTO MOBILE: logo si sposta e ingrandisce quando scrolled */
-      header.scrolled .logo-container {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+      header.compressed {
+        background-color: rgba(11,17,32,0.96);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
       }
 
-      header.scrolled .logo-img {
-        height: 44px;
-        width: 44px;
-      }
-
-      header.scrolled .brand-block {
-        opacity: 0;
-        transform: translateY(-10px);
-        max-height: 0;
-        overflow: hidden;
-        width: 0;
-      }
-
-      /* Creiamo spazio a sinistra per il logo quando scrolled */
-      header.scrolled nav {
-        padding-left: 70px;
+      header.compressed nav {
+        padding-left: 70px; /* spazio per il logo che si avvicina alla nav */
       }
     }
   </style>
@@ -867,97 +849,139 @@
     const indicator = document.querySelector('.nav-indicator');
     const navShell = document.querySelector('.nav-shell');
     const header = document.getElementById('site-header');
+    const logoContainer = document.querySelector('.logo-container');
+    const logoImg = document.querySelector('.logo-img');
+    const brandBlock = document.querySelector('.brand-block');
 
-    if (!navShell || navLinks.length === 0) return;
+    // NAV + INDICATOR come prima
+    if (navShell && navLinks.length) {
+      function moveIndicator(el) {
+        if (!indicator) return;
+        const shellRect = navShell.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
+        const left = rect.left - shellRect.left;
+        const top = rect.top - shellRect.top;
 
-    function moveIndicator(el) {
-      if (!indicator) return;
-      const shellRect = navShell.getBoundingClientRect();
-      const rect = el.getBoundingClientRect();
-      const left = rect.left - shellRect.left;
-      const top = rect.top - shellRect.top;
+        indicator.style.width = rect.width + 'px';
+        indicator.style.height = rect.height + 'px';
+        indicator.style.transform = `translate(${left}px, ${top}px)`;
+        indicator.style.opacity = '1';
+      }
 
-      indicator.style.width = rect.width + 'px';
-      indicator.style.height = rect.height + 'px';
-      indicator.style.transform = `translate(${left}px, ${top}px)`;
-      indicator.style.opacity = '1';
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').replace('#', '');
-        const section = document.getElementById(targetId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').replace('#', '');
+          const section = document.getElementById(targetId);
+          if (section) section.scrollIntoView({ behavior: 'smooth' });
+        });
       });
-    });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const activeLink = navLinks.find(l => l.getAttribute('href') === '#' + id);
-          if (activeLink) {
-            navLinks.forEach(l => l.classList.remove('active-link'));
-            activeLink.classList.add('active-link');
-            if (window.innerWidth > 768) {
-              moveIndicator(activeLink);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const activeLink = navLinks.find(l => l.getAttribute('href') === '#' + id);
+            if (activeLink) {
+              navLinks.forEach(l => l.classList.remove('active-link'));
+              activeLink.classList.add('active-link');
+              if (window.innerWidth > 768) moveIndicator(activeLink);
             }
           }
-        }
+        });
+      }, { threshold: 0.3 });
+
+      navLinks.forEach(link => {
+        const id = link.getAttribute('href').replace('#', '');
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
       });
-    }, { threshold: 0.3 });
 
-    navLinks.forEach(link => {
-      const id = link.getAttribute('href').replace('#', '');
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+      const first = navLinks[0];
+      if (first) {
+        first.classList.add('active-link');
+        setTimeout(() => {
+          if (window.innerWidth > 768) moveIndicator(first);
+        }, 100);
+      }
 
-    const first = navLinks[0];
-    if (first) {
-      first.classList.add('active-link');
-      setTimeout(() => {
-        if (window.innerWidth > 768) moveIndicator(first);
-      }, 100);
+      window.addEventListener('resize', () => {
+        const active = document.querySelector('.nav-link.active-link');
+        if (active && window.innerWidth > 768) moveIndicator(active);
+      });
     }
 
-    window.addEventListener('resize', () => {
-      const active = document.querySelector('.nav-link.active-link');
-      if (active && window.innerWidth > 768) moveIndicator(active);
-    });
-
-    // EFFETTO SCROLL HEADER MOBILE
-    let lastScrollY = window.scrollY;
+    // SCROLL FLUIDO DEL LOGO SU MOBILE
+    let latestScrollY = window.scrollY;
     let ticking = false;
 
-    function updateHeader() {
-      const currentY = window.scrollY;
-      
+    const START = 0;    // da 0px
+    const END = 120;    // a 120px il logo è al 100% dello stato "vicino alla nav"
+
+    function clamp(v, min, max) {
+      return Math.min(max, Math.max(min, v));
+    }
+
+    function onScrollAnimation() {
+      const y = latestScrollY;
+
       if (window.innerWidth <= 768) {
-        if (currentY > 50) {
-          header.classList.add('scrolled');
+        let t = (y - START) / (END - START);
+        t = clamp(t, 0, 1);
+
+        // easing dolce (smoothstep)
+        const eased = t * t * (3 - 2 * t);
+
+        // spostamento logo verso destra e leggermente verso l'alto
+        const translateX = eased * 30;   // aumenta se vuoi ancora più vicino
+        const translateY = -eased * 6;
+
+        logoContainer.style.transform =
+          `translate(${translateX}px, ${translateY}px)`;
+
+        // piccolo zoom del logo
+        const scale = 1 + eased * 0.08;
+        logoImg.style.transform = `scale(${scale})`;
+
+        // scomparsa fluida di titolo + mail + insta
+        brandBlock.style.opacity = 1 - eased;
+        brandBlock.style.transform = `translateY(${ -10 * eased }px)`;
+
+        // header "compressed" per sfondo/ombra
+        if (eased > 0.05) {
+          header.classList.add('compressed');
         } else {
-          header.classList.remove('scrolled');
+          header.classList.remove('compressed');
         }
       } else {
-        header.classList.remove('scrolled');
+        // desktop: reset
+        header.classList.remove('compressed');
+        logoContainer.style.transform = '';
+        logoImg.style.transform = '';
+        brandBlock.style.opacity = '';
+        brandBlock.style.transform = '';
       }
-      
-      lastScrollY = currentY;
+
       ticking = false;
     }
 
-    function requestTick() {
+    function onScroll() {
+      latestScrollY = window.scrollY;
       if (!ticking) {
-        requestAnimationFrame(updateHeader);
+        window.requestAnimationFrame(onScrollAnimation);
         ticking = true;
       }
     }
 
-    window.addEventListener('scroll', requestTick);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        onScrollAnimation();
+      }
+    });
+
+    // stato iniziale corretto
+    onScrollAnimation();
   });
 </script>
 
