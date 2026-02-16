@@ -487,7 +487,7 @@
       color: #0ea5e9 !important;
     }
 
-    /* --- MOBILE: HEADER CHE SCOMPARE / COMPATTO --- */
+    /* --- MOBILE: header che diventa compatto quando si scende --- */
     @media (max-width: 768px) {
 
       .hero h1 { font-size: 2.2rem; }
@@ -504,12 +504,6 @@
         right: 0;
       }
 
-      /* scroll GIÙ -> header fuori schermo */
-      header.header-hide {
-        transform: translateY(-100%);
-      }
-
-      /* scroll SU -> header compatto */
       header.header-compact {
         transform: translateY(0);
       }
@@ -862,7 +856,7 @@
 <footer>
   <div class="container">
     <p>&copy; 2026 Centro BluMente. Tutti i diritti riservati.</p>
-    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">
+    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6%;">
       Il blu è il colore della consapevolezza sull'autismo (Giornata Mondiale, 2 Aprile).
     </p>
   </div>
@@ -932,49 +926,32 @@
     });
   });
 
-  /* HEADER MOBILE: nascondi su scroll giù, mostra compatto su scroll su */
+  // HEADER MOBILE: compatto quando si scende, pieno vicino al top
   (function() {
     const header = document.getElementById('main-header');
     if (!header) return;
 
-    let lastScrollY = window.scrollY;
-    const threshold = 80;
-    const minDelta = 4; // evita flicker su micro-movimenti
+    const threshold = 40; // dopo 40px passa alla versione compatta [web:53]
 
     function onScroll() {
       const currentY = window.scrollY;
-      const diff = currentY - lastScrollY;
 
       // solo mobile
       if (window.innerWidth > 768) {
-        header.classList.remove('header-hide', 'header-compact');
-        lastScrollY = currentY;
+        header.classList.remove('header-compact');
         return;
       }
 
-      if (currentY <= threshold) {
-        header.classList.remove('header-hide', 'header-compact');
+      if (currentY > threshold) {
+        header.classList.add('header-compact');
       } else {
-        if (Math.abs(diff) < minDelta) {
-          return;
-        }
-
-        if (diff > 0) {
-          // scroll GIÙ -> nascondi
-          header.classList.add('header-hide');
-          header.classList.remove('header-compact');
-        } else {
-          // scroll SU -> mostra compatto
-          header.classList.remove('header-hide');
-          header.classList.add('header-compact');
-        }
+        header.classList.remove('header-compact');
       }
-
-      lastScrollY = currentY;
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    onScroll();
   })();
 </script>
 
