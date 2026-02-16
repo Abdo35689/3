@@ -34,10 +34,12 @@
         radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.08), transparent 40%),
         radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.08), transparent 40%);
       background-attachment: fixed;
+      padding-top: 80px; /* spazio per header sticky su mobile [web:6] */
     }
 
     a { color: inherit; text-decoration: none; transition: color 0.2s; }
 
+    /* HEADER BASE (desktop invariato) */
     header {
       background-color: rgba(11,17,32,0.85);
       backdrop-filter: blur(12px);
@@ -46,6 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      transition: transform 0.3s ease, height 0.3s ease;
     }
 
     .container {
@@ -60,12 +63,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 14px 0;
+      transition: padding 0.3s ease;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       gap: 14px;
+      transition: gap 0.3s ease;
     }
 
     .logo-img {
@@ -75,6 +80,7 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
       border: 1px solid rgba(14, 165, 233, 0.4);
+      transition: height 0.3s ease, width 0.3s ease;
     }
 
     .brand-block { display: flex; flex-direction: column; }
@@ -84,6 +90,7 @@
       font-weight: 700;
       color: var(--text-main);
       letter-spacing: 0.02em;
+      transition: font-size 0.3s ease;
     }
 
     .brand-subtitle { font-size: 0.75rem; color: var(--text-muted); }
@@ -114,6 +121,7 @@
       border: 1px solid var(--border-glass);
       position: relative;
       overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     nav ul {
@@ -471,7 +479,7 @@
       text-shadow: 0 0 12px rgba(148, 163, 184, 1);
     }
 
-    /* Commenti Disqus: forziamo tema scuro e testo chiaro */
+    /* Commenti Disqus */
     #disqus_thread {
       color-scheme: dark;
       color: #ffffff !important;
@@ -481,19 +489,59 @@
       color: #0ea5e9 !important;
     }
 
+    /* --- MOBILE: HEADER CHE SCOMPARE / COMPATTO --- */
     @media (max-width: 768px) {
+
       .hero h1 { font-size: 2.2rem; }
       .grid-2, .hero-grid { grid-template-columns: 1fr; }
       nav { flex-wrap: wrap; gap: 15px; }
       .nav-shell { width: 100%; overflow-x: auto; }
       .nav-indicator { display: none; }
       nav ul li a.active-link { color: var(--primary-glow); }
+
+      /* header sticky fisso in alto, ma animato con transform [web:20] */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      /* quando scrolli GIÙ: header va fuori schermo */
+      header.header-hide {
+        transform: translateY(-100%);
+      }
+
+      /* quando scrolli SU: header torna ma compatto */
+      header.header-compact {
+        transform: translateY(0);
+      }
+
+      header.header-compact nav {
+        padding: 8px 0;
+      }
+
+      header.header-compact .logo-img {
+        height: 40px;
+        width: 40px;
+      }
+
+      header.header-compact .brand-name {
+        font-size: 1.1rem;
+      }
+
+      /* nascondi sottotitolo e link, resta solo logo + nome */
+      header.header-compact .brand-subtitle,
+      header.header-compact .brand-links,
+      header.header-compact .nav-shell {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
+<header id="main-header">
   <div class="container">
     <nav>
       <div class="logo-container">
@@ -824,6 +872,7 @@
 </footer>
 
 <script>
+  /* NAV: indicator + scroll smooth + sezione attiva */
   document.addEventListener('DOMContentLoaded', () => {
     const navLinks = Array.from(document.querySelectorAll('.nav-link'));
     const indicator = document.querySelector('.nav-indicator');
@@ -885,6 +934,45 @@
       if (active) moveIndicator(active);
     });
   });
+
+  /* HEADER MOBILE: nascondi su scroll giù, mostra compatto su scroll su [web:20][web:23] */
+  (function() {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    const threshold = 80;
+
+    function onScroll() {
+      const currentY = window.scrollY;
+
+      // solo mobile
+      if (window.innerWidth > 768) {
+        header.classList.remove('header-hide', 'header-compact');
+        lastScrollY = currentY;
+        return;
+      }
+
+      if (currentY <= threshold) {
+        header.classList.remove('header-hide', 'header-compact');
+      } else {
+        if (currentY > lastScrollY) {
+          // scroll GIÙ -> nascondi
+          header.classList.add('header-hide');
+          header.classList.remove('header-compact');
+        } else {
+          // scroll SU -> mostra compatto (solo logo + nome)
+          header.classList.remove('header-hide');
+          header.classList.add('header-compact');
+        }
+      }
+
+      lastScrollY = currentY;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  })();
 </script>
 
 <script>
@@ -904,4 +992,3 @@
 
 </body>
 </html>
-
