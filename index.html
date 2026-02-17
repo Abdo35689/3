@@ -163,12 +163,9 @@
     nav ul li a:hover { color: #fff; }
     nav ul li a.active-link { color: #0f172a; font-weight: 700; }
 
-    /* MINI OMINI GLOBALI (sfondo) */
-    .little-figures {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
+    /* OMINI CHE SCORRONO CON LE SEZIONI */
+    .figure-layer {
+      position: relative;
     }
 
     .little-figure {
@@ -180,6 +177,8 @@
       align-items: center;
       gap: 4px;
       opacity: 0.9;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .little-figure .head {
@@ -199,27 +198,6 @@
       position: relative;
     }
 
-    .little-figure .arm {
-      position: absolute;
-      top: 8px;
-      width: 14px;
-      height: 5px;
-      border-radius: 999px;
-      background: #1e293b;
-    }
-
-    .little-figure .arm.left {
-      right: 100%;
-      transform: rotate(-16deg);
-      transform-origin: right center;
-    }
-
-    .little-figure .arm.right {
-      left: 100%;
-      transform: rotate(16deg);
-      transform-origin: left center;
-    }
-
     .little-figure .legs {
       display: flex;
       gap: 4px;
@@ -233,10 +211,35 @@
       background: #38bdf8;
     }
 
-    .figure-1 { top: 26%; right: 6%; }
-    .figure-2 { top: 58%; left: 4%; }
-    .figure-3 { top: 82%; right: 10%; }
-    .figure-4 { top: 40%; left: 14%; }
+    /* variante seduto */
+    .little-figure.sitting .legs {
+      transform: rotate(90deg);
+      transform-origin: top center;
+    }
+
+    .little-figure.sitting .leg {
+      height: 12px;
+    }
+
+    /* variante che saluta */
+    .little-figure.wave .body::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 4px;
+      border-radius: 999px;
+      background: #38bdf8;
+      top: 4px;
+      right: -8px;
+      transform: rotate(-20deg);
+    }
+
+    /* posizioni diverse nelle sezioni */
+    .hero .little-figure.f1 { top: 10px; right: 6%; }
+    #servizi .little-figure.f2 { top: -20px; left: 4%; }
+    #terapie .little-figure.f3 { top: 0; right: 10%; }
+    #struttura .little-figure.f4 { top: -10px; left: 8%; }
+    #contatti .little-figure.f5 { top: -18px; right: 6%; }
 
     /* HERO + forme geometriche */
     .hero {
@@ -614,7 +617,6 @@
       border: 1px solid var(--border-glass);
     }
 
-    /* I NOSTRI SPAZI con forme e omini */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -883,10 +885,14 @@
         font-size: 0.85rem;
       }
 
-      .figure-1 { top: 22%; right: 4%; transform: scale(0.8); }
-      .figure-2 { display:none; }
-      .figure-3 { top: 86%; right: 6%; transform: scale(0.75); }
-      .figure-4 { display:none; }
+      .hero .little-figure.f1,
+      #servizi .little-figure.f2,
+      #terapie .little-figure.f3,
+      #struttura .little-figure.f4,
+      #contatti .little-figure.f5 {
+        transform: scale(0.8);
+        opacity: 0.85;
+      }
 
       header.header-compact nav {
         padding: 6px 0;
@@ -905,50 +911,6 @@
   </style>
 </head>
 <body>
-
-<!-- MINI OMINI SFONDO -->
-<div class="little-figures" aria-hidden="true">
-  <div class="little-figure figure-1">
-    <div class="head"></div>
-    <div class="body">
-      <div class="arm left"></div>
-      <div class="arm right"></div>
-    </div>
-    <div class="legs">
-      <div class="leg"></div><div class="leg"></div>
-    </div>
-  </div>
-  <div class="little-figure figure-2">
-    <div class="head"></div>
-    <div class="body">
-      <div class="arm left"></div>
-      <div class="arm right"></div>
-    </div>
-    <div class="legs">
-      <div class="leg"></div><div class="leg"></div>
-    </div>
-  </div>
-  <div class="little-figure figure-3">
-    <div class="head"></div>
-    <div class="body">
-      <div class="arm left"></div>
-      <div class="arm right"></div>
-    </div>
-    <div class="legs">
-      <div class="leg"></div><div class="leg"></div>
-    </div>
-  </div>
-  <div class="little-figure figure-4">
-    <div class="head"></div>
-    <div class="body">
-      <div class="arm left"></div>
-      <div class="arm right"></div>
-    </div>
-    <div class="legs">
-      <div class="leg"></div><div class="leg"></div>
-    </div>
-  </div>
-</div>
 
 <header id="main-header">
   <div class="container">
@@ -984,8 +946,16 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero figure-layer">
   <div class="container">
+    <div class="little-figure f1 wave">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="legs">
+        <div class="leg"></div><div class="leg"></div>
+      </div>
+    </div>
+
     <div class="hero-grid">
       <div>
         <div class="hero-kicker">
@@ -1028,7 +998,7 @@
   </div>
 </section>
 
-<section id="chi-siamo" class="section bg-alt">
+<section id="chi-siamo" class="section bg-alt figure-layer">
   <div class="container">
     <h2 class="section-title">Cos'è lo Spettro dell'Autismo?</h2>
     <div class="info-split">
@@ -1050,8 +1020,16 @@
   </div>
 </section>
 
-<section id="servizi" class="section">
+<section id="servizi" class="section figure-layer">
   <div class="container">
+    <div class="little-figure f2 sitting">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="legs">
+        <div class="leg"></div><div class="leg"></div>
+      </div>
+    </div>
+
     <h2 class="section-title">I Nostri Percorsi</h2>
     <p class="section-intro">Supportiamo la crescita con interventi mirati per ogni fase della vita.</p>
 
@@ -1077,7 +1055,7 @@
   </div>
 </section>
 
-<section id="faq" class="section bg-alt">
+<section id="faq" class="section bg-alt figure-layer">
   <div class="container">
     <h2 class="section-title">Domande frequenti</h2>
     <p class="section-intro">
@@ -1148,8 +1126,16 @@
   </div>
 </section>
 
-<section id="terapie" class="section bg-alt">
+<section id="terapie" class="section bg-alt figure-layer">
   <div class="container">
+    <div class="little-figure f3 wave">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="legs">
+        <div class="leg"></div><div class="leg"></div>
+      </div>
+    </div>
+
     <h2 class="section-title">Metodi e Terapie</h2>
     <p class="section-intro">Approcci scientifici basati sull'evidenza per sviluppare autonomia e comunicazione.</p>
 
@@ -1175,8 +1161,16 @@
   </div>
 </section>
 
-<section id="struttura" class="section">
+<section id="struttura" class="section figure-layer">
   <div class="container">
+    <div class="little-figure f4 sitting">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="legs">
+        <div class="leg"></div><div class="leg"></div>
+      </div>
+    </div>
+
     <h2 class="section-title">I Nostri Spazi</h2>
     <p class="section-intro">Ambienti progettati per accogliere, calmare e stimolare.</p>
 
@@ -1201,7 +1195,7 @@
   </div>
 </section>
 
-<section id="recensioni" class="section bg-alt">
+<section id="recensioni" class="section bg-alt figure-layer">
   <div class="container">
     <h2 class="section-title">Commenti delle famiglie</h2>
     <p class="section-intro">
@@ -1214,8 +1208,16 @@
   </div>
 </section>
 
-<section id="contatti" class="section bg-alt">
+<section id="contatti" class="section bg-alt figure-layer">
   <div class="container">
+    <div class="little-figure f5 wave">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="legs">
+        <div class="leg"></div><div class="leg"></div>
+      </div>
+    </div>
+
     <h2 class="section-title">Prenota un Colloquio</h2>
 
     <div class="form-container">
@@ -1240,7 +1242,7 @@
   </div>
 </section>
 
-<section id="come-raggiungerci" class="section">
+<section id="come-raggiungerci" class="section figure-layer">
   <div class="container">
     <h2 class="section-title">Come raggiungerci</h2>
     <p class="section-intro">
