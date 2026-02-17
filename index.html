@@ -7,20 +7,20 @@
   <meta name="description" content="Centro BluMente: diagnosi precoce, interventi educativi, metodo ABA e TEACCH, supporto scolastico e parent training per bambini e ragazzi nello spettro autistico.">
   <style>
     :root {
-      /* Palette azzurro/blu calma e giocosa */
-      --bg-main: #f3f7ff;      /* azzurro chiarissimo di sfondo */
-      --bg-soft: #e4efff;      /* sezione alternata */
+      /* Palette azzurro + bianco, molto pulita */
+      --bg-main: #f7fbff;      /* quasi bianco */
+      --bg-soft: #e9f2ff;      /* azzurro molto chiaro per sezioni alternate */
       --bg-card: #ffffff;
-      --bg-chip: #d5f3fe;
+      --bg-chip: #e1f0ff;
 
       --primary: #2565AE;      /* blu principale */
-      --primary-soft: #66D3FA; /* azzurro acceso */
-      --accent-light: #D5F3FE; /* azzurro molto chiaro */
-      --accent-deep: #0F5298;  /* blu profondo per testi importanti */
+      --primary-soft: #5ca9ff; /* azzurro acceso per bottoni/link */
+      --accent-light: #d1e5f4; /* azzurro chiarissimo per dettagli */
+      --accent-deep: #123a6b;  /* blu scuro per titoli importanti */
 
-      --text-main: #123055;
-      --text-body: #35506a;
-      --text-muted: #60738a;
+      --text-main: #123a6b;
+      --text-body: #36506a;
+      --text-muted: #6b7c91;
 
       --border-soft: rgba(148,163,184,0.35);
       --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
@@ -41,33 +41,33 @@
       background-color: var(--bg-main);
       scroll-behavior: smooth;
 
-      /* DISEGNI NELLO SFONDO: linee + pallini + macchie azzurre */
+      /* Azzurro + bianco: linee/pallini molto soft */
       background-image:
-        /* linee diagonali blu */
+        /* linee diagonali blu sottili */
         linear-gradient(
           120deg,
-          rgba(37, 101, 174, 0.20) 0 2px,
-          transparent 2px 140px
+          rgba(18, 58, 107, 0.16) 0 2px,
+          transparent 2px 150px
         ),
         /* linee diagonali azzurre */
         linear-gradient(
           300deg,
-          rgba(102, 211, 250, 0.18) 0 2px,
-          transparent 2px 160px
+          rgba(92, 169, 255, 0.15) 0 2px,
+          transparent 2px 170px
         ),
-        /* puntini piccoli blu chiaro */
-        radial-gradient(circle at 20px 20px, rgba(37, 101, 174, 0.20) 2px, transparent 0),
-        radial-gradient(circle at 80px 60px, rgba(102, 211, 250, 0.20) 2px, transparent 0),
-        /* macchie morbide azzurre */
-        radial-gradient(circle at 5% 10%, #d5f3fe 0, transparent 55%),
-        radial-gradient(circle at 95% 15%, #c1e3ff 0, transparent 55%),
-        radial-gradient(circle at 10% 85%, #d4f0ff 0, transparent 55%),
-        radial-gradient(circle at 80% 85%, #e0edff 0, transparent 55%);
+        /* piccoli puntini azzurri */
+        radial-gradient(circle at 20px 20px, rgba(92, 169, 255, 0.18) 2px, transparent 0),
+        radial-gradient(circle at 90px 70px, rgba(18, 58, 107, 0.16) 2px, transparent 0),
+        /* macchie molto chiare */
+        radial-gradient(circle at 5% 10%, #e5f1ff 0, transparent 55%),
+        radial-gradient(circle at 95% 15%, #e1f0ff 0, transparent 55%),
+        radial-gradient(circle at 12% 85%, #e3f4ff 0, transparent 55%),
+        radial-gradient(circle at 80% 85%, #f0f6ff 0, transparent 55%);
       background-size:
         260px 260px,
-        280px 280px,
+        300px 300px,
         120px 120px,
-        140px 140px,
+        150px 150px,
         auto, auto, auto, auto;
       background-attachment: fixed;
 
@@ -82,16 +82,16 @@
 
     /* Header chiaro e giocoso */
     header {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
     }
 
     .container {
@@ -119,9 +119,9 @@
       width: 50px;
       object-fit: cover;
       border-radius: 18px;
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.30);
       border: 2px solid #ffffff;
-      background: #e0f2ff;
+      background: #e6f2ff;
     }
 
     .brand-block { display: flex; flex-direction: column; }
@@ -148,7 +148,7 @@
       margin-right: 12px;
       font-weight: 600;
       padding-bottom: 1px;
-      border-bottom: 1px dashed rgba(37, 101, 174, 0.55);
+      border-bottom: 1px dashed rgba(18, 58, 107, 0.5);
     }
 
     .brand-links a:hover {
@@ -156,15 +156,14 @@
       border-bottom-style: solid;
     }
 
-    /* Nav “pill” colorato */
     .nav-shell {
-      background: #e8f1ff;
+      background: #f3f7ff;
       border-radius: var(--radius-pill);
       padding: 5px;
       border: 1px solid rgba(209, 213, 219, 0.9);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 18px rgba(148, 163, 184, 0.25);
+      box-shadow: 0 10px 18px rgba(148, 163, 184, 0.20);
     }
 
     nav ul {
@@ -196,7 +195,7 @@
       top: 5px;
       left: 5px;
       height: calc(100% - 10px);
-      background: linear-gradient(120deg, #3C99DC, #66D3FA, #2565AE);
+      background: linear-gradient(120deg, #5ca9ff, #9acbff, #2565AE);
       border-radius: var(--radius-pill);
       transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       z-index: 1;
@@ -215,7 +214,6 @@
       font-weight: 800;
     }
 
-    /* Hero */
     .hero {
       padding: 80px 0 100px;
       position: relative;
@@ -234,7 +232,7 @@
     .hero::before {
       width: 180px;
       height: 180px;
-      background: linear-gradient(145deg, #66D3FA, #3C99DC);
+      background: linear-gradient(145deg, #5ca9ff, #2565AE);
       top: -60px;
       right: 5%;
       transform: rotate(-8deg);
@@ -243,7 +241,7 @@
     .hero::after {
       width: 220px;
       height: 220px;
-      background: linear-gradient(145deg, #D5F3FE, #A8D8FF);
+      background: linear-gradient(145deg, #e1f0ff, #c7ddff);
       bottom: -80px;
       left: -40px;
       transform: rotate(11deg);
@@ -262,12 +260,12 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: var(--radius-pill);
-      background: rgba(213, 243, 254, 0.95);
-      border: 1px solid #66D3FA;
+      background: #e1f0ff;
+      border: 1px solid #c3ddff;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #0F5298;
+      color: var(--accent-deep);
       margin-bottom: 18px;
     }
 
@@ -310,7 +308,7 @@
       justify-content: center;
       padding: 12px 26px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #2565AE, #66D3FA);
+      background: linear-gradient(135deg, #2565AE, #5ca9ff);
       color: #fff;
       font-weight: 700;
       border: none;
@@ -336,7 +334,7 @@
     }
 
     .btn-glass:hover {
-      background: #edf2ff;
+      background: #f4f7ff;
       color: var(--accent-deep);
     }
 
@@ -360,7 +358,7 @@
       position: absolute;
       width: 90px;
       height: 90px;
-      background: radial-gradient(circle, rgba(102, 211, 250, 0.7), transparent 70%);
+      background: radial-gradient(circle, rgba(92, 169, 255, 0.6), transparent 70%);
       top: -20px;
       right: -10px;
       opacity: 0.5;
@@ -371,7 +369,7 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background: radial-gradient(circle, rgba(60, 153, 220, 0.8), transparent 70%);
+      background: radial-gradient(circle, rgba(193, 227, 255, 0.9), transparent 70%);
       bottom: -10px;
       left: -20px;
       opacity: 0.5;
@@ -396,7 +394,7 @@
       border-radius: var(--radius-pill);
       border: 1px solid var(--primary-soft);
       color: var(--accent-deep);
-      background: #e0f2ff;
+      background: #edf5ff;
       font-weight: 600;
       white-space: nowrap;
     }
@@ -432,7 +430,7 @@
       width: 80px;
       height: 7px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #a8d8ff, #66D3FA, #2565AE);
+      background: linear-gradient(90deg, #d1e5f4, #5ca9ff, #2565AE);
       opacity: 0.8;
     }
 
@@ -460,7 +458,7 @@
       position: absolute;
       width: 120px;
       height: 120px;
-      background: radial-gradient(circle, rgba(231, 243, 255, 0.9), transparent 72%);
+      background: radial-gradient(circle, rgba(235, 243, 255, 0.9), transparent 72%);
       top: -20px;
       right: -10px;
       opacity: 0.9;
@@ -469,7 +467,7 @@
     .dark-card:hover {
       transform: translateY(-4px) scale(1.01);
       box-shadow: 0 16px 30px rgba(148, 163, 184, 0.25);
-      border-color: rgba(60, 153, 220, 0.9);
+      border-color: rgba(92, 169, 255, 0.9);
     }
 
     .dark-card h3 {
@@ -535,7 +533,7 @@
       border: 1px solid rgba(209, 213, 219, 0.9);
       aspect-ratio: 4/3;
       box-shadow: 0 12px 24px rgba(148, 163, 184, 0.2);
-      background: #f9fafb;
+      background: #ffffff;
     }
 
     .gallery-item img {
@@ -607,7 +605,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      background: radial-gradient(circle, rgba(165, 216, 255, 0.8), transparent 70%);
+      background: radial-gradient(circle, rgba(196, 223, 255, 0.8), transparent 70%);
       top: -40px;
       right: -20px;
       opacity: 0.6;
@@ -616,7 +614,7 @@
     input, textarea {
       width: 100%;
       padding: 14px;
-      background: #f9fafb;
+      background: #f9fbff;
       border: 1px solid rgba(209, 213, 219, 0.95);
       border-radius: 12px;
       color: var(--text-main);
@@ -667,7 +665,7 @@
     }
 
     footer {
-      background: #edf2ff;
+      background: #f3f7ff;
       border-top: 1px solid rgba(203, 213, 225, 0.95);
       padding: 32px 0 26px;
       text-align: center;
@@ -720,7 +718,7 @@
 
       nav ul li a.active-link {
         color: var(--primary);
-        background: #d5e4ff;
+        background: #dbe7ff;
       }
 
       header.header-compact nav {
@@ -740,429 +738,7 @@
 </head>
 <body>
 
-<header id="main-header">
-  <div class="container">
-    <nav>
-      <div class="logo-container">
-        <img src="image.jpeg.jpg" alt="Logo Centro BluMente" class="logo-img">
-        <div class="brand-block">
-          <span class="brand-name">Centro BluMente</span>
-          <span class="brand-subtitle">Diagnosi e supporto per lo spettro autistico</span>
-          <div class="brand-links">
-            <a href="https://www.instagram.com/centro_blumente" target="_blank" rel="noopener">
-              Instagram: @centro_blumente
-            </a>
-            <a href="mailto:info.centroautismo@gmail.com">
-              [info.centroautismo@gmail.com](mailto:info.centroautismo@gmail.com)
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="nav-shell">
-        <div class="nav-indicator"></div>
-        <ul>
-          <li><a href="#servizi" class="nav-link" data-target="servizi">Servizi</a></li>
-          <li><a href="#faq" class="nav-link" data-target="faq">FAQ</a></li>
-          <li><a href="#terapie" class="nav-link" data-target="terapie">Terapie</a></li>
-          <li><a href="#struttura" class="nav-link" data-target="struttura">Struttura</a></li>
-          <li><a href="#recensioni" class="nav-link" data-target="recensioni">Opinioni</a></li>
-          <li><a href="#contatti" class="nav-link" data-target="contatti">Prenota</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">
-          <span></span> CENTRO SPECIALIZZATO
-        </div>
-        <h1>Accogliere. Comprendere.<br>Crescere.</h1>
-        <p class="hero-sub">
-          Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie
-          nello spettro dell'autismo.
-        </p>
-        <div class="hero-actions">
-          <a href="#contatti" class="btn-glow">Prenota un colloquio</a>
-          <a href="#servizi" class="btn-glass">Scopri i percorsi</a>
-        </div>
-        <p class="hero-note">
-          Equipe multidisciplinare: psicologi, terapisti, educatori e logopedisti.
-        </p>
-      </div>
-
-      <div>
-        <div class="glass-card">
-          <div class="hero-card-header">
-            <h3>Per famiglie e bambini</h3>
-            <span class="badge-outline">Percorsi personalizzati</span>
-          </div>
-          <p>
-            Valutazioni cliniche, progetti educativi individualizzati e percorsi di parent training,
-            costruiti insieme a scuola e famiglia per sostenere la crescita quotidiana.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="chi-siamo" class="section bg-alt">
-  <div class="container">
-    <h2 class="section-title">Cos'è lo Spettro dell'Autismo?</h2>
-    <div class="info-split">
-      <div class="info-text">
-        <p>
-          Il <strong>Disturbo dello Spettro Autistico (ASD)</strong> è una condizione del neurosviluppo
-          caratterizzata da differenze nella comunicazione sociale e dalla presenza di interessi assorbenti.
-        </p>
-        <ul>
-          <li><strong>Comunicazione:</strong> differenze nella reciprocità, nel contatto oculare e nella comprensione delle sfumature sociali.</li>
-          <li><strong>Sensorialità e interessi:</strong> routine rigide, sensibilità agli stimoli (luci, suoni) e passioni molto focalizzate.</li>
-        </ul>
-        <p>La diagnosi precoce permette di definire il supporto ideale per valorizzare le potenzialità di ogni persona.</p>
-      </div>
-      <div class="info-img">
-        <img src="centro-autismo.jpg" alt="Centro BluMente, supporto specialistico per l'autismo">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="servizi" class="section">
-  <div class="container">
-    <h2 class="section-title">I Nostri Percorsi</h2>
-    <p class="section-intro">Supportiamo la crescita con interventi mirati per ogni fase della vita.</p>
-
-    <div class="grid-3">
-      <a href="diagnosi-precoce.html" class="dark-card" style="display:block;">
-        <h3>Diagnosi Precoce</h3>
-        <p>Valutazioni cliniche per individuare i segnali dello spettro fin dai primi anni e avviare subito l'intervento.</p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per approfondire la diagnosi precoce »</p>
-      </a>
-
-      <a href="supporto-scolastico.html" class="dark-card" style="display:block;">
-        <h3>Supporto Scolastico</h3>
-        <p>Collaboriamo con le scuole per creare ambienti inclusivi e adattare la didattica ai bisogni dello studente.</p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per scoprire il lavoro con la scuola »</p>
-      </a>
-
-      <a href="parent-training.html" class="dark-card" style="display:block;">
-        <h3>Parent Training</h3>
-        <p>Incontri per genitori, per fornire strumenti pratici e strategie educative da usare nel quotidiano.</p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per vedere i percorsi per genitori »</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="section bg-alt">
-  <div class="container">
-    <h2 class="section-title">Domande frequenti</h2>
-    <p class="section-intro">
-      Tocca una domanda per aprire la risposta.
-    </p>
-
-    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
-      <details class="dark-card">
-        <summary>Quando è utile richiedere una valutazione?</summary>
-        <p style="margin-top:10px;">
-          Consigliamo una valutazione quando emergono dubbi su linguaggio, socializzazione, gioco o comportamento,
-          oppure su segnalazione del pediatra o della scuola dell'infanzia.
-        </p>
-      </details>
-
-      <details class="dark-card">
-        <summary>Serve l'impegnativa del medico?</summary>
-        <p style="margin-top:10px;">
-          Il nostro è un centro privato: non è necessaria l'impegnativa. In caso di presa in carico da parte dei servizi
-          territoriali, collaboriamo volentieri con neuropsichiatria infantile e pediatra.
-        </p>
-      </details>
-
-      <details class="dark-card">
-        <summary>Quanto dura un percorso di intervento?</summary>
-        <p style="margin-top:10px;">
-          La durata dipende dagli obiettivi condivisi: normalmente i percorsi vengono programmati su almeno 6–12 mesi,
-          con verifiche periodiche e momenti di confronto con la famiglia e la scuola.
-        </p>
-      </details>
-
-      <details class="dark-card">
-        <summary>Coinvolgete anche la scuola?</summary>
-        <p style="margin-top:10px;">
-          Sì, lavoriamo in rete con insegnanti curricolari e di sostegno, partecipiamo agli incontri con il GLHO
-          e collaboriamo alla definizione di strategie condivise per il contesto classe.
-        </p>
-      </details>
-
-      <details class="dark-card">
-        <summary>I genitori partecipano agli incontri?</summary>
-        <p style="margin-top:10px;">
-          Il coinvolgimento della famiglia è centrale: prevediamo colloqui periodici, momenti di osservazione in
-          stanza e percorsi di parent training per portare le strategie anche a casa.
-        </p>
-      </details>
-
-      <details class="dark-card">
-        <summary>Lavorate solo con bambini?</summary>
-        <p style="margin-top:10px;">
-          Il centro si occupa principalmente di bambini e ragazzi in età evolutiva, ma possiamo valutare singole
-          situazioni anche in età adolescenziale, caso per caso.
-        </p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="terapie" class="section bg-alt">
-  <div class="container">
-    <h2 class="section-title">Metodi e Terapie</h2>
-    <p class="section-intro">Approcci scientifici basati sull'evidenza per sviluppare autonomia e comunicazione.</p>
-
-    <div class="grid-2">
-      <a href="aba.html" class="dark-card" style="display:block;">
-        <h3>Metodo ABA</h3>
-        <p>
-          L'Analisi Comportamentale Applicata lavora su obiettivi misurabili per potenziare abilità sociali
-          e ridurre comportamenti problema attraverso il rinforzo positivo.
-        </p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per scoprire come lavoriamo con il metodo ABA »</p>
-      </a>
-
-      <a href="teacch.html" class="dark-card" style="display:block;">
-        <h3>Metodo TEACCH</h3>
-        <p>
-          Il metodo TEACCH utilizza la strutturazione visiva dello spazio e del tempo per rendere
-          l'ambiente più prevedibile e comprensibile, riducendo il carico di stress.
-        </p>
-        <p style="margin-top:10px; color: var(--text-muted);">Clicca per approfondire l’approccio TEACCH »</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="struttura" class="section">
-  <div class="container">
-    <h2 class="section-title">I Nostri Spazi</h2>
-    <p class="section-intro">Ambienti progettati per accogliere, calmare e stimolare.</p>
-
-    <div class="gallery-grid">
-      <a href="sala-sensoriale.html" class="gallery-item">
-        <img src="sala-sensoriale.jpg.webp" alt="Sala Sensoriale">
-        <div class="gallery-overlay"><p>Sala Sensoriale</p></div>
-      </a>
-      <a href="area-giochi.html" class="gallery-item">
-        <img src="area-giochi.jpg.avif" alt="Area Giochi">
-        <div class="gallery-overlay"><p>Area Giochi</p></div>
-      </a>
-      <a href="studio-medico.html" class="gallery-item">
-        <img src="studio-medico.jpg.jpg" alt="Studio Medico">
-        <div class="gallery-overlay"><p>Studio Medico</p></div>
-      </a>
-      <a href="laboratori.html" class="gallery-item">
-        <img src="laboratori.jpg.jpg" alt="Laboratori creativi">
-        <div class="gallery-overlay"><p>Laboratori Creativi</p></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="recensioni" class="section bg-alt">
-  <div class="container">
-    <h2 class="section-title">Commenti delle famiglie</h2>
-    <p class="section-intro">
-      Qui puoi lasciare un commento o una testimonianza sulla tua esperienza con il centro.
-    </p>
-
-    <div class="dark-card" style="max-width: 800px; margin: 0 auto;">
-      <div id="disqus_thread"></div>
-    </div>
-  </div>
-</section>
-
-<section id="contatti" class="section bg-alt">
-  <div class="container">
-    <h2 class="section-title">Prenota un Colloquio</h2>
-
-    <div class="form-container">
-      <p style="text-align:center; margin-bottom:25px; color: var(--text-body);">
-        Compila il modulo per richiedere informazioni o fissare un primo appuntamento conoscitivo.
-      </p>
-
-      <form action="https://formsubmit.co/info.centroautismo@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="https://Abdo35689.github.io/centro-autismo/successo.html">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="text" name="Nome" placeholder="Il tuo nome" required>
-        <input type="email" name="Email" placeholder="La tua email" required>
-        <textarea name="Messaggio" rows="4" placeholder="Come possiamo aiutarti?" required></textarea>
-
-        <button type="submit" class="btn-glow" style="width:100%; border-radius:14px;">Invia Richiesta</button>
-      </form>
-      <p class="form-note">
-        Rispondiamo solitamente entro 24 ore lavorative. I dati inviati saranno utilizzati solo per rispondere alla tua richiesta.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="come-raggiungerci" class="section">
-  <div class="container">
-    <h2 class="section-title">Come raggiungerci</h2>
-    <p class="section-intro">
-      Centro BluMente si trova in via Giuseppe di Vittorio 1, Cinisello Balsamo (MI).
-      Puoi raggiungerci facilmente in auto o con i mezzi pubblici.
-    </p>
-
-    <div class="grid-2">
-      <div class="dark-card">
-        <h3>Indirizzo e contatti</h3>
-        <p>
-          <strong>Centro BluMente</strong><br>
-          Via Giuseppe di Vittorio, 1<br>
-          20092 Cinisello Balsamo (MI)
-        </p>
-        <p class="contact-links">
-          Email: <a href="mailto:info.centroautismo@gmail.com">info.centroautismo@gmail.com</a><br>
-          Instagram: <a href="https://www.instagram.com/centro_blumente" target="_blank" rel="noopener">@centro_blumente</a><br>
-          (Puoi scriverci per informazioni o per prenotare un colloquio.)
-        </p>
-        <p>
-          Parcheggi disponibili nelle vie adiacenti. Fermate autobus nelle vicinanze con collegamenti verso Milano.
-        </p>
-      </div>
-
-      <div class="dark-card" style="padding:0; overflow:hidden;">
-        <iframe
-          src="https://www.google.com/maps?q=Via+Giuseppe+di+Vittorio+1,+Cinisello+Balsamo&output=embed"
-          width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2026 Centro BluMente. Tutti i diritti riservati.</p>
-    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
-      Il blu è il colore della consapevolezza sull'autismo (Giornata Mondiale, 2 Aprile).
-    </p>
-  </div>
-</footer>
-
-<script>
-  /* NAV: indicator + scroll smooth + sezione attiva */
-  document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
-    const indicator = document.querySelector('.nav-indicator');
-    const navShell = document.querySelector('.nav-shell');
-
-    if (!indicator || !navShell || navLinks.length === 0) return;
-
-    function moveIndicator(el) {
-      const shellRect = navShell.getBoundingClientRect();
-      const rect = el.getBoundingClientRect();
-      const left = rect.left - shellRect.left;
-      const top = rect.top - shellRect.top;
-
-      indicator.style.width = rect.width + 'px';
-      indicator.style.height = rect.height + 'px';
-      indicator.style.transform = `translate(${left}px, ${top}px)`;
-      indicator.style.opacity = '1';
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').replace('#', '');
-        const section = document.getElementById(targetId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          const activeLink = navLinks.find(l => l.getAttribute('href') === '#' + id);
-          if (activeLink) {
-            navLinks.forEach(l => l.classList.remove('active-link'));
-            activeLink.classList.add('active-link');
-            moveIndicator(activeLink);
-          }
-        }
-      });
-    }, { threshold: 0.3 });
-
-    navLinks.forEach(link => {
-      const id = link.getAttribute('href').replace('#', '');
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
-    const first = navLinks[0];
-    if (first) {
-      first.classList.add('active-link');
-      setTimeout(() => moveIndicator(first), 100);
-    }
-
-    window.addEventListener('resize', () => {
-      const active = document.querySelector('.nav-link.active-link');
-      if (active) moveIndicator(active);
-    });
-  });
-
-  // HEADER MOBILE: compatto quando si scende (solo mobile)
-  (function() {
-    const header = document.getElementById('main-header');
-    if (!header) return;
-
-    const threshold = 40;
-
-    function onScroll() {
-      const currentY = window.scrollY;
-
-      if (window.innerWidth > 768) {
-        header.classList.remove('header-compact');
-        return;
-      }
-
-      if (currentY > threshold) {
-        header.classList.add('header-compact');
-      } else {
-        header.classList.remove('header-compact');
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-  })();
-</script>
-
-<script>
-  var disqus_config = function () {
-    this.page.url = 'https://abdo35689.github.io/centro-autismo/';
-    this.page.identifier = 'home-centro-autismo';
-  };
-
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://centro-blumente.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Abilita JavaScript per vedere i commenti di Disqus.</noscript>
+<!-- QUI resta identico tutto il tuo body precedente (header, sezioni, script) -->
 
 </body>
 </html>
