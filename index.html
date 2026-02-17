@@ -7,20 +7,21 @@
   <meta name="description" content="Centro BluMente: diagnosi precoce, interventi educativi, metodo ABA e TEACCH, supporto scolastico e parent training per bambini e ragazzi nello spettro autistico.">
   <style>
     :root {
-      /* Palette chiara, solare, giocosa (blu + pastelli) */
-      --bg-main: #fdfbff;
-      --bg-soft: #f7f4ff;
+      /* Palette azzurro/blu calma e giocosa */
+      --bg-main: #f3f7ff;      /* azzurro chiarissimo di sfondo */
+      --bg-soft: #e4efff;      /* sezione alternata */
       --bg-card: #ffffff;
-      --bg-chip: #ffe9b5;
-      --primary: #2f7df6;
-      --primary-soft: #8ec5ff;
-      --accent-yellow: #ffc94a;
-      --accent-pink: #ff86b7;
-      --accent-mint: #5fd6c6;
-      --accent-lilac: #c2a6ff;
-      --text-main: #1c2540;
-      --text-body: #4b5563;
-      --text-muted: #6b7280;
+      --bg-chip: #d5f3fe;
+
+      --primary: #2565AE;      /* blu principale */
+      --primary-soft: #66D3FA; /* azzurro acceso */
+      --accent-light: #D5F3FE; /* azzurro molto chiaro */
+      --accent-deep: #0F5298;  /* blu profondo per testi importanti */
+
+      --text-main: #123055;
+      --text-body: #35506a;
+      --text-muted: #60738a;
+
       --border-soft: rgba(148,163,184,0.35);
       --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
       --radius-xl: 26px;
@@ -40,34 +41,34 @@
       background-color: var(--bg-main);
       scroll-behavior: smooth;
 
-      /* DISEGNI NELLO SFONDO: linee + pallini + macchie morbide */
+      /* DISEGNI NELLO SFONDO: linee + pallini + macchie azzurre */
       background-image:
-        /* linee diagonali azzurre sottili */
+        /* linee diagonali blu */
         linear-gradient(
           120deg,
-          rgba(47, 125, 246, 0.20) 0 2px,
+          rgba(37, 101, 174, 0.20) 0 2px,
           transparent 2px 140px
         ),
-        /* linee diagonali menta */
+        /* linee diagonali azzurre */
         linear-gradient(
           300deg,
-          rgba(95, 214, 198, 0.18) 0 2px,
+          rgba(102, 211, 250, 0.18) 0 2px,
           transparent 2px 160px
         ),
-        /* puntini piccoli colorati */
-        radial-gradient(circle at 20px 20px, rgba(47, 125, 246, 0.20) 2px, transparent 0),
-        radial-gradient(circle at 80px 60px, rgba(255, 134, 183, 0.18) 2px, transparent 0),
-        /* macchie morbide più grandi (quelle che avevi già) */
-        radial-gradient(circle at 5% 10%, #ffe5f2 0, transparent 55%),
-        radial-gradient(circle at 95% 15%, #e4f3ff 0, transparent 55%),
-        radial-gradient(circle at 10% 85%, #ddfff2 0, transparent 55%),
-        radial-gradient(circle at 80% 85%, #fff1d6 0, transparent 55%);
+        /* puntini piccoli blu chiaro */
+        radial-gradient(circle at 20px 20px, rgba(37, 101, 174, 0.20) 2px, transparent 0),
+        radial-gradient(circle at 80px 60px, rgba(102, 211, 250, 0.20) 2px, transparent 0),
+        /* macchie morbide azzurre */
+        radial-gradient(circle at 5% 10%, #d5f3fe 0, transparent 55%),
+        radial-gradient(circle at 95% 15%, #c1e3ff 0, transparent 55%),
+        radial-gradient(circle at 10% 85%, #d4f0ff 0, transparent 55%),
+        radial-gradient(circle at 80% 85%, #e0edff 0, transparent 55%);
       background-size:
-        260px 260px,   /* linee azzurre */
-        280px 280px,   /* linee menta */
-        120px 120px,   /* puntini 1 */
-        140px 140px,   /* puntini 2 */
-        auto, auto, auto, auto;  /* macchie grandi */
+        260px 260px,
+        280px 280px,
+        120px 120px,
+        140px 140px,
+        auto, auto, auto, auto;
       background-attachment: fixed;
 
       padding-top: 80px;
@@ -81,7 +82,7 @@
 
     /* Header chiaro e giocoso */
     header {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.8);
@@ -147,17 +148,17 @@
       margin-right: 12px;
       font-weight: 600;
       padding-bottom: 1px;
-      border-bottom: 1px dashed rgba(37, 99, 235, 0.55);
+      border-bottom: 1px dashed rgba(37, 101, 174, 0.55);
     }
 
     .brand-links a:hover {
-      color: var(--accent-pink);
+      color: var(--primary-soft);
       border-bottom-style: solid;
     }
 
     /* Nav “pill” colorato */
     .nav-shell {
-      background: #f3f4ff;
+      background: #e8f1ff;
       border-radius: var(--radius-pill);
       padding: 5px;
       border: 1px solid rgba(209, 213, 219, 0.9);
@@ -195,7 +196,7 @@
       top: 5px;
       left: 5px;
       height: calc(100% - 10px);
-      background: linear-gradient(120deg, #2f7df6, #6fd3ff, #ffd66b);
+      background: linear-gradient(120deg, #3C99DC, #66D3FA, #2565AE);
       border-radius: var(--radius-pill);
       transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       z-index: 1;
@@ -210,31 +211,30 @@
     }
 
     nav ul li a.active-link {
-      color: #0b1a3a;
+      color: var(--accent-deep);
       font-weight: 800;
     }
 
-    /* Hero allegro con forme */
+    /* Hero */
     .hero {
       padding: 80px 0 100px;
       position: relative;
       overflow: hidden;
     }
 
-    /* forme decorative nel hero */
     .hero::before,
     .hero::after {
       content: "";
       position: absolute;
       border-radius: 999px;
       z-index: -1;
-      opacity: 0.4;
+      opacity: 0.45;
     }
 
     .hero::before {
       width: 180px;
       height: 180px;
-      background: linear-gradient(145deg, #ffd66b, #ff9bbe);
+      background: linear-gradient(145deg, #66D3FA, #3C99DC);
       top: -60px;
       right: 5%;
       transform: rotate(-8deg);
@@ -243,7 +243,7 @@
     .hero::after {
       width: 220px;
       height: 220px;
-      background: linear-gradient(145deg, #b2f5ea, #8ec5ff);
+      background: linear-gradient(145deg, #D5F3FE, #A8D8FF);
       bottom: -80px;
       left: -40px;
       transform: rotate(11deg);
@@ -262,12 +262,12 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: var(--radius-pill);
-      background: rgba(255, 249, 196, 0.9);
-      border: 1px solid #fde68a;
+      background: rgba(213, 243, 254, 0.95);
+      border: 1px solid #66D3FA;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: #92400e;
+      color: #0F5298;
       margin-bottom: 18px;
     }
 
@@ -310,7 +310,7 @@
       justify-content: center;
       padding: 12px 26px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #2f7df6, #5fe1cb);
+      background: linear-gradient(135deg, #2565AE, #66D3FA);
       color: #fff;
       font-weight: 700;
       border: none;
@@ -336,8 +336,8 @@
     }
 
     .btn-glass:hover {
-      background: #f1f5f9;
-      color: #1d4ed8;
+      background: #edf2ff;
+      color: var(--accent-deep);
     }
 
     .hero-note {
@@ -355,13 +355,12 @@
       overflow: hidden;
     }
 
-    /* forme decor in card */
     .glass-card::before {
       content: "";
       position: absolute;
       width: 90px;
       height: 90px;
-      background: radial-gradient(circle, rgba(255, 180, 210, 0.8), transparent 70%);
+      background: radial-gradient(circle, rgba(102, 211, 250, 0.7), transparent 70%);
       top: -20px;
       right: -10px;
       opacity: 0.5;
@@ -372,7 +371,7 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background: radial-gradient(circle, rgba(144, 205, 244, 0.9), transparent 70%);
+      background: radial-gradient(circle, rgba(60, 153, 220, 0.8), transparent 70%);
       bottom: -10px;
       left: -20px;
       opacity: 0.5;
@@ -395,20 +394,18 @@
       font-size: 0.75rem;
       padding: 4px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid var(--accent-mint);
-      color: #047857;
-      background: #ecfdf5;
+      border: 1px solid var(--primary-soft);
+      color: var(--accent-deep);
+      background: #e0f2ff;
       font-weight: 600;
       white-space: nowrap;
     }
 
-    /* Sezioni */
     .section {
       padding: 80px 0;
       position: relative;
     }
 
-    /* sezione alternata con sfondo chiaro */
     .bg-alt {
       background: var(--bg-soft);
       border-top: 1px solid rgba(226, 232, 240, 0.9);
@@ -435,7 +432,7 @@
       width: 80px;
       height: 7px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #ff9bbe, #ffd66b, #5fe1cb);
+      background: linear-gradient(90deg, #a8d8ff, #66D3FA, #2565AE);
       opacity: 0.8;
     }
 
@@ -447,7 +444,6 @@
       font-size: 1.02rem;
     }
 
-    /* Cards */
     .dark-card {
       background: #ffffff;
       border: 1px solid var(--border-soft);
@@ -464,7 +460,7 @@
       position: absolute;
       width: 120px;
       height: 120px;
-      background: radial-gradient(circle, rgba(248, 250, 252, 0.8), transparent 72%);
+      background: radial-gradient(circle, rgba(231, 243, 255, 0.9), transparent 72%);
       top: -20px;
       right: -10px;
       opacity: 0.9;
@@ -473,7 +469,7 @@
     .dark-card:hover {
       transform: translateY(-4px) scale(1.01);
       box-shadow: 0 16px 30px rgba(148, 163, 184, 0.25);
-      border-color: rgba(129, 140, 248, 0.8);
+      border-color: rgba(60, 153, 220, 0.9);
     }
 
     .dark-card h3 {
@@ -516,7 +512,6 @@
       border: 1px solid rgba(209, 213, 219, 0.9);
     }
 
-    /* elenco chi-siamo */
     #chi-siamo ul {
       color: var(--text-body);
       padding-left: 1.2rem;
@@ -526,7 +521,6 @@
       color: var(--primary);
     }
 
-    /* Galleria spazi */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -570,7 +564,6 @@
       margin: 0;
     }
 
-    /* FAQ */
     #faq details {
       cursor: pointer;
     }
@@ -589,7 +582,7 @@
       content: "➜";
       display: inline-block;
       margin-right: 8px;
-      color: var(--accent-pink);
+      color: var(--primary-soft);
       transform: translateY(-1px);
     }
 
@@ -597,7 +590,6 @@
       content: "↓";
     }
 
-    /* Form */
     .form-container {
       max-width: 600px;
       margin: 0 auto;
@@ -615,7 +607,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      background: radial-gradient(circle, rgba(255, 222, 159, 0.8), transparent 70%);
+      background: radial-gradient(circle, rgba(165, 216, 255, 0.8), transparent 70%);
       top: -40px;
       right: -20px;
       opacity: 0.6;
@@ -642,7 +634,7 @@
       outline: none;
       border-color: var(--primary);
       background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+      box-shadow: 0 0 0 3px rgba(37, 101, 174, 0.18);
     }
 
     .form-note {
@@ -652,20 +644,18 @@
       margin-top: 10px;
     }
 
-    /* Contatti / come raggiungerci */
     .contact-links a {
       color: var(--primary);
       font-weight: 600;
-      border-bottom: 1px dashed rgba(59, 130, 246, 0.7);
+      border-bottom: 1px dashed rgba(37, 101, 174, 0.7);
       padding-bottom: 1px;
     }
 
     .contact-links a:hover {
-      color: var(--accent-pink);
+      color: var(--primary-soft);
       border-bottom-style: solid;
     }
 
-    /* Disqus chiaro */
     #disqus_thread {
       color-scheme: light;
       color: var(--text-main) !important;
@@ -676,9 +666,8 @@
       color: var(--primary) !important;
     }
 
-    /* Footer */
     footer {
-      background: #f1f5f9;
+      background: #edf2ff;
       border-top: 1px solid rgba(203, 213, 225, 0.95);
       padding: 32px 0 26px;
       text-align: center;
@@ -690,7 +679,6 @@
       margin-top: 8px;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero h1 {
         font-size: 2.3rem;
@@ -732,7 +720,7 @@
 
       nav ul li a.active-link {
         color: var(--primary);
-        background: #e0f2fe;
+        background: #d5e4ff;
       }
 
       header.header-compact nav {
