@@ -12,8 +12,39 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: var(--bg-light);
   color: var(--text-color);
+
+  /* colore base */
+  background-color: var(--bg-light);
+
+  /* TANTI DISEGNI NELLO SFONDO (linee + pallini + forme morbide) */
+  background-image:
+    /* linee diagonali blu */
+    linear-gradient(
+      120deg,
+      rgba(0, 86, 179, 0.22) 0 2px,
+      transparent 2px 140px
+    ),
+    /* linee diagonali azzurre */
+    linear-gradient(
+      300deg,
+      rgba(0, 168, 204, 0.20) 0 2px,
+      transparent 2px 160px
+    ),
+    /* puntini piccoli blu chiaro */
+    radial-gradient(circle at 20px 20px, rgba(0, 86, 179, 0.20) 2px, transparent 0),
+    radial-gradient(circle at 80px 60px, rgba(0, 168, 204, 0.18) 2px, transparent 0),
+    /* macchie morbide più grandi */
+    radial-gradient(circle at 10% 15%, rgba(0, 168, 204, 0.12) 0, transparent 55%),
+    radial-gradient(circle at 80% 85%, rgba(0, 86, 179, 0.12) 0, transparent 55%);
+  background-size:
+    260px 260px,   /* linee blu */
+    280px 280px,   /* linee azzurre */
+    120px 120px,   /* puntini 1 */
+    140px 140px,   /* puntini 2 */
+    auto,          /* macchia 1 */
+    auto;          /* macchia 2 */
+  background-attachment: fixed;
 }
 
 /* Header compatto per le pagine interne */
