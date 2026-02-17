@@ -211,7 +211,6 @@
       background: #38bdf8;
     }
 
-    /* variante seduto */
     .little-figure.sitting .legs {
       transform: rotate(90deg);
       transform-origin: top center;
@@ -221,7 +220,6 @@
       height: 12px;
     }
 
-    /* variante che saluta */
     .little-figure.wave .body::after {
       content: "";
       position: absolute;
@@ -234,7 +232,6 @@
       transform: rotate(-20deg);
     }
 
-    /* posizioni diverse nelle sezioni */
     .hero .little-figure.f1 { top: 10px; right: 6%; }
     #servizi .little-figure.f2 { top: -20px; left: 4%; }
     #terapie .little-figure.f3 { top: 0; right: 10%; }
@@ -610,9 +607,11 @@
       opacity: 0.7;
     }
 
+    /* immagine piccolo principe: più piccola e non quadrata */
     .info-img img {
       width: 100%;
-      border-radius: var(--radius-lg);
+      max-width: 360px;
+      border-radius: 22px;
       box-shadow: 0 0 30px rgba(14,165,233,0.15);
       border: 1px solid var(--border-glass);
     }
@@ -892,6 +891,17 @@
       #contatti .little-figure.f5 {
         transform: scale(0.8);
         opacity: 0.85;
+      }
+
+      /* immagine del piccolo principe: più piccola su mobile */
+      #chi-siamo .info-img {
+        display: flex;
+        justify-content: center;
+      }
+
+      #chi-siamo .info-img img {
+        max-width: 230px;
+        border-radius: 18px;
       }
 
       header.header-compact nav {
