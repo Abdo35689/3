@@ -49,7 +49,7 @@
     .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(251,191,36,0.06), transparent 65%); top: 50%; left: 40%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── HEADER ── */
+    /* HEADER */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -69,7 +69,7 @@
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* ── BREADCRUMB ── */
+    /* BREADCRUMB */
     .breadcrumb-wrap { padding: 28px 0 0; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-body); transition: color 0.2s; }
@@ -77,7 +77,7 @@
     .breadcrumb .sep { color: var(--text-muted); opacity: 0.5; }
     .breadcrumb .current { color: var(--accent); }
 
-    /* ── HERO ── */
+    /* HERO */
     .page-hero { padding: 40px 0 80px; position: relative; overflow: hidden; }
     .page-hero::after {
       content: ""; position: absolute; width: 1px; height: 300px;
@@ -100,7 +100,7 @@
     .hero-line { display: block; width: 80px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin: 20px 0; }
     .page-hero-desc { font-size: 1.05rem; color: var(--text-body); max-width: 620px; line-height: 1.8; }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     .section { padding: 80px 0; position: relative; }
     .section-header { margin-bottom: 50px; }
     .section-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(56,189,248,0.3); border-radius: 999px; padding: 4px 14px; margin-bottom: 14px; background: rgba(56,189,248,0.05); }
@@ -110,7 +110,7 @@
     .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--blue-border), transparent); margin: 0; }
     .bg-subtle { background: rgba(8,20,45,0.25); border-top: 1px solid var(--blue-border); border-bottom: 1px solid var(--blue-border); }
 
-    /* ── GALLERY ── */
+    /* GALLERY */
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
     .gallery-item { display: block; border-radius: 20px; overflow: hidden; position: relative; border: 1px solid var(--blue-border); background: rgba(8,20,45,0.6); transition: border-color 0.3s, transform 0.35s cubic-bezier(0.23,1,0.32,1), box-shadow 0.35s; }
     .gallery-item:hover { border-color: rgba(56,189,248,0.45); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
@@ -121,7 +121,7 @@
     .gallery-caption-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text-white); margin-bottom: 8px; }
     .gallery-caption-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; }
 
-    /* ── INFO CARDS ── */
+    /* INFO CARDS */
     .info-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .info-card { background: var(--blue-card); border: 1px solid var(--blue-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
     .info-card::before { content: ""; position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(56,189,248,0.07), transparent 70%); bottom: -80px; right: -60px; pointer-events: none; }
@@ -132,7 +132,7 @@
     .info-card-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; color: var(--text-body); line-height: 1.6; }
     .info-card-list li::before { content: ""; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(56,189,248,0.5); flex-shrink: 0; margin-top: 8px; }
 
-    /* ── CTA ── */
+    /* CTA */
     .cta-card { background: linear-gradient(145deg, rgba(8,20,45,0.9), rgba(4,12,28,0.95)); border: 1px solid var(--blue-border); border-radius: 24px; padding: 50px 44px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04); }
     .cta-card::before { content: ""; position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(56,189,248,0.12), transparent 70%); top: -120px; right: -80px; pointer-events: none; }
     .cta-card-text h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--text-white); line-height: 1.2; margin-bottom: 12px; }
@@ -144,25 +144,25 @@
     .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 11px 24px; border-radius: 999px; background: transparent; color: var(--text-white); font-weight: 500; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.18); transition: all 0.3s; white-space: nowrap; }
     .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.35); }
 
-    /* ── BACK LINK ── */
+    /* BACK LINK */
     .back-wrap { padding: 10px 0 60px; position: relative; z-index: 1; }
     .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-muted); border: 1px solid var(--blue-border); border-radius: 999px; padding: 8px 18px; transition: all 0.25s; }
     .back-link:hover { color: var(--accent); border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.05); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer { background: rgba(2,8,18,0.95); border-top: 1px solid var(--blue-border); padding: 44px 0; text-align: center; }
     footer p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
     footer .footer-brand { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text-white); margin-bottom: 10px; }
     .footer-accent { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin: 0 8px; opacity: 0.6; }
 
-    /* ── REVEAL ── */
+    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── RESPONSIVE (resto anche se il menu è tolto) ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .info-columns { grid-template-columns: 1fr; }
@@ -184,7 +184,6 @@
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
 
-<!-- HEADER -->
 <header>
   <div class="container">
     <nav>
@@ -199,12 +198,11 @@
           </div>
         </div>
       </div>
-      <!-- nav-right completamente rimosso -->
+      <!-- NIENTE nav-pills, NIENTE lang-switcher -->
     </nav>
   </div>
 </header>
 
-<!-- BREADCRUMB -->
 <div class="breadcrumb-wrap">
   <div class="container">
     <div class="breadcrumb reveal">
@@ -217,7 +215,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="page-hero">
   <div class="container">
     <div class="hero-eyebrow reveal">
@@ -237,7 +234,6 @@
 
 <hr class="divider">
 
-<!-- GALLERY -->
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
@@ -296,7 +292,6 @@
 
 <hr class="divider">
 
-<!-- OBIETTIVI E METODO -->
 <section class="section bg-subtle">
   <div class="container">
     <div class="section-header reveal">
@@ -330,7 +325,6 @@
 
 <hr class="divider">
 
-<!-- CTA -->
 <section class="section">
   <div class="container">
     <div class="cta-card reveal">
@@ -351,14 +345,12 @@
   </div>
 </section>
 
-<!-- BACK LINK -->
 <div class="back-wrap">
   <div class="container">
     <a href="index.html#struttura" class="back-link reveal" data-i18n="back-link">← Torna a "La nostra struttura"</a>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-brand">Centro BluMente</div>
@@ -418,6 +410,94 @@ const translations = {
     "back-link": "← Torna a \"La nostra struttura\"",
     "footer-rights": "Tutti i diritti riservati.",
     "footer-note": "Il blu è il colore della consapevolezza sull'autismo — Giornata Mondiale, 2 Aprile."
+  },
+  es: {
+    "brand-sub": "Diagnóstico · Apoyo · Autismo",
+    "breadcrumb-home": "Inicio",
+    "breadcrumb-structure": "Nuestras instalaciones",
+    "breadcrumb-current": "Talleres creativos",
+    "hero-eyebrow": "Espacio terapéutico y educativo",
+    "hero-title": "Talleres<br><em>Creativos</em>",
+    "hero-desc": "Espacios diseñados para explorar diferentes lenguajes expresivos, entrenar la autonomía y trabajar la socialización a través de actividades prácticas, expresivas y en grupo.",
+    "gallery-tag": "Nuestros espacios",
+    "gallery-title": "Cuatro talleres,<br><em>mil posibilidades</em>",
+    "gallery-desc": "Cada ambiente está diseñado para estimular competencias específicas de forma motivadora y segura.",
+    "lab1-tag": "Expresión visual",
+    "lab1-title": "Dibujo y Pintura",
+    "lab1-desc": "Los niños se expresan con colores, témperas y materiales artísticos, trabajando la motricidad fina, la creatividad y la capacidad de completar una tarea elegida.",
+    "lab2-tag": "Autonomía cotidiana",
+    "lab2-title": "Cocina Educativa",
+    "lab2-desc": "Actividades sencillas y guiadas para experimentar pequeñas autonomías cotidianas, seguir pasos en secuencia y colaborar en la preparación de meriendas y recetas básicas.",
+    "lab3-tag": "Vida cotidiana",
+    "lab3-title": "Actividades Prácticas",
+    "lab3-desc": "Dedicado a las habilidades de la vida diaria: ordenar, trasvasar, doblar, organizar materiales, siempre con apoyos visuales e indicaciones claras.",
+    "lab4-tag": "Colaboración",
+    "lab4-title": "Trabajo en Grupo",
+    "lab4-desc": "Los niños aprenden a cooperar, respetar turnos, pedir ayuda y llevar adelante una actividad juntos en un clima de confianza.",
+    "approach-tag": "Nuestro enfoque",
+    "approach-title": "Objetivos y<br><em>modalidades de trabajo</em>",
+    "card1-title": "Objetivos de los talleres",
+    "card1-li1": "Favorecer la expresión, la creatividad y la curiosidad a través de actividades concretas y accesibles.",
+    "card1-li2": "Entrenar habilidades de autonomía básica en un contexto estructurado y seguro.",
+    "card1-li3": "Reforzar la atención, la planificación y la tolerancia a la espera.",
+    "card1-li4": "Promover la participación activa y el sentido de autoeficacia en cada niño.",
+    "card2-title": "Modalidades de desarrollo",
+    "card2-li1": "Grupos pequeños o actividades individuales, según el perfil y los objetivos del niño.",
+    "card2-li2": "Uso de apoyos visuales, rutinas claras y tareas graduales para reducir la carga cognitiva.",
+    "card2-li3": "Propuestas adaptadas a la edad, los intereses y las habilidades de cada uno.",
+    "card2-li4": "Comunicación con la familia sobre las actividades realizadas y las competencias observadas.",
+    "cta-tag": "Participa en los talleres",
+    "cta-title": "Empecemos<br><em>el camino juntos</em>",
+    "cta-desc": "Los talleres forman parte de los programas educativos personalizados y se planifican según los objetivos definidos con la familia y el equipo de trabajo. Para información sobre horarios, calendarios e inscripción, contacta con la secretaría del centro.",
+    "cta-btn-primary": "Reservar una consulta →",
+    "cta-btn-secondary": "← Todos los espacios",
+    "back-link": "← Volver a \"Nuestras instalaciones\"",
+    "footer-rights": "Todos los derechos reservados.",
+    "footer-note": "El azul es el color de la concienciación sobre el autismo — Día Mundial, 2 de Abril."
+  },
+  en: {
+    "brand-sub": "Diagnosis · Support · Autism",
+    "breadcrumb-home": "Home",
+    "breadcrumb-structure": "Our facilities",
+    "breadcrumb-current": "Creative workshops",
+    "hero-eyebrow": "Therapeutic and educational space",
+    "hero-title": "Creative<br><em>Workshops</em>",
+    "hero-desc": "Spaces designed to explore different expressive languages, build independence and work on socialisation through hands-on, expressive and group activities.",
+    "gallery-tag": "Our spaces",
+    "gallery-title": "Four workshops,<br><em>endless possibilities</em>",
+    "gallery-desc": "Each environment is designed to stimulate specific skills in an engaging and safe way.",
+    "lab1-tag": "Visual expression",
+    "lab1-title": "Drawing & Painting",
+    "lab1-desc": "Children express themselves with colours, paints and art materials, working on fine motor skills, creativity and the ability to complete a chosen task.",
+    "lab2-tag": "Daily autonomy",
+    "lab2-title": "Educational Cooking",
+    "lab2-desc": "Simple, guided activities to practise small everyday autonomy skills, follow sequential steps and collaborate in preparing snacks and basic recipes.",
+    "lab3-tag": "Daily life",
+    "lab3-title": "Practical Activities",
+    "lab3-desc": "Dedicated to daily living skills: tidying, pouring, folding, organising materials — always with visual supports and clear instructions.",
+    "lab4-tag": "Collaboration",
+    "lab4-title": "Group Work",
+    "lab4-desc": "Children learn to cooperate, take turns, ask for help and carry out an activity together in an atmosphere of trust.",
+    "approach-tag": "Our approach",
+    "approach-title": "Goals &<br><em>working methods</em>",
+    "card1-title": "Workshop goals",
+    "card1-li1": "Foster expression, creativity and curiosity through concrete, accessible activities.",
+    "card1-li2": "Build basic autonomy skills in a structured, supportive setting.",
+    "card1-li3": "Strengthen attention, planning and tolerance for waiting.",
+    "card1-li4": "Promote active participation and a sense of self-efficacy in every child.",
+    "card2-title": "How sessions work",
+    "card2-li1": "Small groups or individual activities, depending on the child's profile and goals.",
+    "card2-li2": "Use of visual supports, clear routines and graduated tasks to reduce cognitive load.",
+    "card2-li3": "Activities adapted to each child's age, interests and abilities.",
+    "card2-li4": "Regular updates shared with families on activities carried out and skills observed over time.",
+    "cta-tag": "Join the workshops",
+    "cta-title": "Let's start<br><em>the journey together</em>",
+    "cta-desc": "The workshops are part of personalised educational programmes and are scheduled based on goals agreed with the family and the team. For information on timetables, calendars and enrolment, please contact the centre.",
+    "cta-btn-primary": "Book a consultation →",
+    "cta-btn-secondary": "← All spaces",
+    "back-link": "← Back to \"Our facilities\"",
+    "footer-rights": "All rights reserved.",
+    "footer-note": "Blue is the colour of autism awareness — World Autism Day, 2 April."
   }
 };
 
@@ -433,10 +513,10 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  localStorage.setItem('blumente-lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -445,6 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
+  // lingua salvata dall'index
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
 });
