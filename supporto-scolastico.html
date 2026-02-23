@@ -19,76 +19,62 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--blue-deep); color: var(--text-body); line-height: 1.7; overflow-x: hidden; padding-top: 76px; }
-    body::before { content: ""; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); opacity: 0.5; pointer-events: none; z-index: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--blue-deep);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding-top: 76px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
     .orb { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
     .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(14,165,233,0.12), transparent 65%); top: -200px; right: -150px; }
     .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(59,130,246,0.09), transparent 65%); bottom: 10%; left: -150px; }
     .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(251,191,36,0.06), transparent 65%); top: 50%; left: 40%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(8, 20, 45, 0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-      flex-shrink: 0;
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(2,12,27,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--blue-border);
     }
-    .lang-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.22s;
-      white-space: nowrap;
-    }
-    .lang-btn:hover { color: var(--text-white); }
-    .lang-btn.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(14,165,233,0.35);
-    }
-
-    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(2,12,27,0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--blue-border); }
     .container { width: 92%; max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
     nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 20px; }
+
     .logo-area { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
     .logo-img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; border: 1.5px solid rgba(56,189,248,0.4); box-shadow: 0 0 20px rgba(56,189,248,0.2); }
     .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text-white); }
     .brand-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
-    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; }
+    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .nav-pills { display: flex; align-items: center; gap: 4px; list-style: none; background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 999px; padding: 4px; }
-    .nav-pills li a { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-body); padding: 7px 15px; border-radius: 999px; transition: all 0.25s; white-space: nowrap; }
-    .nav-pills li a:hover { color: var(--text-white); }
-    .nav-pills li a.active { background: linear-gradient(135deg, #0ea5e9, #0369a1); color: #fff; box-shadow: 0 0 16px rgba(14,165,233,0.4); }
+
     .breadcrumb-wrap { padding: 28px 0 0; position: relative; z-index: 1; }
     .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); }
     .breadcrumb a { color: var(--text-body); transition: color 0.2s; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb .sep { opacity: 0.5; }
     .breadcrumb .current { color: var(--accent); }
+
     .page-hero { padding: 40px 0 70px; position: relative; overflow: hidden; }
     .page-hero::after { content: ""; position: absolute; width: 1px; height: 300px; background: linear-gradient(to bottom, transparent, rgba(56,189,248,0.4), transparent); right: 20%; top: 10%; transform: rotate(15deg); }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; padding: 6px 14px 6px 8px; border: 1px solid rgba(56,189,248,0.3); border-radius: 999px; background: rgba(56,189,248,0.05); }
     .hero-eyebrow .dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{box-shadow:0 0 8px #22c55e}50%{box-shadow:0 0 16px #22c55e,0 0 24px rgba(34,197,94,0.4)} }
+    @keyframes pulse {
+      0%,100%{box-shadow:0 0 8px #22c55e}
+      50%{box-shadow:0 0 16px #22c55e,0 0 24px rgba(34,197,94,0.4)}
+    }
     .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: 3.2rem; line-height: 1.1; color: var(--text-white); margin-bottom: 10px; max-width: 700px; }
     .page-hero h1 em { font-style: italic; color: var(--accent-2); }
     .hero-line { display: block; width: 80px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin: 20px 0; }
@@ -96,20 +82,24 @@
     .hero-image-wrap { position: relative; margin-top: 40px; }
     .hero-image-wrap::before { content: ""; position: absolute; inset: -16px; border-radius: 32px; border: 1px dashed rgba(56,189,248,0.15); pointer-events: none; }
     .hero-image-wrap img { width: 100%; border-radius: 24px; border: 1px solid var(--blue-border); box-shadow: 0 30px 60px rgba(0,0,0,0.5); display: block; filter: brightness(0.88); }
+
     .section { padding: 80px 0; position: relative; }
     .section-header { margin-bottom: 50px; }
     .section-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(56,189,248,0.3); border-radius: 999px; padding: 4px 14px; margin-bottom: 14px; background: rgba(56,189,248,0.05); }
     .section-title { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--text-white); line-height: 1.15; margin-bottom: 12px; }
     .section-title em { font-style: italic; color: var(--accent-2); }
     .section-desc { font-size: 1rem; color: var(--text-muted); max-width: 520px; line-height: 1.8; }
+
     .divider { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--blue-border), transparent); }
     .bg-subtle { background: rgba(8,20,45,0.25); border-top: 1px solid var(--blue-border); border-bottom: 1px solid var(--blue-border); }
+
     .point-list { display: flex; flex-direction: column; gap: 14px; }
     .point-item { display: flex; gap: 16px; align-items: flex-start; padding: 20px 22px; background: rgba(8,20,45,0.5); border: 1px solid var(--blue-border); border-radius: 16px; transition: border-color 0.2s, transform 0.3s; }
     .point-item:hover { border-color: rgba(56,189,248,0.38); transform: translateX(4px); }
     .point-icon { width: 38px; height: 38px; background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(14,165,233,0.05)); border: 1px solid rgba(56,189,248,0.3); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
     .point-text strong { display: block; color: var(--text-white); font-size: 0.92rem; margin-bottom: 4px; }
     .point-text span { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     .info-card { background: var(--blue-card); border: 1px solid var(--blue-border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
     .info-card::before { content: ""; position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(56,189,248,0.07), transparent 70%); bottom: -80px; right: -60px; pointer-events: none; }
@@ -119,6 +109,7 @@
     .info-card-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
     .info-card-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.91rem; color: var(--text-body); line-height: 1.65; }
     .info-card-list li::before { content: ""; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(56,189,248,0.5); flex-shrink: 0; margin-top: 8px; }
+
     .faq-list { display: flex; flex-direction: column; gap: 10px; }
     details.faq-item { background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s; }
     details.faq-item[open] { border-color: rgba(56,189,248,0.4); }
@@ -129,6 +120,7 @@
     .faq-body { padding: 16px 22px 20px; font-size: 0.92rem; color: var(--text-body); line-height: 1.8; border-top: 1px solid var(--blue-border); }
     .faq-body p { margin-bottom: 12px; }
     .faq-body p:last-child { margin-bottom: 0; }
+
     .cta-card { background: linear-gradient(145deg, rgba(8,20,45,0.9), rgba(4,12,28,0.95)); border: 1px solid var(--blue-border); border-radius: 24px; padding: 50px 44px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04); }
     .cta-card::before { content: ""; position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(56,189,248,0.12), transparent 70%); top: -120px; right: -80px; pointer-events: none; }
     .cta-card-text h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--text-white); line-height: 1.2; margin-bottom: 12px; }
@@ -139,20 +131,34 @@
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.5); }
     .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 11px 24px; border-radius: 999px; background: transparent; color: var(--text-white); font-weight: 500; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.18); transition: all 0.3s; white-space: nowrap; }
     .btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.35); }
+
     .back-wrap { padding: 10px 0 60px; position: relative; z-index: 1; }
     .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-muted); border: 1px solid var(--blue-border); border-radius: 999px; padding: 8px 18px; transition: all 0.25s; }
     .back-link:hover { color: var(--accent); border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.05); }
+
     footer { background: rgba(2,8,18,0.95); border-top: 1px solid var(--blue-border); padding: 44px 0; text-align: center; }
     footer p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; }
     .footer-brand { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text-white); margin-bottom: 10px; }
     .footer-accent { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin: 0 8px; opacity: 0.6; }
+
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
-    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } .cta-card { grid-template-columns: 1fr; text-align: center; } .cta-actions { flex-direction: row; justify-content: center; } }
-    @media (max-width: 640px) { body { padding-top: 68px; } .nav-pills { display: none; } .page-hero h1 { font-size: 2.1rem; } .section { padding: 60px 0; } .cta-card { padding: 34px 24px; } .cta-actions { flex-direction: column; } }
+
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; }
+      .cta-card { grid-template-columns: 1fr; text-align: center; }
+      .cta-actions { flex-direction: row; justify-content: center; }
+    }
+    @media (max-width: 640px) {
+      body { padding-top: 68px; }
+      .page-hero h1 { font-size: 2.1rem; }
+      .section { padding: 60px 0; }
+      .cta-card { padding: 34px 24px; }
+      .cta-actions { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
@@ -160,7 +166,6 @@
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
 
-<!-- ══════════════ HEADER ══════════════ -->
 <header>
   <div class="container">
     <nav>
@@ -175,42 +180,29 @@
           </div>
         </div>
       </div>
-      <div class="nav-right">
-        <ul class="nav-pills">
-          <li><a href="index.html#servizi" data-i18n="nav-services">Servizi</a></li>
-          <li><a href="index.html#faq" data-i18n="nav-faq">FAQ</a></li>
-          <li><a href="index.html#terapie" data-i18n="nav-therapies">Terapie</a></li>
-          <li><a href="index.html#struttura" data-i18n="nav-structure">Struttura</a></li>
-          <li><a href="index.html#recensioni" data-i18n="nav-reviews">Opinioni</a></li>
-          <li><a href="index.html#contatti" class="active" data-i18n="nav-book">Prenota</a></li>
-        </ul>
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
-          <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
-      </div>
+      <!-- nav-right rimosso (menu + selettore lingua) -->
     </nav>
   </div>
 </header>
 
-<!-- ══════════════ BREADCRUMB ══════════════ -->
 <div class="breadcrumb-wrap">
   <div class="container">
     <div class="breadcrumb reveal">
       <a href="index.html" data-i18n="breadcrumb-home">Home</a>
-      <span class="sep">&rsaquo;</span>
+      <span class="sep">›</span>
       <a href="index.html#servizi" data-i18n="breadcrumb-services">Servizi</a>
-      <span class="sep">&rsaquo;</span>
+      <span class="sep">›</span>
       <span class="current" data-i18n="breadcrumb-current">Supporto Scolastico</span>
     </div>
   </div>
 </div>
 
-<!-- ══════════════ HERO ══════════════ -->
 <section class="page-hero">
   <div class="container">
-    <div class="hero-eyebrow reveal"><span class="dot"></span> <span data-i18n="hero-eyebrow">Percorso educativo specializzato</span></div>
+    <div class="hero-eyebrow reveal">
+      <span class="dot"></span>
+      <span data-i18n="hero-eyebrow">Percorso educativo specializzato</span>
+    </div>
     <h1 class="reveal reveal-delay-1" data-i18n-html="page-title">Supporto<br><em>Scolastico</em></h1>
     <span class="hero-line reveal reveal-delay-2"></span>
     <p class="page-hero-desc reveal reveal-delay-2" data-i18n="page-desc">
@@ -225,7 +217,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ METODO ══════════════ -->
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
@@ -235,28 +226,28 @@
     </div>
     <div class="point-list">
       <div class="point-item reveal">
-        <div class="point-icon">&#129309;</div>
+        <div class="point-icon">🤝</div>
         <div class="point-text">
           <strong data-i18n="p1-title">Incontri con il team docenti</strong>
           <span data-i18n="p1-desc">Confronto con insegnanti curricolari e di sostegno per condividere il profilo di sviluppo, le aree di forza e di difficoltà e gli obiettivi prioritari.</span>
         </div>
       </div>
       <div class="point-item reveal reveal-delay-1">
-        <div class="point-icon">&#129504;</div>
+        <div class="point-icon">🧠</div>
         <div class="point-text">
           <strong data-i18n="p2-title">Strategie cognitivo-comportamentali</strong>
           <span data-i18n="p2-desc">Condivisione di tecniche ispirate ai modelli evidence-based per sostenere comunicazione, socializzazione e comportamento adattivo in classe.</span>
         </div>
       </div>
       <div class="point-item reveal reveal-delay-2">
-        <div class="point-icon">&#128197;</div>
+        <div class="point-icon">📅</div>
         <div class="point-text">
           <strong data-i18n="p3-title">Strutturazione di tempi e ambienti</strong>
           <span data-i18n="p3-desc">Attenzione all'organizzazione di spazi, compiti e materiali per renderli adeguati e prevedibili, riducendo i problemi di comportamento.</span>
         </div>
       </div>
       <div class="point-item reveal reveal-delay-3">
-        <div class="point-icon">&#128202;</div>
+        <div class="point-icon">📊</div>
         <div class="point-text">
           <strong data-i18n="p4-title">Monitoraggio e adeguamento continuo</strong>
           <span data-i18n="p4-desc">Verifiche periodiche dei risultati e adeguamento del progetto educativo in base all'evoluzione dello studente e ai cambiamenti di contesto.</span>
@@ -268,7 +259,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ OBIETTIVI ══════════════ -->
 <section class="section bg-subtle">
   <div class="container">
     <div class="section-header reveal">
@@ -278,7 +268,7 @@
     </div>
     <div class="two-col">
       <div class="info-card reveal">
-        <div class="info-card-icon">&#128172;</div>
+        <div class="info-card-icon">💬</div>
         <h3 data-i18n="card1-title">Competenze sociali e comunicative</h3>
         <ul class="info-card-list">
           <li data-i18n="card1-li1">Potenziare le abilità comunicative tenendo conto delle difficoltà nella reciprocità e nelle relazioni tra pari.</li>
@@ -287,7 +277,7 @@
         </ul>
       </div>
       <div class="info-card reveal reveal-delay-1">
-        <div class="info-card-icon">&#11088;</div>
+        <div class="info-card-icon">⭐</div>
         <h3 data-i18n="card2-title">Valorizzazione dei punti di forza</h3>
         <ul class="info-card-list">
           <li data-i18n="card2-li1">Sfruttare pensiero visivo, capacità di routine e consegne scritte nella didattica quotidiana.</li>
@@ -301,7 +291,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ FAQ ══════════════ -->
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
@@ -339,7 +328,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ CTA ══════════════ -->
 <section class="section bg-subtle">
   <div class="container">
     <div class="cta-card reveal">
@@ -349,8 +337,8 @@
         <p data-i18n="cta-desc">Ogni percorso di supporto scolastico è pensato su misura, in stretta collaborazione con la famiglia e il team docenti. Contattaci per un primo colloquio: rispondiamo entro 24 ore lavorative.</p>
       </div>
       <div class="cta-actions">
-        <a href="index.html#contatti" class="btn-primary" data-i18n="cta-btn-primary">Prenota un colloquio &rarr;</a>
-        <a href="index.html#servizi" class="btn-secondary" data-i18n="cta-btn-secondary">&larr; Tutti i servizi</a>
+        <a href="index.html#contatti" class="btn-primary" data-i18n="cta-btn-primary">Prenota un colloquio →</a>
+        <a href="index.html#servizi" class="btn-secondary" data-i18n="cta-btn-secondary">← Tutti i servizi</a>
       </div>
     </div>
   </div>
@@ -358,11 +346,10 @@
 
 <div class="back-wrap">
   <div class="container">
-    <a href="index.html#servizi" class="back-link reveal" data-i18n="back-link">&larr; Torna a "I nostri percorsi"</a>
+    <a href="index.html#servizi" class="back-link reveal" data-i18n="back-link">← Torna a "I nostri percorsi"</a>
   </div>
 </div>
 
-<!-- ══════════════ FOOTER ══════════════ -->
 <footer>
   <div class="container">
     <div class="footer-brand">Centro BluMente</div>
@@ -375,12 +362,6 @@
 const translations = {
   it: {
     "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-services": "Servizi",
-    "nav-faq": "FAQ",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-reviews": "Opinioni",
-    "nav-book": "Prenota",
     "breadcrumb-home": "Home",
     "breadcrumb-services": "Servizi",
     "breadcrumb-current": "Supporto Scolastico",
@@ -430,12 +411,6 @@ const translations = {
   },
   es: {
     "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-services": "Servicios",
-    "nav-faq": "FAQ",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-reviews": "Opiniones",
-    "nav-book": "Reservar",
     "breadcrumb-home": "Inicio",
     "breadcrumb-services": "Servicios",
     "breadcrumb-current": "Apoyo Escolar",
@@ -485,12 +460,6 @@ const translations = {
   },
   en: {
     "brand-sub": "Diagnosis · Support · Autism",
-    "nav-services": "Services",
-    "nav-faq": "FAQ",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-reviews": "Reviews",
-    "nav-book": "Book",
     "breadcrumb-home": "Home",
     "breadcrumb-services": "Services",
     "breadcrumb-current": "School Support",
@@ -552,25 +521,19 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  localStorage.setItem('blumente-lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
 });
 </script>
 </body>
