@@ -47,27 +47,7 @@
     a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
     a:hover { opacity: 0.8; }
 
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher {
-      display: flex; align-items: center; gap: 4px;
-      background: rgba(8, 20, 45, 0.6); border: 1px solid var(--blue-border);
-      border-radius: 999px; padding: 4px; flex-shrink: 0;
-    }
-    .lang-btn {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 0.75rem; font-weight: 600; color: var(--text-muted);
-      padding: 5px 10px; border-radius: 999px; border: none;
-      background: transparent; cursor: pointer; letter-spacing: 0.04em;
-      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
-      transition: all 0.22s; white-space: nowrap;
-    }
-    .lang-btn:hover { color: var(--text-white); }
-    .lang-btn.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff; box-shadow: 0 0 14px rgba(14,165,233,0.35);
-    }
-
-    /* ─── HEADER ─── */
+    /* HEADER */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background: rgba(2, 12, 27, 0.75);
@@ -79,23 +59,19 @@
     .logo-img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; border: 1.5px solid rgba(56,189,248,0.4); box-shadow: 0 0 20px rgba(56,189,248,0.2), inset 0 0 10px rgba(56,189,248,0.05); }
     .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text-white); }
     .brand-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
-    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; }
+    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
 
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .nav-pills { display: flex; align-items: center; gap: 4px; list-style: none; background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 999px; padding: 4px; }
-    .nav-pills li a { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-body); padding: 7px 15px; border-radius: 999px; transition: all 0.25s; white-space: nowrap; color: var(--text-body); }
-    .nav-pills li a:hover { color: var(--text-white); opacity: 1; }
-    .nav-pills li a.active { background: linear-gradient(135deg, #0ea5e9, #0369a1); color: #fff; box-shadow: 0 0 16px rgba(14,165,233,0.4); }
-
-    /* ─── PAGE HERO ─── */
     .page-hero { padding: 70px 0 60px; position: relative; overflow: hidden; }
     .page-hero::after { content: ""; position: absolute; width: 1px; height: 300px; background: linear-gradient(to bottom, transparent, rgba(56,189,248,0.4), transparent); right: 15%; top: 5%; transform: rotate(15deg); }
     .page-hero-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; padding: 6px 14px 6px 8px; border: 1px solid rgba(56,189,248,0.3); border-radius: 999px; background: rgba(56,189,248,0.05); }
     .hero-eyebrow .dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { box-shadow: 0 0 8px #22c55e; } 50% { box-shadow: 0 0 16px #22c55e, 0 0 24px rgba(34,197,94,0.4); } }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 8px #22c55e; }
+      50% { box-shadow: 0 0 16px #22c55e, 0 0 24px rgba(34,197,94,0.4); }
+    }
     .page-title { font-family: 'DM Serif Display', serif; font-size: 3.4rem; line-height: 1.08; color: var(--text-white); margin-bottom: 10px; }
     .page-title em { font-style: italic; color: var(--accent-2); }
     .hero-line { display: block; width: 80px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin: 20px 0; }
@@ -138,7 +114,7 @@
     .after-card p { font-size: 0.95rem; color: var(--text-body); line-height: 1.85; margin-bottom: 16px; max-width: 680px; }
     .after-card p:last-child { margin-bottom: 0; }
 
-    details.faq-item { background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item { background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s; }
     details.faq-item[open] { border-color: rgba(56,189,248,0.4); }
     details.faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; padding: 22px 24px; font-weight: 600; font-size: 0.97rem; color: var(--text-white); user-select: none; }
     details.faq-item summary::-webkit-details-marker { display: none; }
@@ -174,7 +150,6 @@
     }
     @media (max-width: 640px) {
       body { padding-top: 68px; }
-      .nav-pills { display: none; }
       .page-title { font-size: 2rem; }
       .section { padding: 55px 0; }
       .after-card, .cta-strip { padding: 24px; }
@@ -202,21 +177,7 @@
           </div>
         </div>
       </div>
-      <div class="nav-right">
-        <ul class="nav-pills">
-          <li><a href="index.html#chi-siamo" data-i18n="nav-autism">L'Autismo</a></li>
-          <li><a href="index.html#servizi" class="active" data-i18n="nav-services">Servizi</a></li>
-          <li><a href="index.html#terapie" data-i18n="nav-therapies">Terapie</a></li>
-          <li><a href="index.html#struttura" data-i18n="nav-structure">Struttura</a></li>
-          <li><a href="index.html#contatti" data-i18n="nav-book">Prenota</a></li>
-        </ul>
-        <!-- SELETTORE LINGUA -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
-          <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
-      </div>
+      <!-- nav-right rimosso (menu + selettore lingua) -->
     </nav>
   </div>
 </header>
@@ -429,11 +390,6 @@
 const translations = {
   it: {
     "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-autism": "L'Autismo",
-    "nav-services": "Servizi",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-book": "Prenota",
     "hero-eyebrow": "Percorso diagnostico",
     "hero-title": "Diagnosi<br><em>Precoce</em>",
     "hero-desc": "Valutazioni specialistiche per individuare in modo tempestivo i segnali di un disturbo dello spettro autistico e avviare percorsi di intervento mirati già nei primi anni di vita.",
@@ -486,11 +442,6 @@ const translations = {
   },
   es: {
     "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-autism": "El Autismo",
-    "nav-services": "Servicios",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-book": "Reservar",
     "hero-eyebrow": "Itinerario diagnóstico",
     "hero-title": "Diagnóstico<br><em>Precoz</em>",
     "hero-desc": "Evaluaciones especializadas para identificar de forma temprana las señales de un trastorno del espectro autista e iniciar programas de intervención específicos desde los primeros años de vida.",
@@ -543,11 +494,6 @@ const translations = {
   },
   en: {
     "brand-sub": "Diagnosis · Support · Autism",
-    "nav-autism": "Autism",
-    "nav-services": "Services",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-book": "Book",
     "hero-eyebrow": "Diagnostic pathway",
     "hero-title": "Early<br><em>Diagnosis</em>",
     "hero-desc": "Specialist assessments to identify the early signs of autism spectrum disorder and begin targeted intervention programmes from the very first years of life.",
@@ -612,10 +558,6 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  localStorage.setItem('blumente-lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -629,10 +571,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
 });
 </script>
 </body>
