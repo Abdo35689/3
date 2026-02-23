@@ -101,18 +101,46 @@
     .logo-img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; border: 1.5px solid rgba(56,189,248,0.4); box-shadow: 0 0 20px rgba(56,189,248,0.2); }
     .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text-white); }
     .brand-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
-    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; }
+    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .nav-pills { display: flex; align-items: center; gap: 4px; list-style: none; background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border); border-radius: 999px; padding: 4px; }
-    .nav-pills li a { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-body); padding: 7px 15px; border-radius: 999px; transition: all 0.25s; white-space: nowrap; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      background: rgba(8,20,45,0.6);
+      border: 1px solid var(--blue-border);
+      border-radius: 999px;
+      padding: 4px;
+      flex-wrap: nowrap;
+    }
+    .nav-pills li a {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-body);
+      padding: 7px 15px;
+      border-radius: 999px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
     .nav-pills li a:hover { color: var(--text-white); }
-    .nav-pills li a.active { background: linear-gradient(135deg, #0ea5e9, #0369a1); color: #fff; box-shadow: 0 0 16px rgba(14,165,233,0.4); }
+    .nav-pills li a.active {
+      background: linear-gradient(135deg, #0ea5e9, #0369a1);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(14,165,233,0.4);
+    }
 
     /* ── BREADCRUMB ── */
     .breadcrumb-wrap { padding: 28px 0 0; position: relative; z-index: 1; }
-    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); }
+    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-body); transition: color 0.2s; }
     .breadcrumb a:hover { color: var(--accent); }
     .breadcrumb .sep { color: var(--text-muted); opacity: 0.5; }
@@ -203,6 +231,7 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .info-columns { grid-template-columns: 1fr; }
@@ -210,13 +239,60 @@
       .cta-card-text p { max-width: 100%; margin: 0 auto; }
       .cta-actions { flex-direction: row; justify-content: center; }
     }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        row-gap: 10px;
+      }
+      .nav-right {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .nav-pills {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    }
+
     @media (max-width: 640px) {
       body { padding-top: 68px; }
-      .nav-pills { display: none; }
+      nav {
+        align-items: flex-start;
+      }
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .nav-pills {
+        order: 1;
+        flex: 1 1 100%;
+        justify-content: flex-start;
+      }
+      .lang-switcher {
+        order: 2;
+        flex: 0 0 auto;
+      }
       .page-hero h1 { font-size: 2.1rem; }
       .section { padding: 60px 0; }
       .cta-card { padding: 34px 24px; }
       .cta-actions { flex-direction: column; }
+    }
+
+    @media (max-width: 420px) {
+      .nav-right {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .nav-pills {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .lang-switcher {
+        align-self: flex-end;
+      }
     }
   </style>
 </head>
@@ -598,7 +674,6 @@ function applyLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -607,11 +682,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
-  // Legge la lingua scelta nell'index (o default italiano)
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
 
-  // Bottoni lingua
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
