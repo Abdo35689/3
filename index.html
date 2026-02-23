@@ -116,8 +116,6 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ── LANGUAGE SWITCHER ── */
     .lang-switcher {
       display: flex;
       align-items: center;
@@ -153,7 +151,6 @@
       box-shadow: 0 0 14px rgba(14,165,233,0.35);
     }
     .lang-flag { font-size: 1rem; line-height: 1; }
-
     .nav-pills {
       display: flex;
       align-items: center;
@@ -244,8 +241,6 @@
       border-radius: 12px;
     }
     .mobile-nav li a:hover { background: rgba(30,64,175,0.7); }
-
-    /* ── MOBILE LANG in menu ── */
     .mobile-lang-row {
       display: flex;
       gap: 6px;
@@ -277,7 +272,6 @@
       color: #fff;
       border-color: transparent;
     }
-
     .hero {
       min-height: 88vh;
       display: flex;
@@ -1016,11 +1010,10 @@
           <div class="brand-sub" data-i18n="brand-sub">Diagnosi · Supporto · Autismo</div>
           <div class="brand-contacts">
             <a href="https://www.instagram.com/centro_blumente" target="_blank" rel="noopener">@centro_blumente</a>
-            <a href="/cdn-cgi/l/email-protection#6a03040c0544090f041e18050b1f1e031907052a0d070b030644090507"><span class="__cf_email__" data-cfemail="8ce5e2eae3a2efe9e2f8fee3edf9f8e5ffe1e3ccebe1ede5e0a2efe3e1">[email&#160;protected]</span></a>
+            <a href="mailto:info.centroautismo@gmail.com">info.centroautismo@gmail.com</a>
           </div>
         </div>
       </div>
-
       <!-- MENU DESKTOP -->
       <ul class="nav-pills">
         <li><a href="#top" class="nav-link" data-i18n="nav-home">Home</a></li>
@@ -1031,29 +1024,18 @@
         <li><a href="#recensioni" class="nav-link" data-i18n="nav-reviews">Opinioni</a></li>
         <li><a href="#contatti" class="nav-link" data-i18n="nav-book">Prenota</a></li>
       </ul>
-
       <div class="nav-right">
-        <!-- LANGUAGE SWITCHER DESKTOP -->
         <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn active" data-lang="it">
-            <span class="lang-flag">🇮🇹</span> IT
-          </button>
-          <button class="lang-btn" data-lang="es">
-            <span class="lang-flag">🇪🇸</span> ES
-          </button>
-          <button class="lang-btn" data-lang="en">
-            <span class="lang-flag">🇬🇧</span> EN
-          </button>
+          <button class="lang-btn active" data-lang="it"><span class="lang-flag">🇮🇹</span> IT</button>
+          <button class="lang-btn" data-lang="es"><span class="lang-flag">🇪🇸</span> ES</button>
+          <button class="lang-btn" data-lang="en"><span class="lang-flag">🇬🇧</span> EN</button>
         </div>
-
-        <!-- HAMBURGER MOBILE -->
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Apri il menu">
           <div class="hamburger-icon">
             <span></span><span></span><span></span>
           </div>
         </button>
       </div>
-
       <!-- MENU MOBILE -->
       <div class="mobile-nav" id="mobileNav">
         <ul>
@@ -1065,7 +1047,6 @@
           <li><a href="#recensioni" class="mobile-link" data-i18n="nav-reviews">Opinioni</a></li>
           <li><a href="#contatti" class="mobile-link" data-i18n="nav-book">Prenota</a></li>
         </ul>
-        <!-- Language switcher inside mobile menu -->
         <div class="mobile-lang-row">
           <button class="mobile-lang-btn active" data-lang="it">🇮🇹 IT</button>
           <button class="mobile-lang-btn" data-lang="es">🇪🇸 ES</button>
@@ -1137,7 +1118,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- CHI SIAMO -->
@@ -1179,7 +1159,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- SERVIZI -->
@@ -1212,7 +1191,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- FAQ -->
@@ -1224,69 +1202,32 @@
     </div>
     <div class="faq-list">
       <details class="faq-item reveal">
-        <summary>
-          <span data-i18n="faq1-q">Quando è utile richiedere una valutazione?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq1-a">
-          Consigliamo una valutazione quando emergono dubbi su linguaggio, socializzazione, gioco o comportamento,
-          oppure su segnalazione del pediatra o della scuola dell'infanzia.
-        </div>
+        <summary><span data-i18n="faq1-q">Quando è utile richiedere una valutazione?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq1-a">Consigliamo una valutazione quando emergono dubbi su linguaggio, socializzazione, gioco o comportamento, oppure su segnalazione del pediatra o della scuola dell'infanzia.</div>
       </details>
       <details class="faq-item reveal reveal-delay-1">
-        <summary>
-          <span data-i18n="faq2-q">Serve l'impegnativa del medico?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq2-a">
-          Il nostro è un centro privato: non è necessaria l'impegnativa. In caso di presa in carico da parte dei servizi
-          territoriali, collaboriamo volentieri con neuropsichiatria infantile e pediatra.
-        </div>
+        <summary><span data-i18n="faq2-q">Serve l'impegnativa del medico?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq2-a">Il nostro è un centro privato: non è necessaria l'impegnativa. In caso di presa in carico da parte dei servizi territoriali, collaboriamo volentieri con neuropsichiatria infantile e pediatra.</div>
       </details>
       <details class="faq-item reveal reveal-delay-2">
-        <summary>
-          <span data-i18n="faq3-q">Quanto dura un percorso di intervento?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq3-a">
-          La durata dipende dagli obiettivi condivisi: normalmente i percorsi vengono programmati su almeno 6–12 mesi,
-          con verifiche periodiche e momenti di confronto con la famiglia e la scuola.
-        </div>
+        <summary><span data-i18n="faq3-q">Quanto dura un percorso di intervento?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq3-a">La durata dipende dagli obiettivi condivisi: normalmente i percorsi vengono programmati su almeno 6–12 mesi, con verifiche periodiche e momenti di confronto con la famiglia e la scuola.</div>
       </details>
       <details class="faq-item reveal reveal-delay-1">
-        <summary>
-          <span data-i18n="faq4-q">Coinvolgete anche la scuola?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq4-a">
-          Sì, lavoriamo in rete con insegnanti curricolari e di sostegno, partecipiamo agli incontri con il GLHO
-          e collaboriamo alla definizione di strategie condivise per il contesto classe.
-        </div>
+        <summary><span data-i18n="faq4-q">Coinvolgete anche la scuola?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq4-a">Sì, lavoriamo in rete con insegnanti curricolari e di sostegno, partecipiamo agli incontri con il GLHO e collaboriamo alla definizione di strategie condivise per il contesto classe.</div>
       </details>
       <details class="faq-item reveal reveal-delay-2">
-        <summary>
-          <span data-i18n="faq5-q">I genitori partecipano agli incontri?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq5-a">
-          Il coinvolgimento della famiglia è centrale: prevediamo colloqui periodici, momenti di osservazione in
-          stanza e percorsi di parent training per portare le strategie anche a casa.
-        </div>
+        <summary><span data-i18n="faq5-q">I genitori partecipano agli incontri?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq5-a">Il coinvolgimento della famiglia è centrale: prevediamo colloqui periodici, momenti di osservazione in stanza e percorsi di parent training per portare le strategie anche a casa.</div>
       </details>
       <details class="faq-item reveal reveal-delay-3">
-        <summary>
-          <span data-i18n="faq6-q">Lavorate solo con bambini?</span>
-          <span class="faq-arrow">+</span>
-        </summary>
-        <div class="faq-body" data-i18n="faq6-a">
-          Il centro si occupa principalmente di bambini e ragazzi in età evolutiva, ma possiamo valutare singole
-          situazioni anche in età adolescenziale, caso per caso.
-        </div>
+        <summary><span data-i18n="faq6-q">Lavorate solo con bambini?</span><span class="faq-arrow">+</span></summary>
+        <div class="faq-body" data-i18n="faq6-a">Il centro si occupa principalmente di bambini e ragazzi in età evolutiva, ma possiamo valutare singole situazioni anche in età adolescenziale, caso per caso.</div>
       </details>
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- TERAPIE -->
@@ -1294,30 +1235,19 @@
   <div class="container">
     <div class="section-header">
       <div class="section-tag reveal" data-i18n="therapy-tag">Metodo TEACCH</div>
-      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="therapy-title">
-        Un unico approccio<br><em>chiaro e strutturato</em>
-      </h2>
-      <p class="section-desc reveal reveal-delay-2" data-i18n="therapy-desc">
-        Il centro utilizza esclusivamente il metodo TEACCH, un approccio educativo strutturato
-        che aiuta i bambini nello spettro autistico a comprendere meglio l'ambiente, sviluppare
-        autonomia e comunicare in modo più efficace.
-      </p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="therapy-title">Un unico approccio<br><em>chiaro e strutturato</em></h2>
+      <p class="section-desc reveal reveal-delay-2" data-i18n="therapy-desc">Il centro utilizza esclusivamente il metodo TEACCH, un approccio educativo strutturato che aiuta i bambini nello spettro autistico a comprendere meglio l'ambiente, sviluppare autonomia e comunicare in modo più efficace.</p>
     </div>
     <div class="therapy-grid">
       <a href="teacch.html" class="therapy-card reveal">
         <span class="therapy-badge" data-i18n="therapy-badge">Metodo esclusivo del centro</span>
         <h3>TEACCH</h3>
-        <p data-i18n="therapy-p">
-          Il metodo TEACCH si basa sulla strutturazione visiva dello spazio, del tempo e delle attività.
-          Riduce l'incertezza, rende le richieste più chiare e sostiene le competenze quotidiane del bambino,
-          a casa, a scuola e nei contesti di vita.
-        </p>
+        <p data-i18n="therapy-p">Il metodo TEACCH si basa sulla strutturazione visiva dello spazio, del tempo e delle attività. Riduce l'incertezza, rende le richieste più chiare e sostiene le competenze quotidiane del bambino, a casa, a scuola e nei contesti di vita.</p>
         <span class="service-link" data-i18n="therapy-link">Approfondisci il metodo TEACCH →</span>
       </a>
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- STRUTTURA -->
@@ -1330,28 +1260,28 @@
     </div>
     <div class="gallery-grid">
       <a href="sala-sensoriale.html" class="gallery-item reveal">
-        <img src="sala-sensoriale.jpg.webp" alt="Sala Sensoriale">
+        <img src="sala-sensoriale.webp" alt="Sala Sensoriale">
         <div class="gallery-caption">
           <span data-i18n="gallery1-tag">Spazio terapeutico</span>
           <p data-i18n="gallery1-title">Sala Sensoriale</p>
         </div>
       </a>
       <a href="area-giochi.html" class="gallery-item reveal reveal-delay-1">
-        <img src="area-giochi.jpg.avif" alt="Area Giochi">
+        <img src="area-giochi.avif" alt="Area Giochi">
         <div class="gallery-caption">
           <span data-i18n="gallery2-tag">Ludico-educativa</span>
           <p data-i18n="gallery2-title">Area Giochi</p>
         </div>
       </a>
       <a href="studio-medico.html" class="gallery-item reveal reveal-delay-2">
-        <img src="studio-medico.jpg.jpg" alt="Studio Medico">
+        <img src="studio-medico.jpg" alt="Studio Medico">
         <div class="gallery-caption">
           <span data-i18n="gallery3-tag">Valutazione clinica</span>
           <p data-i18n="gallery3-title">Studio Medico</p>
         </div>
       </a>
       <a href="laboratori.html" class="gallery-item reveal reveal-delay-3">
-        <img src="laboratori.jpg.jpg" alt="Laboratori creativi">
+        <img src="laboratori.jpg" alt="Laboratori creativi">
         <div class="gallery-caption">
           <span data-i18n="gallery4-tag">Espressione e creatività</span>
           <p data-i18n="gallery4-title">Laboratori Creativi</p>
@@ -1360,7 +1290,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- RECENSIONI -->
@@ -1376,7 +1305,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- CONTATTI -->
@@ -1389,17 +1317,14 @@
           <span data-i18n="contact-title">Iniziamo insieme</span><br>
           <em style="font-style:italic; color:var(--accent-2)" data-i18n="contact-subtitle">il percorso</em>
         </h2>
-        <p data-i18n="contact-desc">
-          Compila il modulo per richiedere informazioni o fissare un primo
-          appuntamento conoscitivo. Rispondiamo entro 24 ore lavorative.
-        </p>
+        <p data-i18n="contact-desc">Compila il modulo per richiedere informazioni o fissare un primo appuntamento conoscitivo. Rispondiamo entro 24 ore lavorative.</p>
         <div class="contact-meta">
           <div class="contact-item">
             <div class="contact-item-icon">📧</div>
             <div>
               <div class="contact-item-label">Email</div>
               <div class="contact-item-value">
-                <a href="/cdn-cgi/l/email-protection#670e090108490402091315080612130e140a0827000a060e0b4904080a"><span class="__cf_email__" data-cfemail="89e0e7efe6a7eaece7fdfbe6e8fcfde0fae4e6c9eee4e8e0e5a7eae6e4">[email&#160;protected]</span></a>
+                <a href="mailto:info.centroautismo@gmail.com">info.centroautismo@gmail.com</a>
               </div>
             </div>
           </div>
@@ -1446,7 +1371,6 @@
     </div>
   </div>
 </section>
-
 <hr class="divider">
 
 <!-- COME RAGGIUNGERCI -->
@@ -1459,24 +1383,17 @@
     <div class="map-layout reveal">
       <div class="map-info">
         <h3>Centro BluMente</h3>
+        <p>Via Giuseppe di Vittorio, 1<br>20092 Cinisello Balsamo (MI)</p>
         <p>
-          Via Giuseppe di Vittorio, 1<br>
-          20092 Cinisello Balsamo (MI)
-        </p>
-        <p>
-          Email: <a href="/cdn-cgi/l/email-protection#84edeae2ebaae7e1eaf0f6ebe5f1f0edf7e9ebc4e3e9e5ede8aae7ebe9"><span class="__cf_email__" data-cfemail="f59c9b939adb96909b81879a9480819c86989ab59298949c99db969a98">[email&#160;protected]</span></a><br>
+          Email: <a href="mailto:info.centroautismo@gmail.com">info.centroautismo@gmail.com</a><br>
           Instagram: <a href="https://www.instagram.com/centro_blumente" target="_blank" rel="noopener">@centro_blumente</a>
         </p>
         <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="map-parking">
-          Parcheggi disponibili nelle vie adiacenti. Fermate autobus nelle
-          vicinanze con collegamenti verso Milano.
+          Parcheggi disponibili nelle vie adiacenti. Fermate autobus nelle vicinanze con collegamenti verso Milano.
         </p>
       </div>
       <div class="map-embed">
-        <iframe
-          src="https://www.google.com/maps?q=Via+Giuseppe+di+Vittorio+1,+Cinisello+Balsamo&output=embed"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe src="https://www.google.com/maps?q=Via+Giuseppe+di+Vittorio+1,+Cinisello+Balsamo&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
@@ -1496,324 +1413,42 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ── TRANSLATIONS ────────────────────────────────────────────────────────────
+<script>
 const translations = {
   it: {
-    "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-home": "Home",
-    "nav-services": "Servizi",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-reviews": "Opinioni",
-    "nav-book": "Prenota",
-    "hero-eyebrow": "Centro specializzato nello spettro autistico",
-    "hero-h1": "Accogliere.<br><em>Comprendere.</em><br>Crescere.",
-    "hero-desc": "Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie. Equipe multidisciplinare di psicologi, terapisti, educatori e logopedisti.",
-    "hero-cta-primary": "Prenota un colloquio",
-    "hero-cta-secondary": "Scopri i percorsi →",
-    "hero-card-title": "Per famiglie e bambini",
-    "hero-card-badge": "Percorsi personalizzati",
-    "hero-card-desc": "Valutazioni cliniche, progetti educativi individualizzati e percorsi di parent training, costruiti insieme a scuola e famiglia per sostenere la crescita quotidiana.",
-    "stat-families": "Famiglie soddisfatte",
-    "stat-years": "Anni di esperienza",
-    "stat-method": "Metodo certificato",
-    "stat-support": "Supporto continuo",
-    "info-tag": "Informazioni",
-    "info-title": "Cos'è lo Spettro dell'Autismo?",
-    "info-p1": "Il <strong style=\"color:var(--text-white)\">Disturbo dello Spettro Autistico (ASD)</strong> è una condizione del neurosviluppo caratterizzata da differenze nella comunicazione sociale e dalla presenza di interessi molto assorbenti.",
-    "info-p2": "La diagnosi precoce permette di definire il supporto ideale per valorizzare le potenzialità di ogni persona.",
-    "info-point1-title": "Comunicazione",
-    "info-point1-desc": "Differenze nella reciprocità, nel contatto oculare e nella comprensione delle sfumature sociali.",
-    "info-point2-title": "Sensorialità e interessi",
-    "info-point2-desc": "Routine rigide, sensibilità agli stimoli e passioni molto focalizzate.",
-    "services-tag": "I nostri percorsi",
-    "services-title": "Supporto per ogni fase<br><em>della vita</em>",
-    "services-desc": "Interventi mirati costruiti attorno alle esigenze di ogni bambino e della sua famiglia.",
-    "service1-title": "Diagnosi Precoce",
-    "service1-desc": "Valutazioni cliniche per individuare i segnali dello spettro fin dai primi anni e avviare subito l'intervento.",
-    "service2-title": "Supporto Scolastico",
-    "service2-desc": "Collaboriamo con le scuole per creare ambienti inclusivi e adattare la didattica ai bisogni dello studente.",
-    "service3-title": "Parent Training",
-    "service3-desc": "Incontri per genitori, per fornire strumenti pratici e strategie educative da usare nel quotidiano.",
-    "service-more": "Approfondisci →",
-    "service-discover": "Scopri →",
-    "service-read": "Leggi di più →",
-    "faq-tag": "Domande frequenti",
-    "faq-title": "Hai dei dubbi?<br><em>Ti rispondiamo</em>",
-    "faq1-q": "Quando è utile richiedere una valutazione?",
-    "faq1-a": "Consigliamo una valutazione quando emergono dubbi su linguaggio, socializzazione, gioco o comportamento, oppure su segnalazione del pediatra o della scuola dell'infanzia.",
-    "faq2-q": "Serve l'impegnativa del medico?",
-    "faq2-a": "Il nostro è un centro privato: non è necessaria l'impegnativa. In caso di presa in carico da parte dei servizi territoriali, collaboriamo volentieri con neuropsichiatria infantile e pediatra.",
-    "faq3-q": "Quanto dura un percorso di intervento?",
-    "faq3-a": "La durata dipende dagli obiettivi condivisi: normalmente i percorsi vengono programmati su almeno 6–12 mesi, con verifiche periodiche e momenti di confronto con la famiglia e la scuola.",
-    "faq4-q": "Coinvolgete anche la scuola?",
-    "faq4-a": "Sì, lavoriamo in rete con insegnanti curricolari e di sostegno, partecipiamo agli incontri con il GLHO e collaboriamo alla definizione di strategie condivise per il contesto classe.",
-    "faq5-q": "I genitori partecipano agli incontri?",
-    "faq5-a": "Il coinvolgimento della famiglia è centrale: prevediamo colloqui periodici, momenti di osservazione in stanza e percorsi di parent training per portare le strategie anche a casa.",
-    "faq6-q": "Lavorate solo con bambini?",
-    "faq6-a": "Il centro si occupa principalmente di bambini e ragazzi in età evolutiva, ma possiamo valutare singole situazioni anche in età adolescenziale, caso per caso.",
-    "therapy-tag": "Metodo TEACCH",
-    "therapy-title": "Un unico approccio<br><em>chiaro e strutturato</em>",
-    "therapy-desc": "Il centro utilizza esclusivamente il metodo TEACCH, un approccio educativo strutturato che aiuta i bambini nello spettro autistico a comprendere meglio l'ambiente, sviluppare autonomia e comunicare in modo più efficace.",
-    "therapy-badge": "Metodo esclusivo del centro",
-    "therapy-p": "Il metodo TEACCH si basa sulla strutturazione visiva dello spazio, del tempo e delle attività. Riduce l'incertezza, rende le richieste più chiare e sostiene le competenze quotidiane del bambino, a casa, a scuola e nei contesti di vita.",
-    "therapy-link": "Approfondisci il metodo TEACCH →",
-    "structure-tag": "I nostri spazi",
-    "structure-title": "Ambienti pensati<br><em>per accogliere</em>",
-    "structure-desc": "Progettati per calmare, stimolare e far sentire ogni bambino a proprio agio.",
-    "gallery1-tag": "Spazio terapeutico",
-    "gallery1-title": "Sala Sensoriale",
-    "gallery2-tag": "Ludico-educativa",
-    "gallery2-title": "Area Giochi",
-    "gallery3-tag": "Valutazione clinica",
-    "gallery3-title": "Studio Medico",
-    "gallery4-tag": "Espressione e creatività",
-    "gallery4-title": "Laboratori Creativi",
-    "reviews-tag": "Testimonianze",
-    "reviews-title": "Le famiglie<br><em>parlano di noi</em>",
-    "reviews-desc": "Lascia un commento sulla tua esperienza con il centro.",
-    "contact-tag": "Prenota ora",
-    "contact-title": "Iniziamo insieme",
-    "contact-subtitle": "il percorso",
-    "contact-desc": "Compila il modulo per richiedere informazioni o fissare un primo appuntamento conoscitivo. Rispondiamo entro 24 ore lavorative.",
-    "contact-address-label": "Indirizzo",
-    "form-name-label": "Il tuo nome",
-    "form-name-ph": "Mario Rossi",
-    "form-email-label": "La tua email",
-    "form-msg-label": "Come possiamo aiutarti?",
-    "form-msg-ph": "Descrivi brevemente la situazione...",
-    "form-submit": "Invia Richiesta →",
-    "form-note": "I dati inviati verranno utilizzati solo per rispondere alla tua richiesta.",
-    "map-tag": "Dove siamo",
-    "map-title": "Come <em>raggiungerci</em>",
-    "map-parking": "Parcheggi disponibili nelle vie adiacenti. Fermate autobus nelle vicinanze con collegamenti verso Milano.",
-    "footer-rights": "Tutti i diritti riservati.",
-    "footer-note": "Il blu è il colore della consapevolezza sull'autismo — Giornata Mondiale, 2 Aprile."
+    "brand-sub": "Diagnosi · Supporto · Autismo","nav-home": "Home","nav-services": "Servizi","nav-therapies": "Terapie","nav-structure": "Struttura","nav-reviews": "Opinioni","nav-book": "Prenota","hero-eyebrow": "Centro specializzato nello spettro autistico","hero-h1": "Accogliere.<br><em>Comprendere.</em><br>Crescere.","hero-desc": "Un punto di riferimento per diagnosi precoce, interventi educativi e supporto alle famiglie. Equipe multidisciplinare di psicologi, terapisti, educatori e logopedisti.","hero-cta-primary": "Prenota un colloquio","hero-cta-secondary": "Scopri i percorsi →","hero-card-title": "Per famiglie e bambini","hero-card-badge": "Percorsi personalizzati","hero-card-desc": "Valutazioni cliniche, progetti educativi individualizzati e percorsi di parent training, costruiti insieme a scuola e famiglia per sostenere la crescita quotidiana.","stat-families": "Famiglie soddisfatte","stat-years": "Anni di esperienza","stat-method": "Metodo certificato","stat-support": "Supporto continuo","info-tag": "Informazioni","info-title": "Cos'è lo Spettro dell'Autismo?","info-p1": "Il <strong style=\"color:var(--text-white)\">Disturbo dello Spettro Autistico (ASD)</strong> è una condizione del neurosviluppo caratterizzata da differenze nella comunicazione sociale e dalla presenza di interessi molto assorbenti.","info-p2": "La diagnosi precoce permette di definire il supporto ideale per valorizzare le potenzialità di ogni persona.","info-point1-title": "Comunicazione","info-point1-desc": "Differenze nella reciprocità, nel contatto oculare e nella comprensione delle sfumature sociali.","info-point2-title": "Sensorialità e interessi","info-point2-desc": "Routine rigide, sensibilità agli stimoli e passioni molto focalizzate.","services-tag": "I nostri percorsi","services-title": "Supporto per ogni fase<br><em>della vita</em>","services-desc": "Interventi mirati costruiti attorno alle esigenze di ogni bambino e della sua famiglia.","service1-title": "Diagnosi Precoce","service1-desc": "Valutazioni cliniche per individuare i segnali dello spettro fin dai primi anni e avviare subito l'intervento.","service2-title": "Supporto Scolastico","service2-desc": "Collaboriamo con le scuole per creare ambienti inclusivi e adattare la didattica ai bisogni dello studente.","service3-title": "Parent Training","service3-desc": "Incontri per genitori, per fornire strumenti pratici e strategie educative da usare nel quotidiano.","service-more": "Approfondisci →","service-discover": "Scopri →","service-read": "Leggi di più →","faq-tag": "Domande frequenti","faq-title": "Hai dei dubbi?<br><em>Ti rispondiamo</em>","faq1-q": "Quando è utile richiedere una valutazione?","faq1-a": "Consigliamo una valutazione quando emergono dubbi su linguaggio, socializzazione, gioco o comportamento, oppure su segnalazione del pediatra o della scuola dell'infanzia.","faq2-q": "Serve l'impegnativa del medico?","faq2-a": "Il nostro è un centro privato: non è necessaria l'impegnativa. In caso di presa in carico da parte dei servizi territoriali, collaboriamo volentieri con neuropsichiatria infantile e pediatra.","faq3-q": "Quanto dura un percorso di intervento?","faq3-a": "La durata dipende dagli obiettivi condivisi: normalmente i percorsi vengono programmati su almeno 6–12 mesi, con verifiche periodiche e momenti di confronto con la famiglia e la scuola.","faq4-q": "Coinvolgete anche la scuola?","faq4-a": "Sì, lavoriamo in rete con insegnanti curricolari e di sostegno, partecipiamo agli incontri con il GLHO e collaboriamo alla definizione di strategie condivise per il contesto classe.","faq5-q": "I genitori partecipano agli incontri?","faq5-a": "Il coinvolgimento della famiglia è centrale: prevediamo colloqui periodici, momenti di osservazione in stanza e percorsi di parent training per portare le strategie anche a casa.","faq6-q": "Lavorate solo con bambini?","faq6-a": "Il centro si occupa principalmente di bambini e ragazzi in età evolutiva, ma possiamo valutare singole situazioni anche in età adolescenziale, caso per caso.","therapy-tag": "Metodo TEACCH","therapy-title": "Un unico approccio<br><em>chiaro e strutturato</em>","therapy-desc": "Il centro utilizza esclusivamente il metodo TEACCH, un approccio educativo strutturato che aiuta i bambini nello spettro autistico a comprendere meglio l'ambiente, sviluppare autonomia e comunicare in modo più efficace.","therapy-badge": "Metodo esclusivo del centro","therapy-p": "Il metodo TEACCH si basa sulla strutturazione visiva dello spazio, del tempo e delle attività. Riduce l'incertezza, rende le richieste più chiare e sostiene le competenze quotidiane del bambino, a casa, a scuola e nei contesti di vita.","therapy-link": "Approfondisci il metodo TEACCH →","structure-tag": "I nostri spazi","structure-title": "Ambienti pensati<br><em>per accogliere</em>","structure-desc": "Progettati per calmare, stimolare e far sentire ogni bambino a proprio agio.","gallery1-tag": "Spazio terapeutico","gallery1-title": "Sala Sensoriale","gallery2-tag": "Ludico-educativa","gallery2-title": "Area Giochi","gallery3-tag": "Valutazione clinica","gallery3-title": "Studio Medico","gallery4-tag": "Espressione e creatività","gallery4-title": "Laboratori Creativi","reviews-tag": "Testimonianze","reviews-title": "Le famiglie<br><em>parlano di noi</em>","reviews-desc": "Lascia un commento sulla tua esperienza con il centro.","contact-tag": "Prenota ora","contact-title": "Iniziamo insieme","contact-subtitle": "il percorso","contact-desc": "Compila il modulo per richiedere informazioni o fissare un primo appuntamento conoscitivo. Rispondiamo entro 24 ore lavorative.","contact-address-label": "Indirizzo","form-name-label": "Il tuo nome","form-name-ph": "Mario Rossi","form-email-label": "La tua email","form-msg-label": "Come possiamo aiutarti?","form-msg-ph": "Descrivi brevemente la situazione...","form-submit": "Invia Richiesta →","form-note": "I dati inviati verranno utilizzati solo per rispondere alla tua richiesta.","map-tag": "Dove siamo","map-title": "Come <em>raggiungerci</em>","map-parking": "Parcheggi disponibili nelle vie adiacenti. Fermate autobus nelle vicinanze con collegamenti verso Milano.","footer-rights": "Tutti i diritti riservati.","footer-note": "Il blu è il colore della consapevolezza sull'autismo — Giornata Mondiale, 2 Aprile."
   },
   es: {
-    "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-home": "Inicio",
-    "nav-services": "Servicios",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-reviews": "Opiniones",
-    "nav-book": "Reservar",
-    "hero-eyebrow": "Centro especializado en el espectro autista",
-    "hero-h1": "Acoger.<br><em>Comprender.</em><br>Crecer.",
-    "hero-desc": "Un punto de referencia para el diagnóstico precoz, intervenciones educativas y apoyo a las familias. Equipo multidisciplinar de psicólogos, terapeutas, educadores y logopedas.",
-    "hero-cta-primary": "Reservar una consulta",
-    "hero-cta-secondary": "Descubrir los programas →",
-    "hero-card-title": "Para familias y niños",
-    "hero-card-badge": "Programas personalizados",
-    "hero-card-desc": "Evaluaciones clínicas, proyectos educativos individualizados y programas de formación para padres, construidos junto a la escuela y la familia para apoyar el crecimiento diario.",
-    "stat-families": "Familias satisfechas",
-    "stat-years": "Años de experiencia",
-    "stat-method": "Método certificado",
-    "stat-support": "Apoyo continuo",
-    "info-tag": "Información",
-    "info-title": "¿Qué es el Espectro Autista?",
-    "info-p1": "El <strong style=\"color:var(--text-white)\">Trastorno del Espectro Autista (TEA)</strong> es una condición del neurodesarrollo caracterizada por diferencias en la comunicación social y la presencia de intereses muy marcados.",
-    "info-p2": "El diagnóstico precoz permite definir el apoyo ideal para valorizar el potencial de cada persona.",
-    "info-point1-title": "Comunicación",
-    "info-point1-desc": "Diferencias en la reciprocidad, el contacto visual y la comprensión de los matices sociales.",
-    "info-point2-title": "Sensorialidad e intereses",
-    "info-point2-desc": "Rutinas rígidas, sensibilidad a los estímulos y pasiones muy focalizadas.",
-    "services-tag": "Nuestros programas",
-    "services-title": "Apoyo en cada etapa<br><em>de la vida</em>",
-    "services-desc": "Intervenciones específicas adaptadas a las necesidades de cada niño y su familia.",
-    "service1-title": "Diagnóstico Precoz",
-    "service1-desc": "Evaluaciones clínicas para identificar las señales del espectro desde los primeros años e iniciar la intervención de inmediato.",
-    "service2-title": "Apoyo Escolar",
-    "service2-desc": "Colaboramos con las escuelas para crear entornos inclusivos y adaptar la enseñanza a las necesidades del alumno.",
-    "service3-title": "Formación para Padres",
-    "service3-desc": "Sesiones para padres que proporcionan herramientas prácticas y estrategias educativas para el día a día.",
-    "service-more": "Saber más →",
-    "service-discover": "Descubrir →",
-    "service-read": "Leer más →",
-    "faq-tag": "Preguntas frecuentes",
-    "faq-title": "¿Tienes dudas?<br><em>Te respondemos</em>",
-    "faq1-q": "¿Cuándo es útil solicitar una evaluación?",
-    "faq1-a": "Recomendamos una evaluación cuando surgen dudas sobre el lenguaje, la socialización, el juego o el comportamiento, o por indicación del pediatra o la escuela infantil.",
-    "faq2-q": "¿Se necesita derivación médica?",
-    "faq2-a": "Somos un centro privado: no es necesaria la derivación. En caso de seguimiento por los servicios territoriales, colaboramos con la neuropediatría y el pediatra.",
-    "faq3-q": "¿Cuánto dura un programa de intervención?",
-    "faq3-a": "La duración depende de los objetivos acordados: normalmente los programas se planifican para al menos 6–12 meses, con revisiones periódicas y reuniones con la familia y la escuela.",
-    "faq4-q": "¿Trabajan también con la escuela?",
-    "faq4-a": "Sí, trabajamos en red con los profesores y participamos en las reuniones con el equipo de orientación para definir estrategias compartidas para el aula.",
-    "faq5-q": "¿Participan los padres en las sesiones?",
-    "faq5-a": "La implicación de la familia es fundamental: organizamos sesiones periódicas, momentos de observación y programas de formación para que las estrategias lleguen también al hogar.",
-    "faq6-q": "¿Solo trabajan con niños?",
-    "faq6-a": "El centro se ocupa principalmente de niños y jóvenes en edad evolutiva, pero podemos evaluar situaciones individuales también en la adolescencia, caso por caso.",
-    "therapy-tag": "Método TEACCH",
-    "therapy-title": "Un único enfoque<br><em>claro y estructurado</em>",
-    "therapy-desc": "El centro utiliza exclusivamente el método TEACCH, un enfoque educativo estructurado que ayuda a los niños en el espectro autista a comprender mejor el entorno, desarrollar autonomía y comunicarse de manera más efectiva.",
-    "therapy-badge": "Método exclusivo del centro",
-    "therapy-p": "El método TEACCH se basa en la estructuración visual del espacio, el tiempo y las actividades. Reduce la incertidumbre, hace las peticiones más claras y apoya las competencias cotidianas del niño, en casa, en la escuela y en los contextos de vida.",
-    "therapy-link": "Conocer más sobre el método TEACCH →",
-    "structure-tag": "Nuestros espacios",
-    "structure-title": "Entornos pensados<br><em>para acoger</em>",
-    "structure-desc": "Diseñados para calmar, estimular y hacer que cada niño se sienta cómodo.",
-    "gallery1-tag": "Espacio terapéutico",
-    "gallery1-title": "Sala Sensorial",
-    "gallery2-tag": "Lúdico-educativa",
-    "gallery2-title": "Área de Juegos",
-    "gallery3-tag": "Evaluación clínica",
-    "gallery3-title": "Consultorio Médico",
-    "gallery4-tag": "Expresión y creatividad",
-    "gallery4-title": "Talleres Creativos",
-    "reviews-tag": "Testimonios",
-    "reviews-title": "Las familias<br><em>hablan de nosotros</em>",
-    "reviews-desc": "Deja un comentario sobre tu experiencia con el centro.",
-    "contact-tag": "Reservar ahora",
-    "contact-title": "Empecemos juntos",
-    "contact-subtitle": "el camino",
-    "contact-desc": "Rellena el formulario para solicitar información o concertar una primera cita. Respondemos en 24 horas laborables.",
-    "contact-address-label": "Dirección",
-    "form-name-label": "Tu nombre",
-    "form-name-ph": "Juan García",
-    "form-email-label": "Tu email",
-    "form-msg-label": "¿Cómo podemos ayudarte?",
-    "form-msg-ph": "Describe brevemente la situación...",
-    "form-submit": "Enviar solicitud →",
-    "form-note": "Los datos enviados solo se utilizarán para responder a tu solicitud.",
-    "map-tag": "Dónde estamos",
-    "map-title": "Cómo <em>llegar</em>",
-    "map-parking": "Aparcamiento disponible en las calles adyacentes. Paradas de autobús cercanas con conexiones a Milán.",
-    "footer-rights": "Todos los derechos reservados.",
-    "footer-note": "El azul es el color de la concienciación sobre el autismo — Día Mundial, 2 de Abril."
+    "brand-sub": "Diagnóstico · Apoyo · Autismo","nav-home": "Inicio","nav-services": "Servicios","nav-therapies": "Terapias","nav-structure": "Instalaciones","nav-reviews": "Opiniones","nav-book": "Reservar","hero-eyebrow": "Centro especializado en el espectro autista","hero-h1": "Acoger.<br><em>Comprender.</em><br>Crecer.","hero-desc": "Un punto de referencia para el diagnóstico precoz, intervenciones educativas y apoyo a las familias. Equipo multidisciplinar de psicólogos, terapeutas, educadores y logopedas.","hero-cta-primary": "Reservar una consulta","hero-cta-secondary": "Descubrir los programas →","hero-card-title": "Para familias y niños","hero-card-badge": "Programas personalizados","hero-card-desc": "Evaluaciones clínicas, proyectos educativos individualizados y programas de formación para padres, construidos junto a la escuela y la familia para apoyar el crecimiento diario.","stat-families": "Familias satisfechas","stat-years": "Años de experiencia","stat-method": "Método certificado","stat-support": "Apoyo continuo","info-tag": "Información","info-title": "¿Qué es el Espectro Autista?","info-p1": "El <strong style=\"color:var(--text-white)\">Trastorno del Espectro Autista (TEA)</strong> es una condición del neurodesarrollo caracterizada por diferencias en la comunicación social y la presencia de intereses muy marcados.","info-p2": "El diagnóstico precoz permite definir el apoyo ideal para valorizar el potencial de cada persona.","info-point1-title": "Comunicación","info-point1-desc": "Diferencias en la reciprocidad, el contacto visual y la comprensión de los matices sociales.","info-point2-title": "Sensorialidad e intereses","info-point2-desc": "Rutinas rígidas, sensibilidad a los estímulos y pasiones muy focalizadas.","services-tag": "Nuestros programas","services-title": "Apoyo en cada etapa<br><em>de la vida</em>","services-desc": "Intervenciones específicas adaptadas a las necesidades de cada niño y su familia.","service1-title": "Diagnóstico Precoz","service1-desc": "Evaluaciones clínicas para identificar las señales del espectro desde los primeros años e iniciar la intervención de inmediato.","service2-title": "Apoyo Escolar","service2-desc": "Colaboramos con las escuelas para crear entornos inclusivos y adaptar la enseñanza a las necesidades del alumno.","service3-title": "Formación para Padres","service3-desc": "Sesiones para padres que proporcionan herramientas prácticas y estrategias educativas para el día a día.","service-more": "Saber más →","service-discover": "Descubrir →","service-read": "Leer más →","faq-tag": "Preguntas frecuentes","faq-title": "¿Tienes dudas?<br><em>Te respondemos</em>","faq1-q": "¿Cuándo es útil solicitar una evaluación?","faq1-a": "Recomendamos una evaluación cuando surgen dudas sobre el lenguaje, la socialización, el juego o el comportamiento, o por indicación del pediatra o la escuela infantil.","faq2-q": "¿Se necesita derivación médica?","faq2-a": "Somos un centro privado: no es necesaria la derivación. En caso de seguimiento por los servicios territoriales, colaboramos con la neuropediatría y el pediatra.","faq3-q": "¿Cuánto dura un programa de intervención?","faq3-a": "La duración depende de los objetivos acordados: normalmente los programas se planifican para al menos 6–12 meses, con revisiones periódicas y reuniones con la familia y la escuela.","faq4-q": "¿Trabajan también con la escuela?","faq4-a": "Sí, trabajamos en red con los profesores y participamos en las reuniones con el equipo de orientación para definir estrategias compartidas para el aula.","faq5-q": "¿Participan los padres en las sesiones?","faq5-a": "La implicación de la familia es fundamental: organizamos sesiones periódicas, momentos de observación y programas de formación para que las estrategias lleguen también al hogar.","faq6-q": "¿Solo trabajan con niños?","faq6-a": "El centro se ocupa principalmente de niños y jóvenes en edad evolutiva, pero podemos evaluar situaciones individuales también en la adolescencia, caso por caso.","therapy-tag": "Método TEACCH","therapy-title": "Un único enfoque<br><em>claro y estructurado</em>","therapy-desc": "El centro utiliza exclusivamente el método TEACCH, un enfoque educativo estructurado que ayuda a los niños en el espectro autista a comprender mejor el entorno, desarrollar autonomía y comunicarse de manera más efectiva.","therapy-badge": "Método exclusivo del centro","therapy-p": "El método TEACCH se basa en la estructuración visual del espacio, el tiempo y las actividades. Reduce la incertidumbre, hace las peticiones más claras y apoya las competencias cotidianas del niño, en casa, en la escuela y en los contextos de vida.","therapy-link": "Conocer más sobre el método TEACCH →","structure-tag": "Nuestros espacios","structure-title": "Entornos pensados<br><em>para acoger</em>","structure-desc": "Diseñados para calmar, estimular y hacer que cada niño se sienta cómodo.","gallery1-tag": "Espacio terapéutico","gallery1-title": "Sala Sensorial","gallery2-tag": "Lúdico-educativa","gallery2-title": "Área de Juegos","gallery3-tag": "Evaluación clínica","gallery3-title": "Consultorio Médico","gallery4-tag": "Expresión y creatividad","gallery4-title": "Talleres Creativos","reviews-tag": "Testimonios","reviews-title": "Las familias<br><em>hablan de nosotros</em>","reviews-desc": "Deja un comentario sobre tu experiencia con el centro.","contact-tag": "Reservar ahora","contact-title": "Empecemos juntos","contact-subtitle": "el camino","contact-desc": "Rellena el formulario para solicitar información o concertar una primera cita. Respondemos en 24 horas laborables.","contact-address-label": "Dirección","form-name-label": "Tu nombre","form-name-ph": "Juan García","form-email-label": "Tu email","form-msg-label": "¿Cómo podemos ayudarte?","form-msg-ph": "Describe brevemente la situación...","form-submit": "Enviar solicitud →","form-note": "Los datos enviados solo se utilizarán para responder a tu solicitud.","map-tag": "Dónde estamos","map-title": "Cómo <em>llegar</em>","map-parking": "Aparcamiento disponible en las calles adyacentes. Paradas de autobús cercanas con conexiones a Milán.","footer-rights": "Todos los derechos reservados.","footer-note": "El azul es el color de la concienciación sobre el autismo — Día Mundial, 2 de Abril."
   },
   en: {
-    "brand-sub": "Diagnosis · Support · Autism",
-    "nav-home": "Home",
-    "nav-services": "Services",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-reviews": "Reviews",
-    "nav-book": "Book",
-    "hero-eyebrow": "Specialized center for the autism spectrum",
-    "hero-h1": "Welcome.<br><em>Understand.</em><br>Grow.",
-    "hero-desc": "A reference point for early diagnosis, educational interventions and family support. A multidisciplinary team of psychologists, therapists, educators and speech therapists.",
-    "hero-cta-primary": "Book a consultation",
-    "hero-cta-secondary": "Discover our programmes →",
-    "hero-card-title": "For families and children",
-    "hero-card-badge": "Personalised programmes",
-    "hero-card-desc": "Clinical assessments, individualised educational plans and parent training programmes, built together with schools and families to support everyday growth.",
-    "stat-families": "Satisfied families",
-    "stat-years": "Years of experience",
-    "stat-method": "Certified method",
-    "stat-support": "Ongoing support",
-    "info-tag": "Information",
-    "info-title": "What is the Autism Spectrum?",
-    "info-p1": "The <strong style=\"color:var(--text-white)\">Autism Spectrum Disorder (ASD)</strong> is a neurodevelopmental condition characterised by differences in social communication and the presence of highly absorbing interests.",
-    "info-p2": "Early diagnosis makes it possible to define ideal support to maximise each person's potential.",
-    "info-point1-title": "Communication",
-    "info-point1-desc": "Differences in reciprocity, eye contact and understanding of social nuances.",
-    "info-point2-title": "Sensory processing & interests",
-    "info-point2-desc": "Rigid routines, sensitivity to stimuli and very focused passions.",
-    "services-tag": "Our programmes",
-    "services-title": "Support at every stage<br><em>of life</em>",
-    "services-desc": "Targeted interventions built around the needs of each child and their family.",
-    "service1-title": "Early Diagnosis",
-    "service1-desc": "Clinical assessments to identify spectrum signs from the earliest years and start intervention right away.",
-    "service2-title": "School Support",
-    "service2-desc": "We work with schools to create inclusive environments and adapt teaching to the student's needs.",
-    "service3-title": "Parent Training",
-    "service3-desc": "Sessions for parents providing practical tools and educational strategies for everyday life.",
-    "service-more": "Learn more →",
-    "service-discover": "Discover →",
-    "service-read": "Read more →",
-    "faq-tag": "Frequently asked questions",
-    "faq-title": "Have questions?<br><em>We'll answer them</em>",
-    "faq1-q": "When is it useful to request an assessment?",
-    "faq1-a": "We recommend an assessment when concerns arise about language, socialisation, play or behaviour, or following a referral from a paediatrician or nursery school.",
-    "faq2-q": "Is a doctor's referral needed?",
-    "faq2-a": "We are a private centre: no referral is required. If services are already involved, we are happy to liaise with child neuropsychiatry and the paediatrician.",
-    "faq3-q": "How long does an intervention programme last?",
-    "faq3-a": "Duration depends on agreed goals: programmes are typically planned for at least 6–12 months, with periodic reviews and meetings with the family and school.",
-    "faq4-q": "Do you involve the school?",
-    "faq4-a": "Yes, we work closely with classroom and support teachers, attend team meetings and collaborate on shared strategies for the classroom.",
-    "faq5-q": "Do parents take part in sessions?",
-    "faq5-a": "Family involvement is central: we schedule regular consultations, observation sessions and parent training to bring strategies home too.",
-    "faq6-q": "Do you only work with children?",
-    "faq6-a": "The centre mainly works with children and young people of developmental age, but we can assess individual situations in adolescence on a case-by-case basis.",
-    "therapy-tag": "TEACCH Method",
-    "therapy-title": "One approach,<br><em>clear and structured</em>",
-    "therapy-desc": "The centre exclusively uses the TEACCH method, a structured educational approach that helps children on the autism spectrum better understand their environment, develop independence and communicate more effectively.",
-    "therapy-badge": "The centre's exclusive method",
-    "therapy-p": "The TEACCH method is based on the visual structuring of space, time and activities. It reduces uncertainty, makes requests clearer and supports the child's daily skills at home, at school and in everyday settings.",
-    "therapy-link": "Learn more about the TEACCH method →",
-    "structure-tag": "Our spaces",
-    "structure-title": "Environments designed<br><em>to welcome</em>",
-    "structure-desc": "Designed to calm, stimulate and make every child feel at ease.",
-    "gallery1-tag": "Therapeutic space",
-    "gallery1-title": "Sensory Room",
-    "gallery2-tag": "Play & learning",
-    "gallery2-title": "Play Area",
-    "gallery3-tag": "Clinical assessment",
-    "gallery3-title": "Medical Office",
-    "gallery4-tag": "Expression & creativity",
-    "gallery4-title": "Creative Workshops",
-    "reviews-tag": "Testimonials",
-    "reviews-title": "Families<br><em>talk about us</em>",
-    "reviews-desc": "Leave a comment about your experience with the centre.",
-    "contact-tag": "Book now",
-    "contact-title": "Let's start",
-    "contact-subtitle": "the journey together",
-    "contact-desc": "Fill in the form to request information or book an initial appointment. We respond within 24 working hours.",
-    "contact-address-label": "Address",
-    "form-name-label": "Your name",
-    "form-name-ph": "John Smith",
-    "form-email-label": "Your email",
-    "form-msg-label": "How can we help?",
-    "form-msg-ph": "Briefly describe the situation...",
-    "form-submit": "Send request →",
-    "form-note": "The data you submit will only be used to respond to your request.",
-    "map-tag": "Where we are",
-    "map-title": "How to <em>reach us</em>",
-    "map-parking": "Parking available in nearby streets. Bus stops close by with connections to Milan.",
-    "footer-rights": "All rights reserved.",
-    "footer-note": "Blue is the colour of autism awareness — World Autism Day, 2 April."
+    "brand-sub": "Diagnosis · Support · Autism","nav-home": "Home","nav-services": "Services","nav-therapies": "Therapies","nav-structure": "Facilities","nav-reviews": "Reviews","nav-book": "Book","hero-eyebrow": "Specialized center for the autism spectrum","hero-h1": "Welcome.<br><em>Understand.</em><br>Grow.","hero-desc": "A reference point for early diagnosis, educational interventions and family support. A multidisciplinary team of psychologists, therapists, educators and speech therapists.","hero-cta-primary": "Book a consultation","hero-cta-secondary": "Discover our programmes →","hero-card-title": "For families and children","hero-card-badge": "Personalised programmes","hero-card-desc": "Clinical assessments, individualised educational plans and parent training programmes, built together with schools and families to support everyday growth.","stat-families": "Satisfied families","stat-years": "Years of experience","stat-method": "Certified method","stat-support": "Ongoing support","info-tag": "Information","info-title": "What is the Autism Spectrum?","info-p1": "The <strong style=\"color:var(--text-white)\">Autism Spectrum Disorder (ASD)</strong> is a neurodevelopmental condition characterised by differences in social communication and the presence of highly absorbing interests.","info-p2": "Early diagnosis makes it possible to define ideal support to maximise each person's potential.","info-point1-title": "Communication","info-point1-desc": "Differences in reciprocity, eye contact and understanding of social nuances.","info-point2-title": "Sensory processing & interests","info-point2-desc": "Rigid routines, sensitivity to stimuli and very focused passions.","services-tag": "Our programmes","services-title": "Support at every stage<br><em>of life</em>","services-desc": "Targeted interventions built around the needs of each child and their family.","service1-title": "Early Diagnosis","service1-desc": "Clinical assessments to identify spectrum signs from the earliest years and start intervention right away.","service2-title": "School Support","service2-desc": "We work with schools to create inclusive environments and adapt teaching to the student's needs.","service3-title": "Parent Training","service3-desc": "Sessions for parents providing practical tools and educational strategies for everyday life.","service-more": "Learn more →","service-discover": "Discover →","service-read": "Read more →","faq-tag": "Frequently asked questions","faq-title": "Have questions?<br><em>We'll answer them</em>","faq1-q": "When is it useful to request an assessment?","faq1-a": "We recommend an assessment when concerns arise about language, socialisation, play or behaviour, or following a referral from a paediatrician or nursery school.","faq2-q": "Is a doctor's referral needed?","faq2-a": "We are a private centre: no referral is required. If services are already involved, we are happy to liaise with child neuropsychiatry and the paediatrician.","faq3-q": "How long does an intervention programme last?","faq3-a": "Duration depends on agreed goals: programmes are typically planned for at least 6–12 months, with periodic reviews and meetings with the family and school.","faq4-q": "Do you involve the school?","faq4-a": "Yes, we work closely with classroom and support teachers, attend team meetings and collaborate on shared strategies for the classroom.","faq5-q": "Do parents take part in sessions?","faq5-a": "Family involvement is central: we schedule regular consultations, observation sessions and parent training to bring strategies home too.","faq6-q": "Do you only work with children?","faq6-a": "The centre mainly works with children and young people of developmental age, but we can assess individual situations in adolescence on a case-by-case basis.","therapy-tag": "TEACCH Method","therapy-title": "One approach,<br><em>clear and structured</em>","therapy-desc": "The centre exclusively uses the TEACCH method, a structured educational approach that helps children on the autism spectrum better understand their environment, develop independence and communicate more effectively.","therapy-badge": "The centre's exclusive method","therapy-p": "The TEACCH method is based on the visual structuring of space, time and activities. It reduces uncertainty, makes requests clearer and supports the child's daily skills at home, at school and in everyday settings.","therapy-link": "Learn more about the TEACCH method →","structure-tag": "Our spaces","structure-title": "Environments designed<br><em>to welcome</em>","structure-desc": "Designed to calm, stimulate and make every child feel at ease.","gallery1-tag": "Therapeutic space","gallery1-title": "Sensory Room","gallery2-tag": "Play & learning","gallery2-title": "Play Area","gallery3-tag": "Clinical assessment","gallery3-title": "Medical Office","gallery4-tag": "Expression & creativity","gallery4-title": "Creative Workshops","reviews-tag": "Testimonials","reviews-title": "Families<br><em>talk about us</em>","reviews-desc": "Leave a comment about your experience with the centre.","contact-tag": "Book now","contact-title": "Let's start","contact-subtitle": "the journey together","contact-desc": "Fill in the form to request information or book an initial appointment. We respond within 24 working hours.","contact-address-label": "Address","form-name-label": "Your name","form-name-ph": "John Smith","form-email-label": "Your email","form-msg-label": "How can we help?","form-msg-ph": "Briefly describe the situation...","form-submit": "Send request →","form-note": "The data you submit will only be used to respond to your request.","map-tag": "Where we are","map-title": "How to <em>reach us</em>","map-parking": "Parking available in nearby streets. Bus stops close by with connections to Milan.","footer-rights": "All rights reserved.","footer-note": "Blue is the colour of autism awareness — World Autism Day, 2 April."
   }
 };
 
-// ── APPLY LANGUAGE ───────────────────────────────────────────────────────────
 function applyLang(lang) {
   const t = translations[lang];
   if (!t) return;
-
   document.documentElement.lang = lang;
-
-  // text nodes
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) el.textContent = t[key];
   });
-
-  // HTML nodes (allow em, strong, br)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-
-  // placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     if (t[key] !== undefined) el.placeholder = t[key];
   });
-
-  // mark active buttons
   document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
-
-  // persist
   localStorage.setItem('blumente-lang', lang);
 }
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -1822,7 +1457,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
 
-  // Nav active highlight
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = [];
   navLinks.forEach(link => {
@@ -1847,7 +1481,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.3 });
   sections.forEach(({ sec }) => sectionObs.observe(sec));
 
-  // Hamburger
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileNav = document.getElementById('mobileNav');
   const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -1872,14 +1505,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mobileNav.contains(e.target) && !hamburgerBtn.contains(e.target)) closeMobileNav();
   });
 
-  // Language buttons (desktop + mobile)
   document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      applyLang(btn.dataset.lang);
-    });
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
-  // Load saved language
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
 });
