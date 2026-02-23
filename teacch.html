@@ -691,5 +691,18 @@
     reveals.forEach(el => io.observe(el));
   });
 </script>
+  <script>
+  // Legge la lingua scelta dall'index e la applica
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('blumente-lang') || 'it';
+    applyLang(saved);
+
+    // Aggiorna i bottoni del selettore lingua se presenti
+    document.querySelectorAll('.lang-btn, .mobile-lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === saved);
+      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+    });
+  });
+</script>
 </body>
 </html>
