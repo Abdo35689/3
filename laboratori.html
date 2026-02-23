@@ -49,42 +49,6 @@
     .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(251,191,36,0.06), transparent 65%); top: 50%; left: 40%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── LANG SWITCHER ── */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(8, 20, 45, 0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.22s;
-      white-space: nowrap;
-    }
-    .lang-btn:hover { color: var(--text-white); }
-    .lang-btn.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(14,165,233,0.35);
-    }
-
     /* ── HEADER ── */
     header {
       position: fixed;
@@ -104,39 +68,6 @@
     .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .nav-pills {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-      background: rgba(8,20,45,0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-      flex-wrap: nowrap;
-    }
-    .nav-pills li a {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-body);
-      padding: 7px 15px;
-      border-radius: 999px;
-      transition: all 0.25s;
-      white-space: nowrap;
-    }
-    .nav-pills li a:hover { color: var(--text-white); }
-    .nav-pills li a.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 16px rgba(14,165,233,0.4);
-    }
 
     /* ── BREADCRUMB ── */
     .breadcrumb-wrap { padding: 28px 0 0; position: relative; z-index: 1; }
@@ -231,7 +162,7 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE (resto anche se il menu è tolto) ── */
     @media (max-width: 900px) {
       .gallery-grid { grid-template-columns: 1fr; }
       .info-columns { grid-template-columns: 1fr; }
@@ -239,60 +170,12 @@
       .cta-card-text p { max-width: 100%; margin: 0 auto; }
       .cta-actions { flex-direction: row; justify-content: center; }
     }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        row-gap: 10px;
-      }
-      .nav-right {
-        width: 100%;
-        justify-content: flex-end;
-        gap: 8px;
-      }
-      .nav-pills {
-        max-width: 100%;
-        overflow-x: auto;
-      }
-    }
-
     @media (max-width: 640px) {
       body { padding-top: 68px; }
-      nav {
-        align-items: flex-start;
-      }
-      .nav-right {
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .nav-pills {
-        order: 1;
-        flex: 1 1 100%;
-        justify-content: flex-start;
-      }
-      .lang-switcher {
-        order: 2;
-        flex: 0 0 auto;
-      }
       .page-hero h1 { font-size: 2.1rem; }
       .section { padding: 60px 0; }
       .cta-card { padding: 34px 24px; }
       .cta-actions { flex-direction: column; }
-    }
-
-    @media (max-width: 420px) {
-      .nav-right {
-        flex-direction: column;
-        align-items: flex-end;
-      }
-      .nav-pills {
-        width: 100%;
-        justify-content: flex-start;
-      }
-      .lang-switcher {
-        align-self: flex-end;
-      }
     }
   </style>
 </head>
@@ -316,21 +199,7 @@
           </div>
         </div>
       </div>
-      <div class="nav-right">
-        <ul class="nav-pills">
-          <li><a href="index.html#chi-siamo" data-i18n="nav-autism">L'Autismo</a></li>
-          <li><a href="index.html#servizi" data-i18n="nav-services">Servizi</a></li>
-          <li><a href="index.html#terapie" data-i18n="nav-therapies">Terapie</a></li>
-          <li><a href="index.html#struttura" class="active" data-i18n="nav-structure">Struttura</a></li>
-          <li><a href="index.html#contatti" data-i18n="nav-book">Prenota</a></li>
-        </ul>
-        <!-- SELETTORE LINGUA -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
-          <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
-      </div>
+      <!-- nav-right completamente rimosso -->
     </nav>
   </div>
 </header>
@@ -508,11 +377,6 @@
 const translations = {
   it: {
     "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-autism": "L'Autismo",
-    "nav-services": "Servizi",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-book": "Prenota",
     "breadcrumb-home": "Home",
     "breadcrumb-structure": "La nostra struttura",
     "breadcrumb-current": "Laboratori creativi",
@@ -554,104 +418,6 @@ const translations = {
     "back-link": "← Torna a \"La nostra struttura\"",
     "footer-rights": "Tutti i diritti riservati.",
     "footer-note": "Il blu è il colore della consapevolezza sull'autismo — Giornata Mondiale, 2 Aprile."
-  },
-  es: {
-    "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-autism": "El Autismo",
-    "nav-services": "Servicios",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-book": "Reservar",
-    "breadcrumb-home": "Inicio",
-    "breadcrumb-structure": "Nuestras instalaciones",
-    "breadcrumb-current": "Talleres creativos",
-    "hero-eyebrow": "Espacio terapéutico y educativo",
-    "hero-title": "Talleres<br><em>Creativos</em>",
-    "hero-desc": "Espacios diseñados para explorar diferentes lenguajes expresivos, entrenar la autonomía y trabajar la socialización a través de actividades prácticas, expresivas y en grupo.",
-    "gallery-tag": "Nuestros espacios",
-    "gallery-title": "Cuatro talleres,<br><em>mil posibilidades</em>",
-    "gallery-desc": "Cada ambiente está diseñado para estimular competencias específicas de forma motivadora y segura.",
-    "lab1-tag": "Expresión visual",
-    "lab1-title": "Dibujo y Pintura",
-    "lab1-desc": "Los niños se expresan con colores, témperas y materiales artísticos, trabajando la motricidad fina, la creatividad y la capacidad de completar una tarea elegida.",
-    "lab2-tag": "Autonomía cotidiana",
-    "lab2-title": "Cocina Educativa",
-    "lab2-desc": "Actividades sencillas y guiadas para experimentar pequeñas autonomías cotidianas, seguir pasos en secuencia y colaborar en la preparación de meriendas y recetas básicas.",
-    "lab3-tag": "Vida cotidiana",
-    "lab3-title": "Actividades Prácticas",
-    "lab3-desc": "Dedicado a las habilidades de la vida diaria: ordenar, trasvasar, doblar, organizar materiales, siempre con apoyos visuales e indicaciones claras.",
-    "lab4-tag": "Colaboración",
-    "lab4-title": "Trabajo en Grupo",
-    "lab4-desc": "Los niños aprenden a cooperar, respetar turnos, pedir ayuda y llevar adelante una actividad juntos en un clima de confianza.",
-    "approach-tag": "Nuestro enfoque",
-    "approach-title": "Objetivos y<br><em>modalidades de trabajo</em>",
-    "card1-title": "Objetivos de los talleres",
-    "card1-li1": "Favorecer la expresión, la creatividad y la curiosidad a través de actividades concretas y accesibles.",
-    "card1-li2": "Entrenar habilidades de autonomía básica en un contexto estructurado y seguro.",
-    "card1-li3": "Reforzar la atención, la planificación y la tolerancia a la espera.",
-    "card1-li4": "Promover la participación activa y el sentido de autoeficacia en cada niño.",
-    "card2-title": "Modalidades de desarrollo",
-    "card2-li1": "Grupos pequeños o actividades individuales, según el perfil y los objetivos del niño.",
-    "card2-li2": "Uso de apoyos visuales, rutinas claras y tareas graduales para reducir la carga cognitiva.",
-    "card2-li3": "Propuestas adaptadas a la edad, los intereses y las habilidades de cada uno.",
-    "card2-li4": "Comunicación con la familia sobre las actividades realizadas y las competencias observadas.",
-    "cta-tag": "Participa en los talleres",
-    "cta-title": "Empecemos<br><em>el camino juntos</em>",
-    "cta-desc": "Los talleres forman parte de los programas educativos personalizados y se planifican según los objetivos definidos con la familia y el equipo de trabajo. Para información sobre horarios, calendarios e inscripción, contacta con la secretaría del centro.",
-    "cta-btn-primary": "Reservar una consulta →",
-    "cta-btn-secondary": "← Todos los espacios",
-    "back-link": "← Volver a \"Nuestras instalaciones\"",
-    "footer-rights": "Todos los derechos reservados.",
-    "footer-note": "El azul es el color de la concienciación sobre el autismo — Día Mundial, 2 de Abril."
-  },
-  en: {
-    "brand-sub": "Diagnosis · Support · Autism",
-    "nav-autism": "Autism",
-    "nav-services": "Services",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-book": "Book",
-    "breadcrumb-home": "Home",
-    "breadcrumb-structure": "Our facilities",
-    "breadcrumb-current": "Creative workshops",
-    "hero-eyebrow": "Therapeutic and educational space",
-    "hero-title": "Creative<br><em>Workshops</em>",
-    "hero-desc": "Spaces designed to explore different expressive languages, build independence and work on socialisation through hands-on, expressive and group activities.",
-    "gallery-tag": "Our spaces",
-    "gallery-title": "Four workshops,<br><em>endless possibilities</em>",
-    "gallery-desc": "Each environment is designed to stimulate specific skills in an engaging and safe way.",
-    "lab1-tag": "Visual expression",
-    "lab1-title": "Drawing & Painting",
-    "lab1-desc": "Children express themselves with colours, paints and art materials, working on fine motor skills, creativity and the ability to complete a chosen task.",
-    "lab2-tag": "Daily autonomy",
-    "lab2-title": "Educational Cooking",
-    "lab2-desc": "Simple, guided activities to practise small everyday autonomy skills, follow sequential steps and collaborate in preparing snacks and basic recipes.",
-    "lab3-tag": "Daily life",
-    "lab3-title": "Practical Activities",
-    "lab3-desc": "Dedicated to daily living skills: tidying, pouring, folding, organising materials — always with visual supports and clear instructions.",
-    "lab4-tag": "Collaboration",
-    "lab4-title": "Group Work",
-    "lab4-desc": "Children learn to cooperate, take turns, ask for help and carry out an activity together in an atmosphere of trust.",
-    "approach-tag": "Our approach",
-    "approach-title": "Goals &<br><em>working methods</em>",
-    "card1-title": "Workshop goals",
-    "card1-li1": "Foster expression, creativity and curiosity through concrete, accessible activities.",
-    "card1-li2": "Build basic autonomy skills in a structured, supportive setting.",
-    "card1-li3": "Strengthen attention, planning and tolerance for waiting.",
-    "card1-li4": "Promote active participation and a sense of self-efficacy in every child.",
-    "card2-title": "How sessions work",
-    "card2-li1": "Small groups or individual activities, depending on the child's profile and goals.",
-    "card2-li2": "Use of visual supports, clear routines and graduated tasks to reduce cognitive load.",
-    "card2-li3": "Activities adapted to each child's age, interests and abilities.",
-    "card2-li4": "Regular updates shared with families on activities carried out and skills observed over time.",
-    "cta-tag": "Join the workshops",
-    "cta-title": "Let's start<br><em>the journey together</em>",
-    "cta-desc": "The workshops are part of personalised educational programmes and are scheduled based on goals agreed with the family and the team. For information on timetables, calendars and enrolment, please contact the centre.",
-    "cta-btn-primary": "Book a consultation →",
-    "cta-btn-secondary": "← All spaces",
-    "back-link": "← Back to \"Our facilities\"",
-    "footer-rights": "All rights reserved.",
-    "footer-note": "Blue is the colour of autism awareness — World Autism Day, 2 April."
   }
 };
 
@@ -667,9 +433,6 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
   localStorage.setItem('blumente-lang', lang);
 }
 
@@ -684,10 +447,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
 });
 </script>
 </body>
