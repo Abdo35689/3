@@ -49,43 +49,7 @@
     .orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(251,191,36,0.06), transparent 65%); top: 50%; left: 40%; }
     a { color: inherit; text-decoration: none; }
 
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(8, 20, 45, 0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.22s;
-      white-space: nowrap;
-    }
-    .lang-btn:hover { color: var(--text-white); }
-    .lang-btn.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(14,165,233,0.35);
-    }
-
-    /* ─── HEADER ─── */
+    /* HEADER */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -101,22 +65,11 @@
     .logo-img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; border: 1.5px solid rgba(56,189,248,0.4); box-shadow: 0 0 20px rgba(56,189,248,0.2), inset 0 0 10px rgba(56,189,248,0.05); }
     .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--text-white); letter-spacing: 0.01em; }
     .brand-sub { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
-    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; }
+    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a { font-size: 0.72rem; color: var(--text-muted); border-bottom: 1px solid rgba(90,122,148,0.4); transition: color 0.2s, border-color 0.2s; }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); }
 
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-
-    .nav-pills {
-      display: flex; align-items: center; gap: 4px; list-style: none;
-      background: rgba(8,20,45,0.6); border: 1px solid var(--blue-border);
-      border-radius: 999px; padding: 4px;
-    }
-    .nav-pills li a { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-body); padding: 7px 15px; border-radius: 999px; transition: all 0.25s; white-space: nowrap; }
-    .nav-pills li a:hover { color: var(--text-white); }
-    .nav-pills li a.active { background: linear-gradient(135deg, #0ea5e9, #0369a1); color: #fff; box-shadow: 0 0 16px rgba(14,165,233,0.4); }
-
-    /* ─── HERO ─── */
+    /* HERO */
     .page-hero { padding: 72px 0 60px; position: relative; overflow: hidden; }
     .page-hero::after {
       content: ""; position: absolute; width: 1px; height: 300px;
@@ -211,7 +164,6 @@
     }
     @media (max-width: 640px) {
       body { padding-top: 68px; }
-      .nav-pills { display: none; }
       .page-hero h1 { font-size: 2.2rem; }
       .section-title { font-size: 1.9rem; }
       .stats-bar { grid-template-columns: 1fr; }
@@ -225,7 +177,7 @@
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
 
-<!-- ══════════════ HEADER ══════════════ -->
+<!-- HEADER -->
 <header>
   <div class="container">
     <nav>
@@ -240,26 +192,12 @@
           </div>
         </div>
       </div>
-      <div class="nav-right">
-        <ul class="nav-pills">
-          <li><a href="index.html#chi-siamo" data-i18n="nav-autism">L'Autismo</a></li>
-          <li><a href="index.html#servizi" data-i18n="nav-services">Servizi</a></li>
-          <li><a href="index.html#terapie" class="active" data-i18n="nav-therapies">Terapie</a></li>
-          <li><a href="index.html#struttura" data-i18n="nav-structure">Struttura</a></li>
-          <li><a href="index.html#contatti" data-i18n="nav-book">Prenota</a></li>
-        </ul>
-        <!-- SELETTORE LINGUA -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
-          <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
-      </div>
+      <!-- nav-right eliminato (pillole menu + lang switcher) -->
     </nav>
   </div>
 </header>
 
-<!-- ══════════════ PAGE HERO ══════════════ -->
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="container">
     <div class="hero-eyebrow reveal">
@@ -283,7 +221,7 @@
 
 <hr class="divider">
 
-<!-- ══════════════ COSA VIENE PROPOSTO ══════════════ -->
+<!-- COSA VIENE PROPOSTO -->
 <section class="section">
   <div class="container">
     <div class="reveal">
@@ -346,7 +284,7 @@
 
 <hr class="divider">
 
-<!-- ══════════════ PERCHÉ È IMPORTANTE ══════════════ -->
+<!-- PERCHÉ È IMPORTANTE -->
 <section class="section bg-subtle">
   <div class="container">
     <div class="importance-layout">
@@ -384,7 +322,7 @@
 
 <hr class="divider">
 
-<!-- ══════════════ FAQ ══════════════ -->
+<!-- FAQ -->
 <section class="section">
   <div class="container">
     <div class="section-tag reveal" data-i18n="section3-tag">Approfondimento</div>
@@ -448,7 +386,7 @@
 
 <hr class="divider">
 
-<!-- ══════════════ CTA ══════════════ -->
+<!-- CTA -->
 <section class="section bg-subtle">
   <div class="container">
     <div class="cta-band reveal">
@@ -464,7 +402,7 @@
   </div>
 </section>
 
-<!-- ══════════════ FOOTER ══════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-brand">Centro BluMente</div>
@@ -483,11 +421,6 @@
 const translations = {
   it: {
     "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-autism": "L'Autismo",
-    "nav-services": "Servizi",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-book": "Prenota",
     "hero-eyebrow": "Percorso per le famiglie",
     "hero-title": "Parent<br><em>Training</em>",
     "hero-desc": "Coinvolgimento attivo e costante dei genitori all'interno del progetto terapeutico riabilitativo, per sostenere lo sviluppo del bambino con disturbo dello spettro autistico in ogni contesto di vita.",
@@ -530,11 +463,6 @@ const translations = {
   },
   es: {
     "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-autism": "El Autismo",
-    "nav-services": "Servicios",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-book": "Reservar",
     "hero-eyebrow": "Programa para familias",
     "hero-title": "Formación<br><em>para Padres</em>",
     "hero-desc": "Participación activa y constante de los padres dentro del proyecto terapéutico-rehabilitador, para apoyar el desarrollo del niño con trastorno del espectro autista en todos los contextos de vida.",
@@ -577,11 +505,6 @@ const translations = {
   },
   en: {
     "brand-sub": "Diagnosis · Support · Autism",
-    "nav-autism": "Autism",
-    "nav-services": "Services",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-book": "Book",
     "hero-eyebrow": "Programme for families",
     "hero-title": "Parent<br><em>Training</em>",
     "hero-desc": "Active and continuous involvement of parents within the therapeutic and rehabilitation programme, to support the development of children with autism spectrum disorder in every life context.",
@@ -636,14 +559,9 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  localStorage.setItem('blumente-lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -652,14 +570,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
-  // Lingua salvata o default italiano
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
-
-  // Bottoni lingua
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
 });
 </script>
 </body>
