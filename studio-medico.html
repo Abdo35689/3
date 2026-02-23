@@ -67,43 +67,7 @@
       z-index: 1;
     }
 
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(8, 20, 45, 0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif;
-      transition: all 0.22s;
-      white-space: nowrap;
-    }
-    .lang-btn:hover { color: var(--text-white); }
-    .lang-btn.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 14px rgba(14,165,233,0.35);
-    }
-
-    /* ─── HEADER ─── */
+    /* HEADER */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -150,7 +114,7 @@
       text-transform: uppercase;
     }
 
-    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; }
+    .brand-contacts { margin-top: 3px; display: flex; gap: 12px; flex-wrap: wrap; }
     .brand-contacts a {
       font-size: 0.72rem;
       color: var(--text-muted);
@@ -160,37 +124,6 @@
     }
     .brand-contacts a:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
 
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-
-    .nav-pills {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-      background: rgba(8, 20, 45, 0.6);
-      border: 1px solid var(--blue-border);
-      border-radius: 999px;
-      padding: 4px;
-    }
-
-    .nav-pills li a {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-body);
-      padding: 7px 15px;
-      border-radius: 999px;
-      transition: all 0.25s;
-      white-space: nowrap;
-      opacity: 1;
-    }
-    .nav-pills li a:hover { color: var(--text-white); opacity: 1; }
-    .nav-pills li a.active {
-      background: linear-gradient(135deg, #0ea5e9, #0369a1);
-      color: #fff;
-      box-shadow: 0 0 16px rgba(14,165,233,0.4);
-    }
-
     .divider {
       border: none;
       height: 1px;
@@ -198,7 +131,7 @@
       margin: 0;
     }
 
-    /* ─── PAGE HEADER ─── */
+    /* PAGE HEADER */
     .page-header {
       padding: 60px 0 70px;
       position: relative;
@@ -222,6 +155,7 @@
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     .breadcrumb a {
@@ -274,7 +208,7 @@
       line-height: 1.8;
     }
 
-    /* ─── GALLERY ─── */
+    /* GALLERY */
     .gallery-section {
       padding: 70px 0 60px;
     }
@@ -339,7 +273,7 @@
       line-height: 1.75;
     }
 
-    /* ─── TWO COL TEXT ─── */
+    /* CONTENT */
     .content-section {
       padding: 0 0 70px;
     }
@@ -419,7 +353,7 @@
       opacity: 0.7;
     }
 
-    /* ─── CTA BANNER ─── */
+    /* CTA BANNER */
     .cta-section {
       padding: 0 0 80px;
     }
@@ -524,7 +458,7 @@
       opacity: 1;
     }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
       background: rgba(2,8,18,0.95);
       border-top: 1px solid var(--blue-border);
@@ -543,7 +477,7 @@
       margin-bottom: 8px;
     }
 
-    /* ─── REVEAL ─── */
+    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -554,10 +488,9 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       body { padding-top: 68px; }
-      .nav-pills { display: none; }
       .page-header h1 { font-size: 2.1rem; }
       .gallery-grid { grid-template-columns: 1fr; }
       .two-col { grid-template-columns: 1fr; }
@@ -571,7 +504,6 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
-<!-- ══════════════ HEADER ══════════════ -->
 <header>
   <div class="container">
     <nav>
@@ -586,26 +518,11 @@
           </div>
         </div>
       </div>
-      <div class="nav-right">
-        <ul class="nav-pills">
-          <li><a href="index.html#chi-siamo" data-i18n="nav-autism">L'Autismo</a></li>
-          <li><a href="index.html#servizi" data-i18n="nav-services">Servizi</a></li>
-          <li><a href="index.html#terapie" data-i18n="nav-therapies">Terapie</a></li>
-          <li><a href="index.html#struttura" class="active" data-i18n="nav-structure">Struttura</a></li>
-          <li><a href="index.html#contatti" data-i18n="nav-book">Prenota</a></li>
-        </ul>
-        <!-- SELETTORE LINGUA -->
-        <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="it">🇮🇹 IT</button>
-          <button class="lang-btn" data-lang="es">🇪🇸 ES</button>
-          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-        </div>
-      </div>
+      <!-- niente nav-right, niente pillole, niente lang-switcher -->
     </nav>
   </div>
 </header>
 
-<!-- ══════════════ PAGE HEADER ══════════════ -->
 <section class="page-header">
   <div class="container">
     <div class="breadcrumb reveal">
@@ -628,7 +545,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ GALLERY ══════════════ -->
 <section class="gallery-section">
   <div class="container">
     <div class="gallery-grid">
@@ -666,7 +582,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ CONTENT ══════════════ -->
 <section class="content-section" style="padding-top: 60px;">
   <div class="container">
     <div class="section-tag reveal" data-i18n="section-tag">Attività e obiettivi</div>
@@ -695,7 +610,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════ CTA ══════════════ -->
 <section class="cta-section" style="padding-top: 60px;">
   <div class="container">
     <div class="cta-banner reveal">
@@ -715,7 +629,6 @@
   </div>
 </section>
 
-<!-- ══════════════ FOOTER ══════════════ -->
 <footer>
   <div class="container">
     <div class="footer-brand">Centro BluMente</div>
@@ -728,11 +641,6 @@
 const translations = {
   it: {
     "brand-sub": "Diagnosi · Supporto · Autismo",
-    "nav-autism": "L'Autismo",
-    "nav-services": "Servizi",
-    "nav-therapies": "Terapie",
-    "nav-structure": "Struttura",
-    "nav-book": "Prenota",
     "breadcrumb-home": "Home",
     "breadcrumb-structure": "La nostra struttura",
     "breadcrumb-current": "Studi per la diagnosi",
@@ -765,11 +673,6 @@ const translations = {
   },
   es: {
     "brand-sub": "Diagnóstico · Apoyo · Autismo",
-    "nav-autism": "El Autismo",
-    "nav-services": "Servicios",
-    "nav-therapies": "Terapias",
-    "nav-structure": "Instalaciones",
-    "nav-book": "Reservar",
     "breadcrumb-home": "Inicio",
     "breadcrumb-structure": "Nuestras instalaciones",
     "breadcrumb-current": "Consultas para el diagnóstico",
@@ -802,11 +705,6 @@ const translations = {
   },
   en: {
     "brand-sub": "Diagnosis · Support · Autism",
-    "nav-autism": "Autism",
-    "nav-services": "Services",
-    "nav-therapies": "Therapies",
-    "nav-structure": "Facilities",
-    "nav-book": "Book",
     "breadcrumb-home": "Home",
     "breadcrumb-structure": "Our facilities",
     "breadcrumb-current": "Diagnostic rooms",
@@ -851,14 +749,9 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n-html');
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-  localStorage.setItem('blumente-lang', lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -867,14 +760,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   reveals.forEach(el => io.observe(el));
 
-  // Lingua salvata o default italiano
   const saved = localStorage.getItem('blumente-lang') || 'it';
   applyLang(saved);
-
-  // Bottoni lingua
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
-  });
 });
 </script>
 </body>
